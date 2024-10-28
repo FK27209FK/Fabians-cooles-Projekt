@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://8dwqpqkq4j6n"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_gh4r2"]
+[ext_resource type="Script" path="res://scripts/interact.gd" id="2_jsdh0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3rsb5"]
+radius = 0.3
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_gh4r2")
+camera_sens = 2.0
+
+[node name="CShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_3rsb5")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+fov = 80.0
+
+[node name="Interact" type="RayCast3D" parent="Camera" groups=["interact"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.778743)
+target_position = Vector3(0, 1, 0)
+script = ExtResource("2_jsdh0")
+
+[node name="ColorRect" type="ColorRect" parent="Camera/Interact"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InteractControl" type="Control" parent="Camera/Interact"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Camera/Interact/InteractControl"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 530.0
+offset_right = 605.0
+offset_bottom = 553.0
+scale = Vector2(2, 2)
+text = "Interact (E)"
