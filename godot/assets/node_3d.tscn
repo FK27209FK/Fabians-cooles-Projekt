@@ -244,23 +244,22 @@ libraries = {
 
 [node name="Hindernisse" type="Node3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Hindernisse"]
+[node name="Todesbox" type="CSGBox3D" parent="Hindernisse"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53511, 1.14537, 4.83465)
 material = SubResource("StandardMaterial3D_5ge45")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/CSGBox3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/Todesbox"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/CSGBox3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/Todesbox/StaticBody3D"]
 shape = SubResource("BoxShape3D_gyc2k")
 
-[node name="Deatharea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.321269, 1.44638, -4.08014)
+[node name="Deatharea" type="Area3D" parent="Hindernisse/Todesbox"]
 collision_mask = 2
 script = ExtResource("10_4mmyt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Deatharea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82639, 0.728764, 8.92806)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/Todesbox/Deatharea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_6vgbf")
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
-[connection signal="body_entered" from="Deatharea" to="Deatharea" method="_on_body_entered"]
+[connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
