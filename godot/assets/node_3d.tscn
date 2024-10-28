@@ -178,6 +178,9 @@ vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="Player"]
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.32341, 0)
+
 [node name="Stromkasten" type="StaticBody3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.20406, 0.6459, -2.88404)
 collision_layer = 5
@@ -260,6 +263,8 @@ script = ExtResource("10_4mmyt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/Todesbox/Deatharea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_6vgbf")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
