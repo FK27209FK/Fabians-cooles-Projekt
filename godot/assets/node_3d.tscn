@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=26 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="ArrayMesh" uid="uid://pjlcej3ddqer" path="res://assets/Stromkasten_ungeloest.obj" id="2_fc55h"]
@@ -98,6 +98,8 @@ albedo_color = Color(0.739789, 2.00946e-06, 5.77569e-07, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyc2k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6vgbf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6mjls"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -274,63 +276,62 @@ stream = ExtResource("11_hn2pf")
 [node name="Raum 1" type="Node3D" parent="Räume"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4995, 3.5, -1.5)
-size = Vector3(0.001, 6, 12)
+transform = Transform3D(0.1, 0, 0, 0, 8.184, 0, 0, 0, 12.96, -5, 4, -1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_6mjls")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.5005, 6.5, -1.5)
-size = Vector3(0.001, 12, 12)
+transform = Transform3D(-4.37114e-09, 11.7031, 0, -0.1, -5.1156e-07, 0, 0, 0, 12.96, 0.657732, 8, -1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/CSGBox3D7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/CSGBox3D7/StaticBody3D"]
+shape = SubResource("BoxShape3D_6mjls")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5005, 3.5, -1.5)
-size = Vector3(0.001, 6, 12)
+transform = Transform3D(0.1, 0, 0, 0, 8.184, 0, 0, 0, 12.96, 6, 4, -1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/CSGBox3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/CSGBox3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_6mjls")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5005, 3.5, -7.5)
-size = Vector3(0.001, 6, 12)
+transform = Transform3D(-4.37114e-09, 0, 11.4048, 0, 8.184, 0, -0.1, 0, -4.9852e-07, 0.7, 4, -7)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/CSGBox3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/CSGBox3D3/StaticBody3D"]
+shape = SubResource("BoxShape3D_6mjls")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.0005, 3.5, 4.5)
-size = Vector3(0.001, 6, 5)
+transform = Transform3D(-4.37114e-09, 0, 4.56192, 0, 8.184, 0, -0.1, 0, -1.99408e-07, -2.7075, 4, 5.42646)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/CSGBox3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/CSGBox3D4/StaticBody3D"]
+shape = SubResource("BoxShape3D_6mjls")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.9995, 3.5, 4.5)
-size = Vector3(0.001, 6, 5)
+transform = Transform3D(-4.37114e-09, 0, 4.56192, 0, 8.184, 0, -0.1, 0, -1.99408e-07, 3.73102, 4, 5.42646)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/CSGBox3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/CSGBox3D5/StaticBody3D"]
+shape = SubResource("BoxShape3D_6mjls")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5005, 5, 4.5)
-size = Vector3(0.001, 3, 2)
+transform = Transform3D(-4.37114e-09, 0, 4.56192, 0, 4.58304, 0, -0.1, 0, -1.99408e-07, 0.740602, 5.78333, 5.42765)
 
-[node name="Raum 2" type="Node3D" parent="Räume"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 13)
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/CSGBox3D6"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Räume/Raum 2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4995, 3.5, -1.5)
-size = Vector3(0.001, 6, 12)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/CSGBox3D6/StaticBody3D"]
+shape = SubResource("BoxShape3D_6mjls")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Räume/Raum 2"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.5005, 6.5, -1.5)
-size = Vector3(0.001, 12, 12)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Räume/Raum 2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5005, 3.5, -1.5)
-size = Vector3(0.001, 6, 12)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Räume/Raum 2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5005, 3.5, -7.5)
-size = Vector3(0.001, 6, 12)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Räume/Raum 2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.0005, 3.5, 4.5)
-size = Vector3(0.001, 6, 5)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Räume/Raum 2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.9995, 3.5, 4.5)
-size = Vector3(0.001, 6, 5)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Räume/Raum 2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5005, 5, 4.5)
-size = Vector3(0.001, 3, 2)
+[node name="Gang 1" type="Node3D" parent="Räume"]
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
