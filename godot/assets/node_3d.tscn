@@ -267,7 +267,6 @@ shape = SubResource("BoxShape3D_6vgbf")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("11_hn2pf")
-autoplay = true
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
