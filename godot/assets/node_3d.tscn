@@ -24,7 +24,7 @@ data = PackedVector3Array(0, 1.5, -1.5, 3, 1.5, -1.5, 0, 1.5, 1.5, 0, 1.5, 1.5, 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oiu51"]
 albedo_texture = ExtResource("6_npl21")
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0u706"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_eq5ey"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqq82"]
 albedo_color = Color(0.129412, 0.0705882, 0.866667, 1)
@@ -105,7 +105,7 @@ albedo_color = Color(0.739789, 2.00946e-06, 5.77569e-07, 1)
 transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 18, 0)
 
 [node name="Player" parent="." instance=ExtResource("8_vdfl2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32341, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
 collision_layer = 2
 speed = 6.0
 jump_height = 1.6
@@ -219,14 +219,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13109, 0)
 shape = SubResource("ConcavePolygonShape3D_es3nc")
 
 [node name="Boden" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.162987, 0)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0.162987, 0)
 size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_oiu51")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Boden"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boden/StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_0u706")
+shape = SubResource("BoxShape3D_eq5ey")
 
 [node name="InteractBox" type="CSGBox3D" parent="." groups=["interact"]]
 transform = Transform3D(0.992772, 0, 0, 0, 0.992772, 0, 0, 0, 0.992772, 0, 0.587989, 1.7731)
@@ -249,7 +250,7 @@ libraries = {
 [node name="Hindernisse" type="Node3D" parent="."]
 
 [node name="Todesbox" type="CSGBox3D" parent="Hindernisse"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53511, 1.14537, 4.83465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53511, 1.14537, 1.83465)
 material = SubResource("StandardMaterial3D_5ge45")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/Todesbox"]
@@ -267,6 +268,69 @@ shape = SubResource("BoxShape3D_6vgbf")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("11_hn2pf")
+
+[node name="Räume" type="Node3D" parent="."]
+
+[node name="Raum 1" type="Node3D" parent="Räume"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Räume/Raum 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4995, 3.5, -1.5)
+size = Vector3(0.001, 6, 12)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Räume/Raum 1"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.5005, 6.5, -1.5)
+size = Vector3(0.001, 12, 12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Räume/Raum 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5005, 3.5, -1.5)
+size = Vector3(0.001, 6, 12)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Räume/Raum 1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5005, 3.5, -7.5)
+size = Vector3(0.001, 6, 12)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Räume/Raum 1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.0005, 3.5, 4.5)
+size = Vector3(0.001, 6, 5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Räume/Raum 1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.9995, 3.5, 4.5)
+size = Vector3(0.001, 6, 5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Räume/Raum 1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5005, 5, 4.5)
+size = Vector3(0.001, 3, 2)
+
+[node name="Raum 2" type="Node3D" parent="Räume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 13)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Räume/Raum 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4995, 3.5, -1.5)
+size = Vector3(0.001, 6, 12)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Räume/Raum 2"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.5005, 6.5, -1.5)
+size = Vector3(0.001, 12, 12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Räume/Raum 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5005, 3.5, -1.5)
+size = Vector3(0.001, 6, 12)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Räume/Raum 2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5005, 3.5, -7.5)
+size = Vector3(0.001, 6, 12)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Räume/Raum 2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.0005, 3.5, 4.5)
+size = Vector3(0.001, 6, 5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Räume/Raum 2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.9995, 3.5, 4.5)
+size = Vector3(0.001, 6, 5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Räume/Raum 2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5005, 5, 4.5)
+size = Vector3(0.001, 3, 2)
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
