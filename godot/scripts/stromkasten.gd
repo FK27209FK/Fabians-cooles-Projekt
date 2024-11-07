@@ -1,5 +1,7 @@
 extends StaticBody3D
 
+@export var showLabel = true
+
 func _ready() -> void:
 	$"../DirectionalLight3D".light_energy = 0.5
 	$StromkastenUngeloest.show()
@@ -8,7 +10,8 @@ func _ready() -> void:
 	$StromkastenGeloest_collision_shape.hide()
 
 func interact():
-	if $StromkastenUngeloest.visible == true:
+	if $StromkastenUngeloest.visible == true && showLabel:
+		showLabel = !showLabel
 		$StromkastenUngeloest.hide()
 		$ungeloest_collisionshape.hide()
 		
