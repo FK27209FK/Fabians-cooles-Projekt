@@ -1,4 +1,6 @@
-# So ein Projekt für die Schule:
+# Escape from Space
+
+## So ein Projekt für die Schule:
 Leute, die dran arbeiten:
 Julian, Noah und fabian
 
