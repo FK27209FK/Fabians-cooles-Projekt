@@ -103,33 +103,6 @@ albedo_color = Color(0.739789, 2.00946e-06, 5.77569e-07, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6mjls"]
 
-[sub_resource type="Animation" id="Animation_eyfgv"]
-resource_name = "tuerOeffnen"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.482746, 1.76045, 5.42646), Vector3(-0.539386, 1.76045, 6.31496)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 3.73213),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_okro8"]
 length = 0.001
 tracks/0/type = "value"
@@ -157,6 +130,33 @@ tracks/1/keys = {
 "values": [Vector3(0, 1.5708, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_eyfgv"]
+resource_name = "tuerOeffnen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.482746, 1.76045, 5.42646), Vector3(-0.539386, 1.76045, 6.31496)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 3.73213),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m6lux"]
 _data = {
 "RESET": SubResource("Animation_okro8"),
@@ -180,6 +180,7 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
 collision_layer = 2
 speed = 6.0
 jump_height = 1.6
+spruchListe = ["    Was war denn das?! ", "    Das geht schon besser!", "    Sowas hab ich nicht von dir erwartet!", "Oh, das hat wohl nicht ganz geklappt... bis zum nächsten Mal!"]
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68804, 0)
@@ -245,6 +246,16 @@ theme_override_colors/font_color = Color(0, 0.25098, 0.662745, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Respawn in 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spruch" type="Label" parent="Player/Game Over"]
+layout_mode = 0
+offset_left = -117.0
+offset_top = -76.0
+offset_right = 162.0
+offset_bottom = -53.0
+text = "Das hätte ich nicht von dir erwartet!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -342,7 +353,7 @@ shape = SubResource("BoxShape3D_6vgbf")
 [node name="Raum 1" type="Node3D" parent="Räume"]
 
 [node name="tuer1" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(-4.37114e-09, 0, 1.97627, 0, 2.66746, 0, -0.1, 0, -8.63854e-08, 0.482746, 1.76045, 5.42646)
+transform = Transform3D(-3.61999e-07, 0, 1.97627, 0, 2.66746, 0, -0.1, 0, -7.15408e-06, 0.482746, 1.76045, 5.42646)
 size = Vector3(1, 1.32428, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/tuer1"]

@@ -7,6 +7,7 @@ class_name Player extends CharacterBody3D
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 3 # m
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 1
+@export var spruchListe = ["hallo","test","123"]
 var playerIsAlive: bool = true
 var jumping: bool = false
 var mouse_captured: bool = false
@@ -16,6 +17,7 @@ var look_dir: Vector2 # Input direction for look/aim
 var walk_vel: Vector3 # Walking velocity 
 var grav_vel: Vector3 # Gravity velocity 
 var jump_vel: Vector3 # Jumping velocity
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	capture_mouse()
@@ -73,7 +75,6 @@ func _gravity(delta: float) -> Vector3:
 	return grav_vel
 
 func _jump(delta: float) -> Vector3:
-	
 	vis_false()
 	if jumping:
 		if is_on_floor(): jump_vel = Vector3(0, sqrt(4 * jump_height * gravity), 0)
@@ -87,10 +88,15 @@ func vis_true():
 
 func vis_false():
 	$Camera3D/RayCast3D/Control/Label.visible = false
-		
+
+func zufallTodSpruch():
+	var random = rng.randi_range(0,len(spruchListe) - 1)
+	return spruchListe[random]
+
 func game_over():
 	playerIsAlive = false
 	$"Game Over".show()
+	$"Game Over/spruch".text =  zufallTodSpruch() 
 	timer.start(5)
 	while timer.is_stopped() == false:
 		$"Game Over/Label2".text = "Respawn in " + str(int(timer.time_left))
