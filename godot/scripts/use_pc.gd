@@ -7,7 +7,6 @@ func interact():
 		showLabel = !showLabel
 		#TODO: Computer-UI
 		print("Using PC")
-		#$"../AnimationPlayer".play("CubeBewegen")
 		$"../Player".game_over()
 	else:
 		print("Player is not allowed to do this action!")

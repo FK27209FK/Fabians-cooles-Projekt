@@ -1,18 +1,18 @@
-extends Node3D
+extends CharacterBody3D
 
-@onready var gegner: Node3D = $"."
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
+@onready var player: Player = $"../Player"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var move = true
-	var movespeed = 1
-	var x_move = 1
-	var z_move = 1
-	if (move):
-		gegner.position = gegner.position +  (Vector3(x_move,0,z_move) * delta * movespeed)
+	var movespeed = 100
+	var x_move = player.global_position.x - global_position.x
+	var z_move = player.global_position.z - global_position.z
+
+	if move:
+		# Set the velocity vector, adjusting for delta
+		velocity.x = x_move * delta * movespeed
+		velocity.z = z_move * delta * movespeed
 		
+		# Move the character with collision handling
+		move_and_slide()

@@ -8,8 +8,3 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			get_collider().call("interact")
 			$"../..".vis_false()
-
-	else:
-		#print(is_colliding())
-		#$"../..".vis_false()
-		pass

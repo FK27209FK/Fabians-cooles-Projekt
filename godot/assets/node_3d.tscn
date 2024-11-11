@@ -449,26 +449,26 @@ shape = SubResource("BoxShape3D_27bpv")
 transform = Transform3D(2.03, 0, 0, 0, 2.03, 7.10543e-15, 0, -7.10543e-15, 2.03, 0, -0.622089, 0)
 shape = SubResource("BoxShape3D_y6451")
 
-[node name="Gegner" parent="." instance=ExtResource("14_otkgv")]
-transform = Transform3D(0.441451, 0, 0, 0, 0.390998, 0, 0, 0, 0.418059, -0.144196, 0.662987, 2.20493)
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.441451, 0, 0, 0, 0.390998, 0, 0, 0, 0.418059, -2.87106, 0.662987, 7.65882)
 script = ExtResource("15_dsc65")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Gegner"]
-collision_layer = 5
-collision_mask = 5
+[node name="Gegner" parent="CharacterBody3D" instance=ExtResource("14_otkgv")]
+transform = Transform3D(0.724126, 0, 0, 0, 0.816236, 0, 0, 0, 0.640047, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_gyc2k")
 
-[node name="Deatharea" type="Area3D" parent="Gegner/StaticBody3D"]
+[node name="Deatharea" type="Area3D" parent="CharacterBody3D"]
 transform = Transform3D(4.75948, 0, 0, 0, 4.38948, 0, 0, 0, 3.5791, 0, -2.0101, 0)
 collision_mask = 2
 script = ExtResource("10_4mmyt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner/StaticBody3D/Deatharea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Deatharea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_6vgbf")
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
-[connection signal="body_entered" from="Gegner/StaticBody3D/Deatharea" to="Gegner/StaticBody3D/Deatharea" method="_on_body_entered"]
+[connection signal="body_entered" from="CharacterBody3D/Deatharea" to="CharacterBody3D/Deatharea" method="_on_body_entered"]
