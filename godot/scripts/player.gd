@@ -91,7 +91,21 @@ func vis_false():
 
 func zufallTodSpruch():
 	var random = rng.randi_range(0,len(spruchListe) - 1)
+	print("Random index:", random)
+
+	#TODO! Wenn audio (Sprüche bei TOD) fertig:
+	# Construct the path as a string using concatenation
+	#var audio_path = "../Sprüche bei Tod/" + str(random)
+	#var audio_node = get_node(audio_path)
+
+	# Check if the audio node exists before playing it
+	#if audio_node:
+		#audio_node.play()
+	#else:
+		#print("Audio node not found: " + audio_path)
+
 	return spruchListe[random]
+
 
 func game_over():
 	playerIsAlive = false
@@ -99,7 +113,7 @@ func game_over():
 	$"Game Over/spruch".text =  zufallTodSpruch() 
 	timer.start(5)
 	while timer.is_stopped() == false:
-		$"Game Over/Label2".text = "Respawn in " + str(int(timer.time_left))
+		$"Game Over/Respawn in ___".text = "Respawn in " + str(int(timer.time_left))
 		await get_tree().create_timer(0.5).timeout
 	
 func _on_area_3d_area_entered(area: Area3D) -> void:
