@@ -93,7 +93,7 @@ func zufallTodSpruch():
 	var random = rng.randi_range(0,len(spruchListe) - 1)
 	print("Random index:", random)
 
-	#TODO! Wenn audio (Sprüche bei TOD) fertig:
+	#TODO! Wenn audio (Sprüche bei TOD | #25) fertig:
 	# Construct the path as a string using concatenation
 	#var audio_path = "../Sprüche bei Tod/" + str(random)
 	#var audio_node = get_node(audio_path)
