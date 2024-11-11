@@ -466,7 +466,7 @@ collision_mask = 2
 script = ExtResource("10_4mmyt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Deatharea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.355197, 0, 0, 0, 0.80427, 0, 0, 0, 0.53253, -0.00658512, 0.910447, 0)
 shape = SubResource("BoxShape3D_6vgbf")
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
