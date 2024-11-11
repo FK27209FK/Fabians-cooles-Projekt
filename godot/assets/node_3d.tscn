@@ -450,10 +450,12 @@ transform = Transform3D(2.03, 0, 0, 0, 2.03, 7.10543e-15, 0, -7.10543e-15, 2.03,
 shape = SubResource("BoxShape3D_y6451")
 
 [node name="Gegner" parent="." instance=ExtResource("14_otkgv")]
-transform = Transform3D(0.441451, 0, 0, 0, 0.390998, 0, 0, 0, 0.418059, -0.144196, 0.662987, 6.95065)
+transform = Transform3D(0.441451, 0, 0, 0, 0.390998, 0, 0, 0, 0.418059, -0.144196, 0.662987, 2.20493)
 script = ExtResource("15_dsc65")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Gegner"]
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner/StaticBody3D"]
 shape = SubResource("BoxShape3D_gyc2k")
