@@ -2,7 +2,12 @@ extends RayCast3D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if is_colliding() && get_collider().collision_layer & (1 << 2) && get_collider().showLabel:
+	#if is_colliding() && get_collider().collision_layer & (1 << 2) && get_collider().showLabel:
+	
+	# Keine Ahnung warum .collision_layer 5 ist beim Stromkasten und so
+	# Eigentlich ist da 1 und 3 an
+	
+	if is_colliding() && get_collider().collision_layer == 5 && get_collider().showLabel:
 		#print("show label")
 		$"../..".vis_true()
 		if Input.is_action_just_pressed("interact"):
