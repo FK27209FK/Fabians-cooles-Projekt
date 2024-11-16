@@ -84,10 +84,10 @@ func _jump(delta: float) -> Vector3:
 	return jump_vel
 	
 func vis_true():
-	$Camera3D/RayCast3D/Control/Label.visible = true
+	$Camera/Interact/InteractControl.visible = true
 
 func vis_false():
-	$Camera3D/RayCast3D/Control/Label.visible = false
+	$Camera/Interact/InteractControl.visible = false
 
 func zufallTodSpruch():
 	var random = rng.randi_range(0,len(spruchListe) - 1)
