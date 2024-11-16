@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dqx8thtld1eax"]
+
+[node name="SchlüsselInstance" type="CSGBox3D"]
+size = Vector3(0.0839961, 0.0610469, 0.212769)
