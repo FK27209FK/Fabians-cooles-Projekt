@@ -7,7 +7,7 @@ class_name Player extends CharacterBody3D
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 3 # m
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 1
-@export var spruchListe:Array[String] = [
+@export var spruchListeTod:Array[String] = [
 	"Oh, das hat wohl nicht ganz geklappt... bis zum nächsten Mal!",
 	"Tja, das war's für dich. Schade um den Mut!",
 	"Der Raum hat entschieden, dass du nicht weiterkommst. Willkommen in der Dunkelheit!",
@@ -101,7 +101,7 @@ func vis_false():
 	$Camera/Interact/InteractControl.visible = false
 
 func zufallTodSpruch():
-	var random = rng.randi_range(0,len(spruchListe) - 1)
+	var random = rng.randi_range(0,len(spruchListeTod) - 1)
 	print("Random index:", random)
 
 	#TODO! Wenn audio (Sprüche bei TOD | #25) fertig:
@@ -115,7 +115,7 @@ func zufallTodSpruch():
 	#else:
 		#print("Audio node not found: " + audio_path)
 
-	return spruchListe[random]
+	return spruchListeTod[random]
 
 
 func game_over():
