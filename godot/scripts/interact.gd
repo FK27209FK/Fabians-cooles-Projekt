@@ -6,7 +6,7 @@ func _process(_delta: float) -> void:
 	
 	# Keine Ahnung warum .collision_layer 5 ist beim Stromkasten und so
 	# Eigentlich ist da 1 und 3 an
-	
+	# - .collision_layer ist 5, da 5 ist binär: 101 , also erster und Dritter Bit sind true restlichen false weil default 0 
 	if is_colliding() && get_collider().collision_layer == 5 && get_collider().showLabel:
 		#print("show label")
 		$"../..".vis_true()
