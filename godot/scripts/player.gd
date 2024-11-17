@@ -7,7 +7,18 @@ class_name Player extends CharacterBody3D
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 3 # m
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 1
-@export var spruchListe = ["hallo","test","123"]
+@export var spruchListe:Array[String] = [
+	"Oh, das hat wohl nicht ganz geklappt... bis zum nächsten Mal!",
+	"Tja, das war's für dich. Schade um den Mut!",
+	"Der Raum hat entschieden, dass du nicht weiterkommst. Willkommen in der Dunkelheit!",
+	"Das war ein schneller Abgang! Vielleicht beim nächsten Versuch?",
+	"Ein weiterer gescheiterter Versuch. Vielleicht warst du einfach nicht clever genug?",
+	"Oops! Das war der falsche Schalter. Besser nächstes Mal aufpassen!",
+	"Und wieder hat der Raum einen gewonnen. So nah und doch so weit!",
+	"Manchmal ist es besser, nicht aufzugeben. Aber hier... naja, zu spät!",
+	"Ein weiterer Hinweis, den du übersehen hast! Schade!",
+	"Der Raum hat gesprochen. Vielleicht solltest du es einfach lassen?",
+	]
 var playerIsAlive: bool = true
 var jumping: bool = false
 var mouse_captured: bool = false
