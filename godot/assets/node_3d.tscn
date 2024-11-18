@@ -1,4 +1,5 @@
-[gd_scene load_steps=60 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=63 format=3 uid="uid://dl1ii0r547lps"]
+
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="ArrayMesh" uid="uid://pjlcej3ddqer" path="res://assets/Stromkasten_ungeloest.obj" id="2_fc55h"]
 [ext_resource type="ArrayMesh" uid="uid://bd627igei6ygl" path="res://assets/Stromkasten_geloest.obj" id="3_ud8ru"]
@@ -193,13 +194,13 @@ _data = {
 "tuerOeffnen": SubResource("Animation_eyfgv")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wpem"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_27bpv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6451"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a6kl6"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0hilp"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -598,6 +599,19 @@ size = Vector3(1, 0.825301, 2.23106)
 transform = Transform3D(1, 0, 2.02034e-06, -1.32349e-23, 1.43822, -5.32907e-15, 0, 8.29791e-29, 2.11849, 0, -0.0772517, 0)
 shape = SubResource("BoxShape3D_6mjls")
 
+[node name="tuer1" type="CSGBox3D" parent="Räume/Raum 2"]
+transform = Transform3D(-3.61999e-07, 0, 1.97627, 0.1, -1.26696e-07, 7.15407e-06, 4.37114e-09, 2.89848, -1.18512e-12, 10.3234, -4.28279, -9.45663)
+size = Vector3(1, 10.8601, 8.79938)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 2/tuer1"]
+transform = Transform3D(0.999978, -3.63798e-12, 3.49246e-10, -2.22045e-16, 11.1516, 4.33681e-19, -1.42109e-14, 8.67362e-19, 9.68289, 0, 0, 0)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("38_84wrl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 2/tuer1/StaticBody3D"]
+shape = SubResource("BoxShape3D_6wpem")
+
 [node name="Raum 3" type="Node3D" parent="Räume"]
 transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, -0.350042, 0.974893, -6.96733)
 
@@ -757,17 +771,6 @@ script = ExtResource("38_reby7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Schlüssel/StaticBody3D"]
 transform = Transform3D(0.0839961, 0, 0, 0, 0.0610469, 0, 0, 0, 0.318214, 0, 0, 0)
 shape = SubResource("BoxShape3D_a6kl6")
-
-[node name="testTür" type="CSGBox3D" parent="."]
-transform = Transform3D(0.189474, 0, 0, 0, 0.291372, 0, 0, 0, 0.296287, -2, 1, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="testTür"]
-collision_layer = 5
-collision_mask = 5
-script = ExtResource("38_84wrl")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="testTür/StaticBody3D"]
-shape = SubResource("BoxShape3D_0hilp")
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
