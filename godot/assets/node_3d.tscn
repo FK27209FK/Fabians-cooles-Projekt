@@ -1,8 +1,6 @@
 [gd_scene load_steps=60 format=3 uid="uid://dl1ii0r547lps"]
-
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="ArrayMesh" uid="uid://pjlcej3ddqer" path="res://assets/Stromkasten_ungeloest.obj" id="2_fc55h"]
-[ext_resource type="PackedScene" uid="uid://dqx8thtld1eax" path="res://assets/Instances/schlüssel_instance.tscn" id="3_fre0y"]
 [ext_resource type="ArrayMesh" uid="uid://bd627igei6ygl" path="res://assets/Stromkasten_geloest.obj" id="3_ud8ru"]
 [ext_resource type="Script" path="res://scripts/use_pc.gd" id="4_56dsg"]
 [ext_resource type="ArrayMesh" uid="uid://co60b1aruxw63" path="res://assets/TischMitMonitoren.obj" id="5_rtnjx"]
@@ -39,6 +37,8 @@
 [ext_resource type="AudioStream" uid="uid://bkqeg5yakrg1j" path="res://assets/voicelines/1-20/Nr.18.wav" id="35_usfbd"]
 [ext_resource type="AudioStream" uid="uid://cdkybs8itgj6y" path="res://assets/voicelines/1-20/Nr.19.wav" id="36_jj8ie"]
 [ext_resource type="AudioStream" uid="uid://l53jchjmfb7d" path="res://assets/voicelines/1-20/Nr.20.wav" id="37_s0unp"]
+[ext_resource type="Script" path="res://assets/test_tür.gd" id="38_84wrl"]
+[ext_resource type="Script" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -197,6 +197,10 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6451"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a6kl6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hilp"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -218,7 +222,7 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.7, 0)
 fov = 80.0
 
 [node name="Interact" type="RayCast3D" parent="Player/Camera" groups=["interact"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.778743)
+transform = Transform3D(1.6, 0, 0, 0, -6.99382e-08, 1.6, 0, -1.6, -6.99382e-08, 0, 0, -0.313567)
 target_position = Vector3(0, 1, 0)
 collision_mask = 4
 script = ExtResource("9_2up1x")
@@ -255,8 +259,6 @@ text = "Interact (E)"
 
 [node name="SchlüsselPoint" type="Node3D" parent="Player/Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.446817, -0.334318, -1)
-
-[node name="SchlüsselInstance" parent="Player/Camera/SchlüsselPoint" instance=ExtResource("3_fre0y")]
 
 [node name="Game Over" type="Control" parent="Player"]
 visible = false
@@ -661,7 +663,7 @@ transform = Transform3D(0.441451, 0, 0, 0, 0.390998, 0, 0, 0, 0.418059, -1.39768
 script = ExtResource("15_dsc65")
 
 [node name="Gegner" parent="Gegner" instance=ExtResource("14_otkgv")]
-transform = Transform3D(0.675026, 0, 0, 0, 0.816236, 0, 0, 0, 0.640047, 0, 0, 0)
+transform = Transform3D(0.675026, 0, 0, 0, 0.816236, 0, 0, 0, 0.640047, -3.8147e-06, -0.0026958, -0.000354767)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner"]
 shape = SubResource("BoxShape3D_gyc2k")
@@ -742,6 +744,30 @@ stream = ExtResource("36_jj8ie")
 stream = ExtResource("37_s0unp")
 
 [node name="Audio 21+" type="Node" parent="Audio"]
+
+[node name="Schlüssel" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0.0527226)
+size = Vector3(0.0839961, 0.0610469, 0.318214)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Schlüssel"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("38_reby7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Schlüssel/StaticBody3D"]
+transform = Transform3D(0.0839961, 0, 0, 0, 0.0610469, 0, 0, 0, 0.318214, 0, 0, 0)
+shape = SubResource("BoxShape3D_a6kl6")
+
+[node name="testTür" type="CSGBox3D" parent="."]
+transform = Transform3D(0.189474, 0, 0, 0, 0.291372, 0, 0, 0, 0.296287, -2, 1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="testTür"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("38_84wrl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="testTür/StaticBody3D"]
+shape = SubResource("BoxShape3D_0hilp")
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
