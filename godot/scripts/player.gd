@@ -2,7 +2,9 @@ class_name Player extends CharacterBody3D
 
 @onready var camera: Camera3D = $Camera
 @onready var timer: Timer = $Timer
+@onready var timer_2 = $Timer2
 @onready var reactorTimer: Timer = $UI/Timer
+@onready var reaktor_timer_2 = $UI/ReaktorTimer2
 @export_category("Player")
 @export_range(1, 35, 1) var speed: float = 10 # m/s
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
@@ -26,6 +28,9 @@ const reaktorTimeMaxStd = 01
 @export var reaktorTimeMin = 00
 @export var reaktorTimeSec = 00
 
+# Total time in seconds (1 hour = 3600 seconds)
+var total_time: int = 3600
+
 var playerIsAlive: bool = true
 var jumping: bool = false
 var mouse_captured: bool = false
@@ -41,6 +46,8 @@ func _ready() -> void:
 	reaktorTimeStd = reaktorTimeMaxStd
 	reactorTimer.start(60)
 	capture_mouse()
+	
+	reaktor_timer_2.text = format_time(total_time)
 
 func _process(delta: float) -> void:
 	reaktorTimeSec = int(reactorTimer.time_left)
@@ -166,3 +173,17 @@ func respawn():
 	
 func _on_timer_timeout() -> void:
 	respawn()
+
+func format_time(seconds: int) -> String:
+	var hours = seconds / 3600
+	var minutes = (seconds % 3600) / 60
+	var secs = seconds % 60
+	return "%02d:%02d:%02d" % [hours, minutes, secs]
+	
+func _on_timer_2_timeout():
+	if total_time > 0:
+		total_time -= 1
+		reaktor_timer_2.text = format_time(total_time)
+	else:
+		# Stop the timer when time reaches 0
+		$Timer2.stop()
