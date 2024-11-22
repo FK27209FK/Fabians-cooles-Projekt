@@ -1,16 +1,15 @@
 class_name Player extends CharacterBody3D
 
 @onready var camera: Camera3D = $Camera
-@onready var timer: Timer = $Timer
-@onready var timer_2 = $Timer2
-@onready var reactorTimer: Timer = $UI/Timer
-@onready var reaktor_timer_2 = $UI/ReaktorTimer2
+@onready var respawnTimer: Timer = $RespawnTimer
+@onready var reaktorTimer: Timer = $UI/ReaktorTimer
+@onready var reaktorTimerText: RichTextLabel = $UI/ReaktorTimerText
 @export_category("Player")
 @export_range(1, 35, 1) var speed: float = 10 # m/s
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 3 # m
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 1
-@export var spruchListeTod:Array[String] = [
+@export var spruchListeTod: Array[String] = [
 	"Oh, das hat wohl nicht ganz geklappt... bis zum nächsten Mal!",
 	"Tja, das war's für dich. Schade um den Mut!",
 	"Der Raum hat entschieden, dass du nicht weiterkommst. Willkommen in der Dunkelheit!",
@@ -22,15 +21,9 @@ class_name Player extends CharacterBody3D
 	"Ein weiterer Hinweis, den du übersehen hast! Schade!",
 	"Der Raum hat gesprochen. Vielleicht solltest du es einfach lassen?",
 ]
-#Define ReaktorTime
-const reaktorTimeMaxStd = 01
-@export var reaktorTimeStd = 00
-@export var reaktorTimeMin = 00
-@export var reaktorTimeSec = 00
 
 # Total time in seconds (1 hour = 3600 seconds)
 var total_time: int = 3600
-
 var playerIsAlive: bool = true
 var jumping: bool = false
 var mouse_captured: bool = false
@@ -43,31 +36,12 @@ var jump_vel: Vector3 # Jumping velocity
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	reaktorTimeStd = reaktorTimeMaxStd
-	reactorTimer.start(60)
+	reaktorTimerText.text = format_time(total_time)
 	capture_mouse()
-	
-	reaktor_timer_2.text = format_time(total_time)
 
 func _process(_delta: float) -> void:
-	reaktorTimeSec = int(reactorTimer.time_left)
-	
-	#Geht bestimmt besser aber keine Ahnung wie
-	if reaktorTimeMin < 10:
-		reaktorTimeMin = "0" + str(reaktorTimeMin)
-	if reaktorTimeSec < 10:
-		reaktorTimeSec = "0" + str(reaktorTimeSec)
-	if reaktorTimeStd < 10:
-		reaktorTimeStd = "0" + str(reaktorTimeStd)
-
-	var reaktorTime = str(reaktorTimeStd) + ":" + str(reaktorTimeMin) + ":" + str(reaktorTimeSec)
-	$UI/ReaktorTimer.text = "[color=red]"+ reaktorTime + "[/color]"
-	
-	#reset to int
-	reaktorTimeStd = int(reaktorTimeStd)
-	reaktorTimeMin = int(reaktorTimeMin)
-	reaktorTimeSec = int(reaktorTimeSec)
-
+	@warning_ignore("narrowing_conversion")
+	reaktorTimerText.text = format_time(reaktorTimer.time_left)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -158,9 +132,9 @@ func game_over():
 	playerIsAlive = false
 	$"Game Over".show()
 	$"Game Over/spruch".text =  zufallTodSpruch() 
-	timer.start(5)
-	while timer.is_stopped() == false:
-		$"Game Over/Respawn in ___".text = "Respawn in " + str(int(timer.time_left))
+	respawnTimer.start(5)
+	while respawnTimer.is_stopped() == false:
+		$"Game Over/Respawn in ___".text = "Respawn in " + str(int(respawnTimer.time_left))
 		await get_tree().create_timer(0.5).timeout
 	
 func _on_area_3d_area_entered(area: Area3D) -> void:
@@ -175,7 +149,9 @@ func _on_timer_timeout() -> void:
 	respawn()
 
 func format_time(seconds: int) -> String:
+	@warning_ignore("integer_division")
 	var hours = seconds / 3600
+	@warning_ignore("integer_division")
 	var minutes = (seconds % 3600) / 60
 	var secs = seconds % 60
 	return "%02d:%02d:%02d" % [hours, minutes, secs]
@@ -183,7 +159,7 @@ func format_time(seconds: int) -> String:
 func _on_timer_2_timeout():
 	if total_time > 0:
 		total_time -= 1
-		reaktor_timer_2.text = format_time(total_time)
+		reaktorTimerText.text = format_time(total_time)
 	else:
 		# Stop the timer when time reaches 0
 		$Timer2.stop()

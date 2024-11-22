@@ -320,9 +320,10 @@ vertical_alignment = 1
 [node name="AudioListener3D" type="AudioListener3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.32341, 0)
 
-[node name="RespawnTimer" type="Timer" parent="Player"]
-wait_time = 5.0
-one_shot = true
+[node name="Timer" type="Timer" parent="Player"]
+
+[node name="Timer2" type="Timer" parent="Player"]
+autostart = true
 
 [node name="UI" type="Control" parent="Player"]
 layout_mode = 3
@@ -330,7 +331,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ReaktorTimerText" type="RichTextLabel" parent="Player/UI"]
+[node name="ReaktorTimer2" type="RichTextLabel" parent="Player/UI"]
 layout_mode = 0
 offset_left = 940.0
 offset_right = 1152.0
@@ -346,10 +347,7 @@ text = "ERROR"
 fit_content = true
 tab_size = 1
 
-[node name="ReaktorTimer" type="Timer" parent="Player/UI"]
-wait_time = 3600.0
-one_shot = true
-autostart = true
+[node name="Timer" type="Timer" parent="Player/UI"]
 
 [node name="PC UI" type="Control" parent="Player"]
 layout_mode = 3
@@ -783,7 +781,7 @@ script = ExtResource("38_reby7")
 transform = Transform3D(0.0839961, 0, 0, 0, 0.0610469, 0, 0, 0, 0.318214, 0, 0, 0)
 shape = SubResource("BoxShape3D_a6kl6")
 
-[connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
-[connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="Player/Timer2" to="Player" method="_on_timer_2_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
 [connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]
