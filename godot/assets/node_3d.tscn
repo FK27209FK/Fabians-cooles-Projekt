@@ -706,6 +706,7 @@ shape = SubResource("BoxShape3D_6vgbf")
 
 [node name="Play Audio at Start _ Audio 1" type="AudioStreamPlayer3D" parent="Audio"]
 stream = ExtResource("18_8dxej")
+autoplay = true
 
 [node name="Sprüche bei Tod" type="Node" parent="Audio"]
 
