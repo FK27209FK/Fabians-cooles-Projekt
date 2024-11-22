@@ -42,7 +42,7 @@ func _ready() -> void:
 	reactorTimer.start(60)
 	capture_mouse()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	reaktorTimeSec = int(reactorTimer.time_left)
 	
 	#Geht bestimmt besser aber keine Ahnung wie
