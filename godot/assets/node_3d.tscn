@@ -1,4 +1,5 @@
 [gd_scene load_steps=64 format=3 uid="uid://dl1ii0r547lps"]
+
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
 [ext_resource type="ArrayMesh" uid="uid://pjlcej3ddqer" path="res://assets/Stromkasten_ungeloest.obj" id="2_fc55h"]
@@ -321,6 +322,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.32341, 0)
 
 [node name="Timer" type="Timer" parent="Player"]
 
+[node name="Timer2" type="Timer" parent="Player"]
+autostart = true
+
 [node name="UI" type="Control" parent="Player"]
 layout_mode = 3
 anchors_preset = 0
@@ -328,6 +332,23 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ReaktorTimer" type="RichTextLabel" parent="Player/UI"]
+visible = false
+layout_mode = 0
+offset_left = 940.0
+offset_right = 1152.0
+offset_bottom = 75.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 100
+theme_override_font_sizes/italics_font_size = 100
+theme_override_font_sizes/mono_font_size = 100
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 0
+bbcode_enabled = true
+text = "ERROR"
+fit_content = true
+tab_size = 1
+
+[node name="ReaktorTimer2" type="RichTextLabel" parent="Player/UI"]
 layout_mode = 0
 offset_left = 940.0
 offset_right = 1152.0
@@ -664,8 +685,6 @@ transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0,
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("11_yu3h4")
-showLabel = null
-switchActive = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Schalter/Schalter_Hebel/StaticBody3D"]
 transform = Transform3D(0.63, 0, 0, 0, 1.44, 2.24902e-15, 0, -5.63234e-15, 0.575, 0, 0.851776, 0)
@@ -780,5 +799,6 @@ transform = Transform3D(0.0839961, 0, 0, 0, 0.0610469, 0, 0, 0, 0.318214, 0, 0, 
 shape = SubResource("BoxShape3D_a6kl6")
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="Player/Timer2" to="Player" method="_on_timer_2_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
 [connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]
