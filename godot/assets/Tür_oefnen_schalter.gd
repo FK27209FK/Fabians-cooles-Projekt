@@ -9,8 +9,8 @@ func interact():
 	if showLabel && !switchActive && !alarmanlage.isAktiv():
 		$"..".rotate_x(20)
 		switchActive = !switchActive
-		$"../../../Räume/Raum 1/tuer1/AnimationPlayer".play("tuerOeffnen")
+		$"../../../Räume/Raum 1/Tuer1/AnimationPlayer".play("oeffnen")
 	elif showLabel && switchActive:
 		$"..".rotate_x(-20)
 		switchActive = !switchActive
-		$"../../../Räume/Raum 1/tuer1/AnimationPlayer".play_backwards("tuerOeffnen")
+		$"../../../Räume/Raum 1/Tuer1/AnimationPlayer".play_backwards("oeffnen")

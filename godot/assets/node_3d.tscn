@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=65 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -133,6 +133,66 @@ albedo_color = Color(0.739789, 2.00946e-06, 5.77569e-07, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyc2k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6vgbf"]
+
+[sub_resource type="Animation" id="Animation_42is0"]
+resource_name = "oeffnen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.25, 1.49763, 4.75), Vector3(-0.75, 1.49763, 5.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q8oqq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.25, 1.49763, 4.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lfjpu"]
+_data = {
+"RESET": SubResource("Animation_q8oqq"),
+"oeffnen": SubResource("Animation_42is0")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6mjls"]
 size = Vector3(1, 0.8, 0.8)
@@ -415,10 +475,19 @@ transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.
 operation = 2
 size = Vector3(1.5, 2, 0.5)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Räume/Raum 1"]
+[node name="Decke" type="CSGBox3D" parent="Räume/Raum 1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 5.75, 0)
 use_collision = true
 size = Vector3(11, 0.5, 10)
+
+[node name="Tuer1" type="CSGBox3D" parent="Räume/Raum 1"]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 1.49763, 4.75)
+size = Vector3(1, 2, 1.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Räume/Raum 1/Tuer1"]
+libraries = {
+"": SubResource("AnimationLibrary_lfjpu")
+}
 
 [node name="Gang 1" type="Node3D" parent="Räume"]
 
@@ -674,6 +743,8 @@ script = ExtResource("38_reby7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Schlüssel/StaticBody3D"]
 transform = Transform3D(0.0839961, 0, 0, 0, 0.0610469, 0, 0, 0, 0.318214, 0, 0, 0)
 shape = SubResource("BoxShape3D_a6kl6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
