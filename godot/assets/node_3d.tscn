@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=64 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bavm420ysjtq1" path="res://assets/Schalter_Hebel.fbx" id="12_527hy"]
 [ext_resource type="PackedScene" uid="uid://b0smyonys6pd3" path="res://assets/Schalter_main.fbx" id="13_rrfiv"]
 [ext_resource type="PackedScene" uid="uid://bep4cinay7ach" path="res://assets/Gegner.blend" id="14_otkgv"]
+[ext_resource type="Script" path="res://assets/schalter1FalltuerRaum2.gd" id="14_pq720"]
 [ext_resource type="Script" path="res://assets/gegner_bewegung.gd" id="15_dsc65"]
 [ext_resource type="Script" path="res://assets/deatharea.gd" id="16_w8ydr"]
 [ext_resource type="AudioStream" uid="uid://ck031spsi8mjd" path="res://assets/voicelines/1-20/Nr.1.wav" id="18_8dxej"]
@@ -199,12 +200,16 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_27bpv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6451"]
+size = Vector3(1, 0.4, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fsvrm"]
+albedo_color = Color(1, 0.623529, 0.235294, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2enrv"]
 size = Vector3(1.7, 5.85, 1.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_da1nj"]
-size = Vector3(0.1, 0.2, 0.4)
+size = Vector3(0.1, 0.1, 0.4)
 
 [node name="Node3D" type="Node3D"]
 
@@ -360,7 +365,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Stromkasten" type="StaticBody3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.69163, 1.19193, -2.88404)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.50837, 1.19193, -2.88404)
 collision_layer = 5
 collision_mask = 0
 script = ExtResource("1_as3n8")
@@ -382,7 +387,7 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_4mhp0")
 
 [node name="Computer_Tisch" type="StaticBody3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.0196, -0.591698, -3.55564)
+transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 3.4196, -0.591698, -1.60564)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("4_56dsg")
@@ -523,6 +528,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 5.75, 0)
 use_collision = true
 size = Vector3(11, 0.5, 10)
 
+[node name="Falltuerschacht" type="CSGBox3D" parent="Räume/Raum 2/Decke"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -3)
+operation = 2
+size = Vector3(2, 0.5, 2)
+
 [node name="Tuer1" type="CSGBox3D" parent="Räume/Raum 2"]
 transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 1.49763, 4.75)
 use_collision = true
@@ -536,6 +546,35 @@ script = ExtResource("38_84wrl")
 libraries = {
 "": SubResource("AnimationLibrary_lfjpu")
 }
+
+[node name="Schalter 1" type="Node3D" parent="Räume/Raum 2"]
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, -0.55, 1, -4.45)
+
+[node name="Schalter_Hebel" parent="Räume/Raum 2/Schalter 1" instance=ExtResource("12_527hy")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 2/Schalter 1/Schalter_Hebel"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("14_pq720")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 2/Schalter 1/Schalter_Hebel/StaticBody3D"]
+transform = Transform3D(0.63, 0, 0, 0, 1.44, 2.24902e-15, 0, -5.63234e-15, 0.575, 0, 0.851776, 0)
+shape = SubResource("BoxShape3D_27bpv")
+
+[node name="Schalter_main" parent="Räume/Raum 2/Schalter 1" instance=ExtResource("13_rrfiv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 2/Schalter 1/Schalter_main"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 2/Schalter 1/Schalter_main/StaticBody3D"]
+transform = Transform3D(2.03, 0, 0, 0, 2.03, 7.10543e-15, 0, -7.10543e-15, 2.03, 0, -0.622089, 0)
+shape = SubResource("BoxShape3D_y6451")
+
+[node name="Falltuer1" type="CSGBox3D" parent="Räume/Raum 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 5.75, -3)
+use_collision = true
+size = Vector3(2, 0.5, 2)
+material = SubResource("StandardMaterial3D_fsvrm")
 
 [node name="Raum 3" type="Node3D" parent="Räume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
@@ -582,7 +621,7 @@ libraries = {
 }
 
 [node name="Schalter 1" type="Node3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, -0.55, 1, -4.45)
+transform = Transform3D(-4.37114e-09, -0.1, 4.37114e-09, 2.11758e-23, -4.37114e-09, -0.1, 0.1, -4.37114e-09, 1.91069e-16, 5.25, 0.75, -3.1)
 
 [node name="Schalter_Hebel" parent="Schalter 1" instance=ExtResource("12_527hy")]
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)
@@ -601,7 +640,7 @@ shape = SubResource("BoxShape3D_27bpv")
 [node name="StaticBody3D" type="StaticBody3D" parent="Schalter 1/Schalter_main"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Schalter 1/Schalter_main/StaticBody3D"]
-transform = Transform3D(2.03, 0, 0, 0, 2.03, 7.10543e-15, 0, -7.10543e-15, 2.03, 0, -0.622089, 0)
+transform = Transform3D(2.03, -8.2423e-13, 2.03288e-20, 8.2423e-13, 2.03, -8.17124e-13, 1.99053e-20, 8.17124e-13, 2.03, 0, -0.0130959, 0)
 shape = SubResource("BoxShape3D_y6451")
 
 [node name="Gegner" type="CharacterBody3D" parent="."]
@@ -694,7 +733,8 @@ stream = ExtResource("37_s0unp")
 [node name="Audio 21+" type="Node" parent="Audio"]
 
 [node name="Schlüssel" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.528152, 0.0527226)
+transform = Transform3D(0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, 0.433013, 2.55, 1.42763, -1.54728)
+layers = 4
 size = Vector3(0.0839961, 0.0610469, 0.318214)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Schlüssel"]
@@ -703,7 +743,6 @@ collision_mask = 5
 script = ExtResource("38_reby7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Schlüssel/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11759e-08)
 shape = SubResource("BoxShape3D_da1nj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
