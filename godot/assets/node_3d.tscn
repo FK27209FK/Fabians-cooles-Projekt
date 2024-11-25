@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=63 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -11,11 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://8dwqpqkq4j6n" path="res://assets/player.tscn" id="8_vdfl2"]
 [ext_resource type="Script" path="res://scripts/interact.gd" id="9_2up1x"]
 [ext_resource type="Script" path="res://scripts/kill_player.gd" id="10_4mmyt"]
-[ext_resource type="Script" path="res://assets/Tür_oefnen_schalter.gd" id="11_yu3h4"]
 [ext_resource type="PackedScene" uid="uid://bavm420ysjtq1" path="res://assets/Schalter_Hebel.fbx" id="12_527hy"]
 [ext_resource type="PackedScene" uid="uid://b0smyonys6pd3" path="res://assets/Schalter_main.fbx" id="13_rrfiv"]
 [ext_resource type="PackedScene" uid="uid://bep4cinay7ach" path="res://assets/Gegner.blend" id="14_otkgv"]
-[ext_resource type="Script" path="res://assets/schalter1FalltuerRaum2.gd" id="14_pq720"]
 [ext_resource type="Script" path="res://assets/gegner_bewegung.gd" id="15_dsc65"]
 [ext_resource type="Script" path="res://assets/deatharea.gd" id="16_w8ydr"]
 [ext_resource type="AudioStream" uid="uid://ck031spsi8mjd" path="res://assets/voicelines/1-20/Nr.1.wav" id="18_8dxej"]
@@ -137,33 +135,6 @@ size = Vector3(0.9, 1, 0.9)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17yug"]
 albedo_color = Color(0.326199, 0.815211, 0.731941, 1)
 
-[sub_resource type="Animation" id="Animation_42is0"]
-resource_name = "oeffnen"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.25, 1.49763, 4.75), Vector3(-0.75, 1.49763, 5.75)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -1.5708, 0), Vector3(0, -3.14159, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_q8oqq"]
 length = 0.001
 tracks/0/type = "value"
@@ -191,19 +162,50 @@ tracks/1/keys = {
 "values": [Vector3(0, -1.5708, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_42is0"]
+resource_name = "oeffnen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.25, 1.49763, 4.75), Vector3(-0.75, 1.49763, 5.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -3.14159, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lfjpu"]
 _data = {
 "RESET": SubResource("Animation_q8oqq"),
 "oeffnen": SubResource("Animation_42is0")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_27bpv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ct0x"]
+size = Vector3(1, 1.75, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6451"]
-size = Vector3(1, 0.4, 1)
+size = Vector3(1, 0.55, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fsvrm"]
 albedo_color = Color(1, 0.623529, 0.235294, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsbo8"]
+size = Vector3(1, 1.85, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2enrv"]
 size = Vector3(1.7, 5.85, 1.7)
@@ -485,7 +487,7 @@ use_collision = true
 size = Vector3(11, 0.5, 10)
 
 [node name="Tuer1" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 1.49763, 4.75)
+transform = Transform3D(-1.81e-06, 0, -1, 0, 1, 0, 0.5, 0, -3.61999e-06, 0.25, 1.49763, 4.75)
 use_collision = true
 size = Vector3(1, 2, 1.5)
 material = SubResource("StandardMaterial3D_17yug")
@@ -534,7 +536,7 @@ operation = 2
 size = Vector3(2, 0.5, 2)
 
 [node name="Tuer1" type="CSGBox3D" parent="Räume/Raum 2"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 1.49763, 4.75)
+transform = Transform3D(-1.81e-06, 0, -1, 0, 1, 0, 0.5, 0, -3.61999e-06, 0.25, 1.49763, 4.75)
 use_collision = true
 collision_layer = 5
 collision_mask = 5
@@ -554,20 +556,17 @@ transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-0
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 2/Schalter 1/Schalter_Hebel"]
-collision_layer = 5
-collision_mask = 5
-script = ExtResource("14_pq720")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 2/Schalter 1/Schalter_Hebel/StaticBody3D"]
-transform = Transform3D(0.63, 0, 0, 0, 1.44, 2.24902e-15, 0, -5.63234e-15, 0.575, 0, 0.851776, 0)
-shape = SubResource("BoxShape3D_27bpv")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.774998, 0)
+shape = SubResource("BoxShape3D_8ct0x")
 
 [node name="Schalter_main" parent="Räume/Raum 2/Schalter 1" instance=ExtResource("13_rrfiv")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 2/Schalter 1/Schalter_main"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 2/Schalter 1/Schalter_main/StaticBody3D"]
-transform = Transform3D(2.03, 0, 0, 0, 2.03, 7.10543e-15, 0, -7.10543e-15, 2.03, 0, -0.622089, 0)
+transform = Transform3D(2.03, 0, 0, 0, 2.03, 7.10543e-15, 0, -7.10543e-15, 2.03, 0, -0.209173, 0)
 shape = SubResource("BoxShape3D_y6451")
 
 [node name="Falltuer1" type="CSGBox3D" parent="Räume/Raum 2"]
@@ -610,7 +609,7 @@ use_collision = true
 size = Vector3(11, 0.5, 10)
 
 [node name="Tuer1" type="CSGBox3D" parent="Räume/Raum 3"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 1.49763, 4.75)
+transform = Transform3D(-1.81e-06, 0, -1, 0, 1, 0, 0.5, 0, -3.61999e-06, 0.25, 1.49763, 4.75)
 use_collision = true
 size = Vector3(1, 2, 1.5)
 material = SubResource("StandardMaterial3D_17yug")
@@ -627,13 +626,10 @@ transform = Transform3D(-4.37114e-09, -0.1, 4.37114e-09, 2.11758e-23, -4.37114e-
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Schalter 1/Schalter_Hebel"]
-collision_layer = 5
-collision_mask = 5
-script = ExtResource("11_yu3h4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Schalter 1/Schalter_Hebel/StaticBody3D"]
-transform = Transform3D(0.63, 0, 0, 0, 1.44, 2.24902e-15, 0, -5.63234e-15, 0.575, 0, 0.851776, 0)
-shape = SubResource("BoxShape3D_27bpv")
+transform = Transform3D(1, -3.55271e-13, -1.75859e-13, 0, 1, -5.66244e-07, 0, 5.66244e-07, 1, 0, 0.775009, 1.90735e-06)
+shape = SubResource("BoxShape3D_tsbo8")
 
 [node name="Schalter_main" parent="Schalter 1" instance=ExtResource("13_rrfiv")]
 
