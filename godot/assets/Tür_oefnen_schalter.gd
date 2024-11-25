@@ -2,11 +2,10 @@ extends Node3D
 
 @export var showLabel = true
 @export var switchActive = false
-@onready var alarmanlage:Node3D = $"../../../Alarmanlage"
+@onready var alarmanlage: Node3D = $"../../../Alarmanlage"
 
 func interact():
-	
-	if showLabel && !switchActive && !alarmanlage.isAktiv():
+	if showLabel && !switchActive && !alarmanlage.alarmanlageAktiv:
 		$"..".rotate_x(20)
 		switchActive = !switchActive
 		$"../../../Räume/Raum 1/Tuer1/AnimationPlayer".play("oeffnen")

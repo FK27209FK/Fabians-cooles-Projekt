@@ -328,9 +328,6 @@ text = "Das hätte ich nicht von dir erwartet!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioListener3D" type="AudioListener3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.32341, 0)
-
 [node name="RespawnTimer" type="Timer" parent="Player"]
 wait_time = 5.0
 one_shot = true
