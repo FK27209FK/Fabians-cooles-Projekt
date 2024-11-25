@@ -208,7 +208,7 @@ albedo_color = Color(1, 0.623529, 0.235294, 1)
 size = Vector3(1, 1.85, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2enrv"]
-size = Vector3(1.7, 5.85, 1.7)
+size = Vector3(1.7, 3.9, 1.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_da1nj"]
 size = Vector3(0.1, 0.1, 0.4)
@@ -640,14 +640,14 @@ transform = Transform3D(2.03, -8.2423e-13, 2.03288e-20, 8.2423e-13, 2.03, -8.171
 shape = SubResource("BoxShape3D_y6451")
 
 [node name="Gegner" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.441451, 0, 0, 0, 0.390998, 0, 0, 0, 0.418059, -1.39768, 0.693128, -14.0296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39768, 0.693128, -14.0296)
 script = ExtResource("15_dsc65")
 
 [node name="Gegner" parent="Gegner" instance=ExtResource("14_otkgv")]
-transform = Transform3D(0.675026, 0, 0, 0, 0.816236, 0, 0, 0, 0.640047, -3.8147e-06, -0.514207, -0.000358582)
+transform = Transform3D(0.675026, 0, 0, 0, 0.816236, 0, 0, 0, 0.640047, -3.8147e-06, -0.177624, -0.000358582)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.425, -0.0250015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25267, -0.0250015)
 shape = SubResource("BoxShape3D_gyc2k")
 
 [node name="Deatharea" type="Area3D" parent="Gegner"]
@@ -656,7 +656,7 @@ collision_mask = 2
 script = ExtResource("16_w8ydr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner/Deatharea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.425, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
 shape = SubResource("BoxShape3D_2enrv")
 
 [node name="Audio" type="Node" parent="."]
