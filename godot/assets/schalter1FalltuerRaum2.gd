@@ -6,7 +6,7 @@ extends Node3D
 
 func interact():
 	
-	if showLabel && !switchActive && !alarmanlage.isAktiv():
+	if showLabel && !switchActive && !alarmanlage.alarmanlageAktiv:
 		$"..".rotate_x(20)
 		switchActive = !switchActive
 		#TODO: Animation für Falltür abspielen
