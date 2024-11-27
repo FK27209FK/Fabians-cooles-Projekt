@@ -5,7 +5,6 @@ extends Node3D
 @onready var alarmanlage: Node3D = $"../../../../../Alarmanlage"
 
 func interact():
-	
 	if showLabel && !switchActive && !alarmanlage.alarmanlageAktiv:
 		$"..".rotate_x(20)
 		switchActive = !switchActive

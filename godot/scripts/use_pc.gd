@@ -5,11 +5,8 @@ extends StaticBody3D
 func interact():
 	if $"../Player".playerIsAlive && showLabel:
 		showLabel = !showLabel
-		#TODO: Computer-UI
-		print("Using PC")
+		#TODO: Computer-UI (#23)
 		$"../Alarmanlage".setAlarmanlage()
-		#DEBUG:
-		#$"../Player".game_over()
 	else:
 		showLabel = false
 		print("Player is not allowed to do this action!")
