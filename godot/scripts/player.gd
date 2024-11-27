@@ -165,17 +165,11 @@ func _on_timer_2_timeout():
 		$Timer2.stop()
 
 func _on_aufzug_body_entered(body: Player) -> void:
-	if $"../Räume/Raum 2/Schalter 1/Schalter_Hebel/StaticBody3D".switchActive:
-		print("fly")
-		#Geht bestimmt besser aber keine Ahnung wie
+	if $"../Räume/Raum 2/Schalter 1/Schalter_Hebel/StaticBody3D".switchActive && body.position.y < 5.5:
 		body.gravity = 0
-		var oldPositionY = body.position.y
-		while body.position.y < oldPositionY + 6:
-			body.position = Vector3(body.position.x,body.position.y + 0.1, body.position.z)
-			await get_tree().create_timer(0.01).timeout
-		$"../Räume/Raum 2/Schalter 1/Schalter_Hebel/StaticBody3D".interact()
-
+		var target_position_y = body.position.y + 5.5 
+		var tween = create_tween()
+		tween.tween_property(body, "position:y", target_position_y, 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 func _on_aufzug_body_exited(body: Player) -> void:
-	print("fall")
 	body.gravity = 9.8

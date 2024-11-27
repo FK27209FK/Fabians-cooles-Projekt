@@ -267,7 +267,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6a6u1"]
-size = Vector3(0.9, 3.15, 0.9)
+size = Vector3(1, 2.75, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tsbo8"]
 size = Vector3(1, 1.85, 1)
@@ -573,7 +573,7 @@ use_collision = true
 size = Vector3(1, 5, 10)
 
 [node name="Wand3" type="CSGBox3D" parent="Räume/Raum 2"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 2.99763, -4.8)
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 2.99763, -4.75)
 use_collision = true
 size = Vector3(1, 5, 10)
 
@@ -651,7 +651,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 2/Aufzug"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 1.075, -0.15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.875, -0.15)
 shape = SubResource("BoxShape3D_6a6u1")
 
 [node name="Raum 3" type="Node3D" parent="Räume"]
