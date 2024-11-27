@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=69 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -265,6 +265,9 @@ _data = {
 "RESET": SubResource("Animation_lwqcx"),
 "falltuerOeffnen": SubResource("Animation_e8dlp")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6a6u1"]
+size = Vector3(0.9, 0.5, 0.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tsbo8"]
 size = Vector3(1, 1.85, 1)
@@ -570,7 +573,7 @@ use_collision = true
 size = Vector3(1, 5, 10)
 
 [node name="Wand3" type="CSGBox3D" parent="Räume/Raum 2"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 2.99763, -4.75)
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 2.99763, -4.8)
 use_collision = true
 size = Vector3(1, 5, 10)
 
@@ -641,6 +644,15 @@ material = SubResource("StandardMaterial3D_fsvrm")
 libraries = {
 "": SubResource("AnimationLibrary_77yno")
 }
+
+[node name="Aufzug" type="Area3D" parent="Räume/Raum 2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3, 1.5, -2.7)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 2/Aufzug"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.25, -0.15)
+shape = SubResource("BoxShape3D_6a6u1")
 
 [node name="Raum 3" type="Node3D" parent="Räume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
@@ -816,4 +828,6 @@ shape = SubResource("BoxShape3D_da1nj")
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
+[connection signal="body_entered" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_entered"]
+[connection signal="body_exited" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_exited"]
 [connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]

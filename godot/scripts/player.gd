@@ -163,3 +163,17 @@ func _on_timer_2_timeout():
 	else:
 		# Stop the timer when time reaches 0
 		$Timer2.stop()
+
+func _on_aufzug_body_entered(body: Player) -> void:
+	if $"../Räume/Raum 2/Schalter 1/Schalter_Hebel/StaticBody3D".switchActive:
+		print("fly")
+		#Geht bestimmt besser aber keine Ahnung wie
+		body.gravity = 0
+		var oldPositionY = body.position.y
+		while body.position.y < oldPositionY + 4.5:
+			body.position = Vector3(body.position.x,body.position.y + 0.1, body.position.z)
+			await get_tree().create_timer(0.01).timeout
+
+func _on_aufzug_body_exited(body: Player) -> void:
+	print("fall")
+	body.gravity = 9.8
