@@ -1,7 +1,5 @@
-# Escape from Space
+# Escape from Space (Schulprojekt)
 
-## So ein Projekt für die Schule:
-Leute, die dran arbeiten:
-Julian, Noah und fabian
+Ein First Person Escape Room Spiel.
 
-Das Projekt ist ein FP Escape Room
+Entwickelt von Julian und Noah (Fabian hat Voicelines aufgenommen)
