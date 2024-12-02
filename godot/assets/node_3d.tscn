@@ -534,7 +534,7 @@ use_collision = true
 size = Vector3(1, 5, 10)
 
 [node name="Wand4" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 2.99763, 4.75)
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.231881, 2.97318, 4.7453)
 use_collision = true
 size = Vector3(1, 5, 10)
 
@@ -544,9 +544,9 @@ operation = 2
 size = Vector3(1.5, 2, 0.5)
 
 [node name="Decke" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 5.75, 0)
+transform = Transform3D(0.999926, 0, -0.0121472, 0, 1, 0, 0.0121472, 0, 0.999926, 0.540984, 5.92498, 10.3356)
 use_collision = true
-size = Vector3(11, 0.5, 10)
+size = Vector3(11.0552, 0.5, 10.4807)
 
 [node name="Tuer1" type="CSGBox3D" parent="Räume/Raum 1"]
 transform = Transform3D(-1.81e-06, 0, -1, 0, 1, 0, 0.5, 0, -3.61999e-06, 0.25, 1.49763, 4.75)
@@ -824,6 +824,31 @@ script = ExtResource("38_reby7")
 shape = SubResource("BoxShape3D_da1nj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Wand" type="CSGBox3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -5.0157, 3.30382, 10.3124)
+use_collision = true
+size = Vector3(1, 5.43665, 10.5967)
+
+[node name="Wand4" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.499987, 0, -0.00713825, 0, 1, 0, 0.00356913, 0, -0.999974, 6.34277, 2.94221, 10.4933)
+use_collision = true
+size = Vector3(1, 6.90491, 10.9847)
+
+[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand4"]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.5, 0)
+operation = 2
+size = Vector3(1.5, 2, 0.5)
+
+[node name="Wand2" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.0189236, 0, -0.999284, 0, 1, 0, 0.499642, 0, -0.0378471, 0.4859, 3.35302, 15.7091)
+use_collision = true
+size = Vector3(1, 5.6416, 11.3319)
+
+[node name="Decke" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 5.75, 0)
+use_collision = true
+size = Vector3(11, 0.5, 10)
 
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
