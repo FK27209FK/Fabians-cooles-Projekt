@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://do6imb0ldcvrp"]
+[gd_scene load_steps=71 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -8,7 +8,7 @@
 [ext_resource type="ArrayMesh" uid="uid://co60b1aruxw63" path="res://assets/TischMitMonitoren.obj" id="5_rtnjx"]
 [ext_resource type="Texture2D" uid="uid://b3w5x60ik18lh" path="res://assets/20 background textures for mtc-sets/hg01.png" id="6_npl21"]
 [ext_resource type="Script" path="res://scripts/interact_box.gd" id="7_ste21"]
-[ext_resource type="PackedScene" path="res://assets/player.tscn" id="8_vdfl2"]
+[ext_resource type="PackedScene" uid="uid://8dwqpqkq4j6n" path="res://assets/player.tscn" id="8_vdfl2"]
 [ext_resource type="Script" path="res://scripts/interact.gd" id="9_2up1x"]
 [ext_resource type="Script" path="res://scripts/kill_player.gd" id="10_4mmyt"]
 [ext_resource type="Script" path="res://assets/Tür_oefnen_schalter.gd" id="11_yu3h4"]
@@ -861,7 +861,7 @@ use_collision = true
 size = Vector3(1, 6.2179, 13.0783)
 
 [node name="Wand5" type="CSGBox3D" parent="."]
-transform = Transform3D(0.499888, 0, -0.0212041, 0, 1, 0, 0.010602, 0, 0.999775, 20.0417, 2.71167, 11.1759)
+transform = Transform3D(0.499888, 0, -0.0212041, 0, 1, 0, 0.010602, 0, 0.999775, 19.5417, 2.71167, 11.1759)
 use_collision = true
 size = Vector3(1, 6.29707, 12.2074)
 
@@ -869,6 +869,36 @@ size = Vector3(1, 6.29707, 12.2074)
 transform = Transform3D(0.999926, 0, -0.0121472, 0, 1, 0, 0.0121472, 0, 0.999926, 13.0973, 5.97838, 10.9562)
 use_collision = true
 size = Vector3(13.3571, 0.5, 11.909)
+
+[node name="Wand6" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 2.99763, -4.75)
+use_collision = true
+size = Vector3(1, 5, 10)
+
+[node name="Wand7" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 11.55, 7.79763, -4.55)
+use_collision = true
+size = Vector3(1, 4.2, 10.4)
+
+[node name="Wand8" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.5, 0, 8.74228e-08, 0, 1, 0, -4.37114e-08, 0, -1, 6.05, 7.89763, -0.0999998)
+use_collision = true
+size = Vector3(1, 4, 9.7)
+
+[node name="Wand9" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 11.45, 7.79763, 4.75)
+use_collision = true
+size = Vector3(1, 4.2, 10.6)
+
+[node name="Wand10" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.5, 0, 8.74228e-08, 0, 1, 0, -4.37114e-08, 0, -1, 16.45, 7.89763, -0.0999998)
+use_collision = true
+size = Vector3(1, 4, 9.7)
+
+[node name="Decke3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.35, 9.65, -1.19209e-07)
+use_collision = true
+size = Vector3(10.2, 0.5, 8.8)
 
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
