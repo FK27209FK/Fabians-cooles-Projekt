@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=70 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -40,6 +40,7 @@
 [ext_resource type="AudioStream" uid="uid://l53jchjmfb7d" path="res://assets/voicelines/1-20/Nr.20.wav" id="37_s0unp"]
 [ext_resource type="Script" path="res://assets/test_tür.gd" id="38_84wrl"]
 [ext_resource type="Script" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
+[ext_resource type="PackedScene" uid="uid://bo60vbhwkq2ng" path="res://Stuhl.blend" id="41_77st4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -824,6 +825,9 @@ script = ExtResource("38_reby7")
 shape = SubResource("BoxShape3D_da1nj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Stuhl" parent="." instance=ExtResource("41_77st4")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.48663, 0.570163, -2.97941)
 
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
