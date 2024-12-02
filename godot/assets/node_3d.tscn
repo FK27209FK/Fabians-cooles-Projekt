@@ -544,9 +544,9 @@ operation = 2
 size = Vector3(1.5, 2, 0.5)
 
 [node name="Decke" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(0.999926, 0, -0.0121472, 0, 1, 0, 0.0121472, 0, 0.999926, 0.540984, 5.92498, 10.3356)
+transform = Transform3D(0.999926, 0, -0.0121472, 0, 1, 0, 0.0121472, 0, 0.999926, 0.764172, 5.79867, 10.6039)
 use_collision = true
-size = Vector3(11.0552, 0.5, 10.4807)
+size = Vector3(11.2128, 0.5, 11.6253)
 
 [node name="Tuer1" type="CSGBox3D" parent="Räume/Raum 1"]
 transform = Transform3D(-1.81e-06, 0, -1, 0, 1, 0, 0.5, 0, -3.61999e-06, 0.25, 1.49763, 4.75)
@@ -826,14 +826,14 @@ shape = SubResource("BoxShape3D_da1nj")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Wand" type="CSGBox3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -5.0157, 3.30382, 10.3124)
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -5.0157, 1.7427, 10.6105)
 use_collision = true
-size = Vector3(1, 5.43665, 10.5967)
+size = Vector3(1, 8.54303, 11.1929)
 
 [node name="Wand4" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.499987, 0, -0.00713825, 0, 1, 0, 0.00356913, 0, -0.999974, 6.34277, 2.94221, 10.4933)
+transform = Transform3D(-0.499987, 0, -0.00713825, 0, 1, 0, 0.00356913, 0, -0.999974, 6.34466, 2.62496, 10.7589)
 use_collision = true
-size = Vector3(1, 6.90491, 10.9847)
+size = Vector3(1, 7.01398, 11.5158)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand4"]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.5, 0)
@@ -841,14 +841,29 @@ operation = 2
 size = Vector3(1.5, 2, 0.5)
 
 [node name="Wand2" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.0189236, 0, -0.999284, 0, 1, 0, 0.499642, 0, -0.0378471, 0.4859, 3.35302, 15.7091)
+transform = Transform3D(-0.0189236, 0, -0.999284, 0, 1, 0, 0.499642, 0, -0.0378471, 0.47612, 3.05685, 16.572)
 use_collision = true
-size = Vector3(1, 5.6416, 11.3319)
+size = Vector3(1, 6.03082, 12.3423)
 
 [node name="Decke" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 5.75, 0)
 use_collision = true
 size = Vector3(11, 0.5, 10)
+
+[node name="Wand3" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.0189236, 0, -0.999284, 0, 1, 0, 0.499642, 0, -0.0378471, 13.1806, 3.10437, 16.8801)
+use_collision = true
+size = Vector3(1, 6.2179, 13.0783)
+
+[node name="Wand5" type="CSGBox3D" parent="."]
+transform = Transform3D(0.499888, 0, -0.0212041, 0, 1, 0, 0.010602, 0, 0.999775, 20.0417, 2.71167, 11.1759)
+use_collision = true
+size = Vector3(1, 6.29707, 12.2074)
+
+[node name="Decke2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.999926, 0, -0.0121472, 0, 1, 0, 0.0121472, 0, 0.999926, 13.0973, 5.97838, 10.9562)
+use_collision = true
+size = Vector3(13.3571, 0.5, 11.909)
 
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
