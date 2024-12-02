@@ -1,0 +1,181 @@
+[gd_scene load_steps=13 format=3 uid="uid://dl1ii0r547lps"]
+
+[ext_resource type="PackedScene" uid="uid://8dwqpqkq4j6n" path="res://player.tscn" id="1_3exta"]
+[ext_resource type="Script" path="res://interact_obj.tres.gd" id="2_u8b80"]
+[ext_resource type="PackedScene" uid="uid://bw314xxrt6t4" path="res://türrahmen.fbx" id="3_e5c3x"]
+[ext_resource type="PackedScene" uid="uid://bm4ynr4r3wds8" path="res://tür.fbx" id="4_6kf0r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3dbg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ge45"]
+albedo_color = Color(0.315669, 0.81496, 0.264551, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gyc2k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqq82"]
+albedo_color = Color(0.129412, 0.0705882, 0.866667, 1)
+
+[sub_resource type="Animation" id="Animation_blbrx"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_jokum"]
+resource_name = "bewegen"
+length = 2.0
+step = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0.276106, -0.0199083, 0.322253, 0.905275, 2, 1, 0, 0, 0, 1)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.5, 2, 1, 1, 0, 3, 4, 2, 1, 0, 0.5, 2)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1vwr"]
+_data = {
+"RESET": SubResource("Animation_blbrx"),
+"bewegen": SubResource("Animation_jokum")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkfeg"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(4.31974, 0, 0, 0, 0.158212, 0, 0, 0, 3.98678, 0, 0, 0)
+size = Vector3(30, 0, 30)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
+shape = SubResource("BoxShape3D_l3dbg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 18, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_3exta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Hindernisse" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Hindernisse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
+material = SubResource("StandardMaterial3D_5ge45")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_gyc2k")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Hindernisse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
+material = SubResource("StandardMaterial3D_5ge45")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/CSGBox3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/CSGBox3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_gyc2k")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Hindernisse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, -6)
+material = SubResource("StandardMaterial3D_5ge45")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/CSGBox3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/CSGBox3D3/StaticBody3D"]
+shape = SubResource("BoxShape3D_gyc2k")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Hindernisse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 8, -6.67105)
+material = SubResource("StandardMaterial3D_5ge45")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/CSGBox3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/CSGBox3D4/StaticBody3D"]
+shape = SubResource("BoxShape3D_gyc2k")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Hindernisse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.8887, 13.3794, -4.5517)
+material = SubResource("StandardMaterial3D_5ge45")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/CSGBox3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/CSGBox3D5/StaticBody3D"]
+shape = SubResource("BoxShape3D_gyc2k")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Hindernisse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9054, 13.2264, -4.94246)
+material = SubResource("StandardMaterial3D_5ge45")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/CSGBox3D6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/CSGBox3D6/StaticBody3D"]
+shape = SubResource("BoxShape3D_gyc2k")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Hindernisse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9685, 9.96257, -6.54627)
+material = SubResource("StandardMaterial3D_5ge45")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/CSGBox3D7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/CSGBox3D7/StaticBody3D"]
+shape = SubResource("BoxShape3D_gyc2k")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Hindernisse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8423, 16.2069, -7.06701)
+material = SubResource("StandardMaterial3D_5ge45")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/CSGBox3D8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/CSGBox3D8/StaticBody3D"]
+shape = SubResource("BoxShape3D_gyc2k")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Hindernisse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9369, 10.6897, -5.45673)
+material = SubResource("StandardMaterial3D_5ge45")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/CSGBox3D9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/CSGBox3D9/StaticBody3D"]
+shape = SubResource("BoxShape3D_gyc2k")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." groups=["interact"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2)
+material_override = SubResource("StandardMaterial3D_dqq82")
+
+[node name="Node3D" type="Node3D" parent="CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2)
+script = ExtResource("2_u8b80")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D5/Node3D" groups=["interact"]]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGBox3D5/Node3D/StaticBody3D"]
+libraries = {
+"": SubResource("AnimationLibrary_f1vwr")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D5/Node3D/StaticBody3D" groups=["interact"]]
+shape = SubResource("BoxShape3D_dkfeg")
+
+[node name="türrahmen" parent="." instance=ExtResource("3_e5c3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7448, 2.18631, 0.0623434)
+
+[node name="Node3D" type="Node3D" parent="türrahmen"]
+
+[node name="tür" parent="türrahmen/Node3D" instance=ExtResource("4_6kf0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142984, -0.057966, 0.0706222)
+script = ExtResource("2_u8b80")
