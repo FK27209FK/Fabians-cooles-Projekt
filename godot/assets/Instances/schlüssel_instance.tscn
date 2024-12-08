@@ -1,8 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn5gcot5xrja2"]
+[gd_scene load_steps=2 format=3 uid="uid://dqx8thtld1eax"]
 
-[ext_resource type="PackedScene" uid="uid://cf8vjeh5j1vaw" path="res://assets/key.blend" id="1_5oduv"]
+[ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="1_q77i4"]
 
-[node name="key" instance=ExtResource("1_5oduv")]
-
-[node name="Torus" parent="." index="0"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+[node name="key" instance=ExtResource("1_q77i4")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.438813)

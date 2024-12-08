@@ -40,8 +40,8 @@
 [ext_resource type="AudioStream" uid="uid://l53jchjmfb7d" path="res://assets/voicelines/1-20/Nr.20.wav" id="37_s0unp"]
 [ext_resource type="Script" path="res://assets/test_tür.gd" id="38_84wrl"]
 [ext_resource type="Script" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
-[ext_resource type="PackedScene" uid="uid://cf8vjeh5j1vaw" path="res://assets/key.blend" id="40_2rect"]
 [ext_resource type="PackedScene" uid="uid://joeq0xx7cuwg" path="res://assets/Beleuchtung.blend" id="42_15j4e"]
+[ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -277,8 +277,8 @@ size = Vector3(1, 1.85, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2enrv"]
 size = Vector3(1.7, 3.9, 1.7)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_cvx4e"]
-size = Vector3(17.0123, 2.11157, 3.74585)
+[sub_resource type="BoxShape3D" id="BoxShape3D_1oe2s"]
+size = Vector3(2.80859, 1, 8.84882)
 
 [node name="Node3D" type="Node3D"]
 
@@ -812,18 +812,9 @@ stream = ExtResource("37_s0unp")
 
 [node name="Audio 21+" type="Node" parent="Audio"]
 
-[node name="key" parent="." instance=ExtResource("40_2rect")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0379187, 0, -0.032591, 0, 0.05, 0, 0.032591, 0, 0.0379187, 2.45646, 1.42641, -1.74173)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="key"]
-transform = Transform3D(0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, 0.433013, 0.566332, 1.42763, -3.85522)
-collision_layer = 5
-collision_mask = 5
-script = ExtResource("38_reby7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="key/StaticBody3D"]
-transform = Transform3D(0.468438, 0, 0.883494, 0, 0.999966, 0, -0.883494, 0, 0.468438, -2.2861, -2.95083, 0.988098)
-shape = SubResource("BoxShape3D_cvx4e")
+skeleton = NodePath("")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -899,6 +890,17 @@ size = Vector3(1, 4, 9.7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.35, 9.65, -1.19209e-07)
 use_collision = true
 size = Vector3(10.2, 0.5, 8.8)
+
+[node name="key" parent="." instance=ExtResource("42_oj5xc")]
+transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.0324385, 2.57285, 1.41013, -1.71402)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="key"]
+collision_layer = 5
+script = ExtResource("38_reby7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="key/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0409946, 0.0186691, -3.15356)
+shape = SubResource("BoxShape3D_1oe2s")
 
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
