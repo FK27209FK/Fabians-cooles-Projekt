@@ -908,3 +908,5 @@ shape = SubResource("BoxShape3D_1oe2s")
 [connection signal="body_entered" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_entered"]
 [connection signal="body_exited" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_exited"]
 [connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]
+
+[editable path="key"]
