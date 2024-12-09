@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cf8vjeh5j1vaw"
-path="res://.godot/imported/key.blend-6c99c1a7fcf3661f9f3fb4daea235000.scn"
+uid="uid://bo60vbhwkq2ng"
+path="res://.godot/imported/Stuhl.blend-4ddef1397988a7b7c2719c0aeceec4aa.scn"
 
 [deps]
 
-source_file="res://assets/key.blend"
-dest_files=["res://.godot/imported/key.blend-6c99c1a7fcf3661f9f3fb4daea235000.scn"]
+source_file="res://Stuhl.blend"
+dest_files=["res://.godot/imported/Stuhl.blend-4ddef1397988a7b7c2719c0aeceec4aa.scn"]
 
 [params]
 
