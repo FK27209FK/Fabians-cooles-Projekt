@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=73 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/interact.gd" id="9_2up1x"]
 [ext_resource type="Script" path="res://scripts/kill_player.gd" id="10_4mmyt"]
 [ext_resource type="Script" path="res://assets/Tür_oefnen_schalter.gd" id="11_yu3h4"]
+[ext_resource type="PackedScene" uid="uid://dvch22ol6ic23" path="res://assets/Stuhl.blend" id="12_0up71"]
 [ext_resource type="PackedScene" uid="uid://bavm420ysjtq1" path="res://assets/Schalter_Hebel.fbx" id="12_527hy"]
 [ext_resource type="PackedScene" uid="uid://b0smyonys6pd3" path="res://assets/Schalter_main.fbx" id="13_rrfiv"]
 [ext_resource type="PackedScene" uid="uid://bep4cinay7ach" path="res://assets/Gegner.blend" id="14_otkgv"]
@@ -198,6 +199,9 @@ _data = {
 "RESET": SubResource("Animation_q8oqq"),
 "oeffnen": SubResource("Animation_42is0")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxon0"]
+size = Vector3(1, 2.8, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ct0x"]
 size = Vector3(1, 1.75, 1)
@@ -560,6 +564,15 @@ material = SubResource("StandardMaterial3D_17yug")
 libraries = {
 "": SubResource("AnimationLibrary_lfjpu")
 }
+
+[node name="Stuhl" parent="Räume/Raum 1" instance=ExtResource("12_0up71")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.4, 0.546885, -3)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/Stuhl"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/Stuhl/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("BoxShape3D_nxon0")
 
 [node name="Raum 2" type="Node3D" parent="Räume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)

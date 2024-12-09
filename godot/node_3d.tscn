@@ -1,9 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=10 format=3 uid="uid://dl1ii0r547lps"]
 
-[ext_resource type="PackedScene" uid="uid://8dwqpqkq4j6n" path="res://player.tscn" id="1_3exta"]
-[ext_resource type="Script" path="res://interact_obj.tres.gd" id="2_u8b80"]
-[ext_resource type="PackedScene" uid="uid://bw314xxrt6t4" path="res://türrahmen.fbx" id="3_e5c3x"]
-[ext_resource type="PackedScene" uid="uid://bm4ynr4r3wds8" path="res://tür.fbx" id="4_6kf0r"]
+[ext_resource type="PackedScene" uid="uid://8dwqpqkq4j6n" path="res://assets/player.tscn" id="1_3exta"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l3dbg"]
 
@@ -159,7 +156,6 @@ material_override = SubResource("StandardMaterial3D_dqq82")
 
 [node name="Node3D" type="Node3D" parent="CSGBox3D5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2)
-script = ExtResource("2_u8b80")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D5/Node3D" groups=["interact"]]
 
@@ -171,11 +167,30 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D5/Node3D/StaticBody3D" groups=["interact"]]
 shape = SubResource("BoxShape3D_dkfeg")
 
-[node name="türrahmen" parent="." instance=ExtResource("3_e5c3x")]
+[node name="türrahmen" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7448, 2.18631, 0.0623434)
+script = null
 
 [node name="Node3D" type="Node3D" parent="türrahmen"]
 
-[node name="tür" parent="türrahmen/Node3D" instance=ExtResource("4_6kf0r")]
+[node name="tür" parent="türrahmen/Node3D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142984, -0.057966, 0.0706222)
-script = ExtResource("2_u8b80")
+script = null
