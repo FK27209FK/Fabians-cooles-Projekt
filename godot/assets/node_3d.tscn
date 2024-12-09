@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=62 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -7,10 +7,8 @@
 [ext_resource type="Script" path="res://scripts/use_pc.gd" id="4_56dsg"]
 [ext_resource type="ArrayMesh" uid="uid://co60b1aruxw63" path="res://assets/TischMitMonitoren.obj" id="5_rtnjx"]
 [ext_resource type="Texture2D" uid="uid://b3w5x60ik18lh" path="res://assets/20 background textures for mtc-sets/hg01.png" id="6_npl21"]
-[ext_resource type="Script" path="res://scripts/interact_box.gd" id="7_ste21"]
 [ext_resource type="PackedScene" path="res://assets/player.tscn" id="8_vdfl2"]
 [ext_resource type="Script" path="res://scripts/interact.gd" id="9_2up1x"]
-[ext_resource type="Script" path="res://scripts/kill_player.gd" id="10_4mmyt"]
 [ext_resource type="Script" path="res://assets/Tür_oefnen_schalter.gd" id="11_yu3h4"]
 [ext_resource type="PackedScene" uid="uid://dvch22ol6ic23" path="res://assets/Stuhl.blend" id="12_0up71"]
 [ext_resource type="PackedScene" uid="uid://bavm420ysjtq1" path="res://assets/Schalter_Hebel.fbx" id="12_527hy"]
@@ -61,80 +59,6 @@ albedo_texture = ExtResource("6_npl21")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ry4hy"]
 size = Vector3(50, 1, 50)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqq82"]
-albedo_color = Color(0.129412, 0.0705882, 0.866667, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8fhsf"]
-
-[sub_resource type="Animation" id="Animation_ht62i"]
-resource_name = "CubeBewegen"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.89721, 1.15776, 3.45273), Vector3(-1.89721, 1.45707, 6.0057), Vector3(0.649603, 1.90687, 9.28218), Vector3(3.51598, 3.18991, 13.6873)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.508117, 0.179986, -0.366876), Vector3(0.527893, -0.20709, 0.456373), Vector3(-0.47653, -1.83161, 1.15677)]
-}
-
-[sub_resource type="Animation" id="Animation_ncfnb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.587989, 1.7731)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ss7mf"]
-_data = {
-"CubeBewegen": SubResource("Animation_ht62i"),
-"RESET": SubResource("Animation_ncfnb")
-}
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ge45"]
-albedo_color = Color(0.739789, 2.00946e-06, 5.77569e-07, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gyc2k"]
-size = Vector3(0.9, 1, 0.9)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6vgbf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17yug"]
 albedo_color = Color(0.326199, 0.815211, 0.731941, 1)
@@ -480,44 +404,6 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boden/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49137e-06, 0, -1.53315e-06)
 shape = SubResource("BoxShape3D_ry4hy")
-
-[node name="InteractBox" type="CSGBox3D" parent="." groups=["interact"]]
-transform = Transform3D(0.992772, 0, 0, 0, 0.992772, 0, 0, 0, 0.992772, 0, 0.587989, 1.7731)
-layers = 5
-material_override = SubResource("StandardMaterial3D_dqq82")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="InteractBox"]
-collision_layer = 5
-collision_mask = 5
-script = ExtResource("7_ste21")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractBox/StaticBody3D"]
-shape = SubResource("BoxShape3D_8fhsf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="InteractBox"]
-libraries = {
-"": SubResource("AnimationLibrary_ss7mf")
-}
-
-[node name="Hindernisse" type="Node3D" parent="."]
-
-[node name="Todesbox" type="CSGBox3D" parent="Hindernisse"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.79019, 0.997629, 6.47726)
-material = SubResource("StandardMaterial3D_5ge45")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Hindernisse/Todesbox"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/Todesbox/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.96046e-08, 0.0250001)
-shape = SubResource("BoxShape3D_gyc2k")
-
-[node name="Deatharea" type="Area3D" parent="Hindernisse/Todesbox"]
-collision_mask = 2
-script = ExtResource("10_4mmyt")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hindernisse/Todesbox/Deatharea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_6vgbf")
 
 [node name="Räume" type="Node3D" parent="."]
 
@@ -909,7 +795,6 @@ shape = SubResource("BoxShape3D_i4r30")
 
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
-[connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
 [connection signal="body_entered" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_entered"]
 [connection signal="body_exited" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_exited"]
 
