@@ -1,5 +1,15 @@
-[gd_scene format=3 uid="uid://dqx8thtld1eax"]
+[gd_scene load_steps=4 format=3 uid="uid://dn5gcot5xrja2"]
 
-[node name="SchlüsselInstance" type="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0527226)
-size = Vector3(0.0839961, 0.0610469, 0.318214)
+[ext_resource type="PackedScene" path="res://assets/key.glb" id="1_q77i4"]
+[ext_resource type="Shader" path="res://materials/ImphenziaPixPal.tres" id="2_tgkih"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3c4i7"]
+render_priority = 1
+shader = ExtResource("2_tgkih")
+shader_parameter/EmissionStrength = 3.0
+
+[node name="key" instance=ExtResource("1_q77i4")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.438813)
+
+[node name="Torus" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_3c4i7")
