@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=72 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -8,17 +8,14 @@
 [ext_resource type="ArrayMesh" uid="uid://co60b1aruxw63" path="res://assets/TischMitMonitoren.obj" id="5_rtnjx"]
 [ext_resource type="Texture2D" uid="uid://b3w5x60ik18lh" path="res://assets/20 background textures for mtc-sets/hg01.png" id="6_npl21"]
 [ext_resource type="Script" path="res://scripts/interact_box.gd" id="7_ste21"]
-[ext_resource type="PackedScene" uid="uid://8dwqpqkq4j6n" path="res://assets/player.tscn" id="8_vdfl2"]
+[ext_resource type="PackedScene" path="res://assets/player.tscn" id="8_vdfl2"]
 [ext_resource type="Script" path="res://scripts/interact.gd" id="9_2up1x"]
 [ext_resource type="Script" path="res://scripts/kill_player.gd" id="10_4mmyt"]
 [ext_resource type="Script" path="res://assets/Tür_oefnen_schalter.gd" id="11_yu3h4"]
 [ext_resource type="PackedScene" uid="uid://dvch22ol6ic23" path="res://assets/Stuhl.blend" id="12_0up71"]
 [ext_resource type="PackedScene" uid="uid://bavm420ysjtq1" path="res://assets/Schalter_Hebel.fbx" id="12_527hy"]
 [ext_resource type="PackedScene" uid="uid://b0smyonys6pd3" path="res://assets/Schalter_main.fbx" id="13_rrfiv"]
-[ext_resource type="PackedScene" uid="uid://bep4cinay7ach" path="res://assets/Gegner.blend" id="14_otkgv"]
 [ext_resource type="Script" path="res://assets/schalter1FalltuerRaum2.gd" id="14_pq720"]
-[ext_resource type="Script" path="res://assets/gegner_bewegung.gd" id="15_dsc65"]
-[ext_resource type="Script" path="res://assets/deatharea.gd" id="16_w8ydr"]
 [ext_resource type="AudioStream" uid="uid://ck031spsi8mjd" path="res://assets/voicelines/1-20/Nr.1.wav" id="18_8dxej"]
 [ext_resource type="AudioStream" uid="uid://bty4cbva8ye6s" path="res://assets/voicelines/1-20/Nr.2.wav" id="19_y0bjv"]
 [ext_resource type="AudioStream" uid="uid://c53nx8xj0mbho" path="res://assets/voicelines/1-20/Nr.3.wav" id="20_uhbdo"]
@@ -43,6 +40,8 @@
 [ext_resource type="Script" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
 [ext_resource type="PackedScene" uid="uid://joeq0xx7cuwg" path="res://assets/Beleuchtung.blend" id="42_15j4e"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
+[ext_resource type="Script" path="res://gegner_bewegung.gd" id="42_paawu"]
+[ext_resource type="PackedScene" uid="uid://ch1af8k075wge" path="res://assets/Gegner.glb" id="43_uh30t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -278,11 +277,11 @@ size = Vector3(1, 2.75, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tsbo8"]
 size = Vector3(1, 1.85, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2enrv"]
-size = Vector3(1.7, 3.9, 1.7)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_1oe2s"]
 size = Vector3(2.80859, 1, 8.84882)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i4r30"]
+size = Vector3(3.68848, 8.83945, 4.5166)
 
 [node name="Node3D" type="Node3D"]
 
@@ -736,26 +735,6 @@ shape = SubResource("BoxShape3D_tsbo8")
 transform = Transform3D(2.03, -8.2423e-13, 2.03288e-20, 8.2423e-13, 2.03, -8.17124e-13, 1.99053e-20, 8.17124e-13, 2.03, 0, -0.0130959, 0)
 shape = SubResource("BoxShape3D_y6451")
 
-[node name="Gegner" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39768, 0.693128, -14.0296)
-script = ExtResource("15_dsc65")
-
-[node name="Gegner" parent="Gegner" instance=ExtResource("14_otkgv")]
-transform = Transform3D(0.675026, 0, 0, 0, 0.816236, 0, 0, 0, 0.640047, -3.8147e-06, -0.177624, -0.000358582)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25267, -0.0250015)
-shape = SubResource("BoxShape3D_gyc2k")
-
-[node name="Deatharea" type="Area3D" parent="Gegner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0101, 0)
-collision_mask = 2
-script = ExtResource("16_w8ydr")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner/Deatharea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
-shape = SubResource("BoxShape3D_2enrv")
-
 [node name="Audio" type="Node" parent="."]
 
 [node name="Play Audio at Start _ Audio 1" type="AudioStreamPlayer3D" parent="Audio"]
@@ -915,11 +894,23 @@ script = ExtResource("38_reby7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0409946, 0.0186691, -3.15356)
 shape = SubResource("BoxShape3D_1oe2s")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.91415, 1.58213, -8.12084)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("42_paawu")
+
+[node name="Gegner2" parent="CharacterBody3D" instance=ExtResource("43_uh30t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205423, 0.870896, 0.218262)
+shape = SubResource("BoxShape3D_i4r30")
+
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
 [connection signal="body_entered" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_entered"]
 [connection signal="body_exited" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_exited"]
-[connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]
 
 [editable path="key"]
