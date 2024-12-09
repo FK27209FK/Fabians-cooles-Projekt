@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bwm0xvbfj4le8"
-path="res://.godot/imported/Rettungsschiff.blend-83f8497d8657eab7902df7da939af4bc.scn"
+uid="uid://dhtya8d40p78s"
+path="res://.godot/imported/Plattform.blend-af79c1f143ccb9f1055781983f38d954.scn"
 
 [deps]
 
-source_file="res://assets/Rettungsschiff.blend"
-dest_files=["res://.godot/imported/Rettungsschiff.blend-83f8497d8657eab7902df7da939af4bc.scn"]
+source_file="res://assets/Plattform.blend"
+dest_files=["res://.godot/imported/Plattform.blend-af79c1f143ccb9f1055781983f38d954.scn"]
 
 [params]
 
