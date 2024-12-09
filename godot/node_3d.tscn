@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=10 format=3 uid="uid://dshmkx46vy5co"]
 
 [ext_resource type="PackedScene" uid="uid://8dwqpqkq4j6n" path="res://assets/player.tscn" id="1_3exta"]
 
@@ -167,30 +167,4 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D5/Node3D/StaticBody3D" groups=["interact"]]
 shape = SubResource("BoxShape3D_dkfeg")
 
-[node name="türrahmen" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7448, 2.18631, 0.0623434)
-script = null
-
-[node name="Node3D" type="Node3D" parent="türrahmen"]
-
-[node name="tür" parent="türrahmen/Node3D"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142984, -0.057966, 0.0706222)
-script = null
+[node name="türrahmen#Node3D" type="Node3D" parent="."]

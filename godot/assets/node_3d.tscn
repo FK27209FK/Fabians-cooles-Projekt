@@ -741,7 +741,7 @@ transform = Transform3D(2.03, -8.2423e-13, 2.03288e-20, 8.2423e-13, 2.03, -8.171
 shape = SubResource("BoxShape3D_y6451")
 
 [node name="Gegner" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39768, 0.693128, -14.0296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39768, 0.707728, 40.9704)
 script = ExtResource("15_dsc65")
 
 [node name="Gegner" parent="Gegner" instance=ExtResource("14_otkgv")]
