@@ -1,6 +1,5 @@
 class_name Player extends CharacterBody3D
 
-@onready var key: Node3D = $"../key"
 @onready var camera: Camera3D = $Camera
 @onready var respawnTimer: Timer = $RespawnTimer
 @onready var reaktorTimer: Timer = $UI/ReaktorTimer
@@ -39,8 +38,6 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	reaktorTimerText.text = format_time(total_time)
 	capture_mouse()
-	#TODO
-	#key. depth_test_disabled 
 
 func _process(_delta: float) -> void:
 	@warning_ignore("narrowing_conversion")

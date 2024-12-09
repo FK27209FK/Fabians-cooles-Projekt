@@ -1,6 +1,5 @@
 [gd_scene load_steps=70 format=3 uid="uid://dl1ii0r547lps"]
 [gd_scene load_steps=71 format=3 uid="uid://do6imb0ldcvrp"]
-[gd_scene load_steps=71 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -10,7 +9,7 @@
 [ext_resource type="ArrayMesh" uid="uid://co60b1aruxw63" path="res://assets/TischMitMonitoren.obj" id="5_rtnjx"]
 [ext_resource type="Texture2D" uid="uid://b3w5x60ik18lh" path="res://assets/20 background textures for mtc-sets/hg01.png" id="6_npl21"]
 [ext_resource type="Script" path="res://scripts/interact_box.gd" id="7_ste21"]
-[ext_resource type="PackedScene" uid="uid://8dwqpqkq4j6n" path="res://assets/player.tscn" id="8_vdfl2"]
+[ext_resource type="PackedScene" path="res://assets/player.tscn" id="8_vdfl2"]
 [ext_resource type="Script" path="res://scripts/interact.gd" id="9_2up1x"]
 [ext_resource type="Script" path="res://scripts/kill_player.gd" id="10_4mmyt"]
 [ext_resource type="Script" path="res://assets/Tür_oefnen_schalter.gd" id="11_yu3h4"]
@@ -45,7 +44,6 @@
 [ext_resource type="PackedScene" uid="uid://bo60vbhwkq2ng" path="res://Stuhl.blend" id="41_77st4"]
 [ext_resource type="PackedScene" uid="uid://cf8vjeh5j1vaw" path="res://assets/key.blend" id="40_2rect"]
 [ext_resource type="PackedScene" uid="uid://joeq0xx7cuwg" path="res://assets/Beleuchtung.blend" id="42_15j4e"]
-[ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -281,8 +279,8 @@ size = Vector3(1, 1.85, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2enrv"]
 size = Vector3(1.7, 3.9, 1.7)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1oe2s"]
-size = Vector3(2.80859, 1, 8.84882)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cvx4e"]
+size = Vector3(17.0123, 2.11157, 3.74585)
 
 [node name="Node3D" type="Node3D"]
 
@@ -816,9 +814,18 @@ stream = ExtResource("37_s0unp")
 
 [node name="Audio 21+" type="Node" parent="Audio"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="key" parent="." instance=ExtResource("40_2rect")]
 transform = Transform3D(0.0379187, 0, -0.032591, 0, 0.05, 0, 0.032591, 0, 0.0379187, 2.45646, 1.42641, -1.74173)
-skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="key"]
+transform = Transform3D(0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, 0.433013, 0.566332, 1.42763, -3.85522)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("38_reby7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="key/StaticBody3D"]
+transform = Transform3D(0.468438, 0, 0.883494, 0, 0.999966, 0, -0.883494, 0, 0.468438, -2.2861, -2.95083, 0.988098)
+shape = SubResource("BoxShape3D_cvx4e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -858,7 +865,7 @@ use_collision = true
 size = Vector3(1, 6.2179, 13.0783)
 
 [node name="Wand5" type="CSGBox3D" parent="."]
-transform = Transform3D(0.499888, 0, -0.0212041, 0, 1, 0, 0.010602, 0, 0.999775, 19.5417, 2.71167, 11.1759)
+transform = Transform3D(0.499888, 0, -0.0212041, 0, 1, 0, 0.010602, 0, 0.999775, 20.0417, 2.71167, 11.1759)
 use_collision = true
 size = Vector3(1, 6.29707, 12.2074)
 
@@ -867,52 +874,9 @@ transform = Transform3D(0.999926, 0, -0.0121472, 0, 1, 0, 0.0121472, 0, 0.999926
 use_collision = true
 size = Vector3(13.3571, 0.5, 11.909)
 
-[node name="Wand6" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0.25, 2.99763, -4.75)
-use_collision = true
-size = Vector3(1, 5, 10)
-
-[node name="Wand7" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 11.55, 7.79763, -4.55)
-use_collision = true
-size = Vector3(1, 4.2, 10.4)
-
-[node name="Wand8" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.5, 0, 8.74228e-08, 0, 1, 0, -4.37114e-08, 0, -1, 6.05, 7.89763, -0.0999998)
-use_collision = true
-size = Vector3(1, 4, 9.7)
-
-[node name="Wand9" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 11.45, 7.79763, 4.75)
-use_collision = true
-size = Vector3(1, 4.2, 10.6)
-
-[node name="Wand10" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.5, 0, 8.74228e-08, 0, 1, 0, -4.37114e-08, 0, -1, 16.45, 7.89763, -0.0999998)
-use_collision = true
-size = Vector3(1, 4, 9.7)
-
-[node name="Decke3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.35, 9.65, -1.19209e-07)
-use_collision = true
-size = Vector3(10.2, 0.5, 8.8)
-
-[node name="key" parent="." instance=ExtResource("42_oj5xc")]
-transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.0324385, 2.57285, 1.41013, -1.71402)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="key"]
-collision_layer = 5
-script = ExtResource("38_reby7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="key/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0409946, 0.0186691, -3.15356)
-shape = SubResource("BoxShape3D_1oe2s")
-
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Hindernisse/Todesbox/Deatharea" to="Hindernisse/Todesbox/Deatharea" method="_on_body_entered"]
 [connection signal="body_entered" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_entered"]
 [connection signal="body_exited" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_exited"]
 [connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]
-
-[editable path="key"]
