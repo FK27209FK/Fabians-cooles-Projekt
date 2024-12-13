@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=70 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -65,6 +65,9 @@ size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nxon0"]
 size = Vector3(1, 2.8, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vfb8"]
+size = Vector3(2.9, 4.6, 1)
 
 [sub_resource type="Animation" id="Animation_kwc3t"]
 resource_name = "oeffnen"
@@ -523,8 +526,20 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 1.65416, 4.75)
 [node name="tuer_L" parent="Räume/Raum 1/Tuer1" instance=ExtResource("43_pwvd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.90735e-06)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/Tuer1/tuer_L"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/Tuer1/tuer_L/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.38419e-07, 0)
+shape = SubResource("BoxShape3D_3vfb8")
+
 [node name="tuer_R" parent="Räume/Raum 1/Tuer1" instance=ExtResource("43_pwvd8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 1.90735e-06)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 1/Tuer1/tuer_R"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/Tuer1/tuer_R/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.38419e-07, 0)
+shape = SubResource("BoxShape3D_3vfb8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Räume/Raum 1/Tuer1"]
 libraries = {
