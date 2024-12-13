@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=69 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://assets/alarmanlageLogik.gd" id="1_kprw2"]
@@ -63,6 +63,70 @@ albedo_texture = ExtResource("6_npl21")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ry4hy"]
 size = Vector3(50, 1, 50)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxon0"]
+size = Vector3(1, 2.8, 1)
+
+[sub_resource type="Animation" id="Animation_kwc3t"]
+resource_name = "oeffnen"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tuer_L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06), Vector3(2.9, 0, 1.90735e-06)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tuer_R:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06), Vector3(-2.8, 0, 1.90735e-06)]
+}
+
+[sub_resource type="Animation" id="Animation_gujuv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tuer_L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tuer_R:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jiodu"]
+_data = {
+"RESET": SubResource("Animation_gujuv"),
+"oeffnen": SubResource("Animation_kwc3t")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17yug"]
 albedo_color = Color(0.326199, 0.815211, 0.731941, 1)
 
@@ -125,9 +189,6 @@ _data = {
 "RESET": SubResource("Animation_q8oqq"),
 "oeffnen": SubResource("Animation_42is0")
 }
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nxon0"]
-size = Vector3(1, 2.8, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ct0x"]
 size = Vector3(1, 1.75, 1)
@@ -438,25 +499,14 @@ use_collision = true
 size = Vector3(1, 5, 10)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Räume/Raum 1/Wand4"]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.5, 0)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.35, 0.75)
 operation = 2
-size = Vector3(1.5, 2, 0.5)
+size = Vector3(3, 2.3, 0.5)
 
 [node name="Decke" type="CSGBox3D" parent="Räume/Raum 1"]
 transform = Transform3D(0.999926, 0, -0.0121472, 0, 1, 0, 0.0121472, 0, 0.999926, 0.464172, 4.99867, 10.2039)
 use_collision = true
 size = Vector3(11.2128, 0.5, 11.6253)
-
-[node name="Tuer1" type="CSGBox3D" parent="Räume/Raum 1"]
-transform = Transform3D(-1.81e-06, 0, -1, 0, 1, 0, 0.5, 0, -3.61999e-06, 0.25, 1.49763, 4.75)
-use_collision = true
-size = Vector3(1, 2, 1.5)
-material = SubResource("StandardMaterial3D_17yug")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Räume/Raum 1/Tuer1"]
-libraries = {
-"": SubResource("AnimationLibrary_lfjpu")
-}
 
 [node name="Stuhl" parent="Räume/Raum 1" instance=ExtResource("12_0up71")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.4, 0.546885, -3)
@@ -466,6 +516,20 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.4, 0.546885, -3)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 1/Stuhl/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("BoxShape3D_nxon0")
+
+[node name="Tuer1" type="Node3D" parent="Räume/Raum 1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 1.65416, 4.75)
+
+[node name="tuer_L" parent="Räume/Raum 1/Tuer1" instance=ExtResource("43_pwvd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.90735e-06)
+
+[node name="tuer_R" parent="Räume/Raum 1/Tuer1" instance=ExtResource("43_pwvd8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 1.90735e-06)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Räume/Raum 1/Tuer1"]
+libraries = {
+"": SubResource("AnimationLibrary_jiodu")
+}
 
 [node name="Raum 2" type="Node3D" parent="Räume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
@@ -861,18 +925,12 @@ transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, 0, -3.
 operation = 2
 size = Vector3(1.5, 2, 0.5)
 
-[node name="tuer_L" parent="." instance=ExtResource("43_pwvd8")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 1.65416, 4.5)
-
-[node name="tuer_L2" parent="." instance=ExtResource("43_pwvd8")]
-transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -0.5, 1.65416, 4.5)
-
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_entered"]
 [connection signal="body_exited" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_exited"]
 [connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]
 
+[editable path="Räume/Raum 1/Tuer1/tuer_L"]
+[editable path="Räume/Raum 1/Tuer1/tuer_R"]
 [editable path="key"]
-[editable path="tuer_L"]
-[editable path="tuer_L2"]
