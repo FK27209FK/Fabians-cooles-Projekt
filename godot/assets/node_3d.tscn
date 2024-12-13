@@ -301,7 +301,7 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.7, 0)
 fov = 80.0
 
 [node name="Interact" type="RayCast3D" parent="Player/Camera" groups=["interact"]]
-transform = Transform3D(1.6, 0, 0, 0, -6.99382e-08, 1.6, 0, -1.6, -6.99382e-08, 0, 0, -0.313567)
+transform = Transform3D(1.6, 0, 0, 0, -6.99382e-08, 1.6, 0, -1.6, -6.99382e-08, 0, 0, -0.013567)
 target_position = Vector3(0, 1, 0)
 collision_mask = 4
 script = ExtResource("9_2up1x")
