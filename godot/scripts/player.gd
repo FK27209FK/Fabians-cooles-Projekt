@@ -39,8 +39,6 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	reaktorTimerText.text = format_time(total_time)
 	capture_mouse()
-	#TODO
-	#key. depth_test_disabled 
 
 func _process(_delta: float) -> void:
 	@warning_ignore("narrowing_conversion")

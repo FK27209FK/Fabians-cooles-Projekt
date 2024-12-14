@@ -421,12 +421,6 @@ wait_time = 3600.0
 one_shot = true
 autostart = true
 
-[node name="PC UI" type="Control" parent="Player"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Stromkasten" type="StaticBody3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.49163, 1.19193, -2.88404)
 collision_layer = 5

@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5q6auvb1xwm6"]
+[gd_scene load_steps=2 format=3 uid="uid://cq0pijo8hxek4"]
 
-[ext_resource type="Script" path="res://startbildschirm.gd" id="1_t06bw"]
+[ext_resource type="Script" path="res://assets/Instances/changeSzene.gd" id="1_t06bw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -61,11 +61,59 @@ anchor_right = 0.5
 offset_left = -280.0
 offset_top = 80.0
 offset_right = 275.0
-offset_bottom = 280.0
+offset_bottom = 164.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 60
 text = "Escape From Space"
 fit_content = true
 
-[connection signal="pressed" from="Background/StartButton" to="." method="_on_start_button_pressed"]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 380.0
+offset_right = 262.0
+offset_bottom = 618.0
+color = Color(0.391974, 0.422387, 0.470788, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 42.0
+offset_right = 137.0
+offset_bottom = 111.0
+theme_override_font_sizes/normal_font_size = 50
+text = "W"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 97.0
+offset_right = 80.0
+offset_bottom = 166.0
+theme_override_font_sizes/normal_font_size = 50
+text = "A"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 98.0
+offset_right = 150.0
+offset_bottom = 167.0
+theme_override_font_sizes/normal_font_size = 50
+text = "S"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 97.0
+offset_right = 217.0
+offset_bottom = 166.0
+theme_override_font_sizes/normal_font_size = 50
+text = "D"
+fit_content = true
+
+[connection signal="pressed" from="Background/StartButton" to="." method="_on_main_button_pressed"]
 [connection signal="pressed" from="Background/ExitButton" to="." method="_on_exit_button_pressed"]
