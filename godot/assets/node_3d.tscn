@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=73 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b0smyonys6pd3" path="res://assets/Schalter_main.fbx" id="13_rrfiv"]
 [ext_resource type="Script" path="res://scripts/schalter1FalltuerRaum2.gd" id="14_ftu21"]
 [ext_resource type="PackedScene" uid="uid://bep4cinay7ach" path="res://assets/Gegner.blend" id="14_otkgv"]
+[ext_resource type="PackedScene" uid="uid://cvi40ptxfn8rt" path="res://assets/Blumentopf.blend" id="16_tq7sv"]
 [ext_resource type="Script" path="res://scripts/Tür_oefnen_schalter.gd" id="17_65cas"]
 [ext_resource type="PackedScene" uid="uid://dhtya8d40p78s" path="res://assets/Plattform.blend" id="17_mhhgu"]
 [ext_resource type="AudioStream" uid="uid://ck031spsi8mjd" path="res://assets/voicelines/1-20/Nr.1.wav" id="18_8dxej"]
@@ -43,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://joeq0xx7cuwg" path="res://assets/Beleuchtung.blend" id="42_15j4e"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="43_pwvd8"]
+[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/Imphenzia/PixPal/Materials/ImphenziaPixPal.tres" id="45_qhh7h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -276,6 +278,11 @@ size = Vector3(1.7, 3.9, 1.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1oe2s"]
 size = Vector3(2.80859, 1, 8.84882)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jgoup"]
+render_priority = 0
+shader = ExtResource("45_qhh7h")
+shader_parameter/EmissionStrength = 3.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -934,6 +941,18 @@ transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, 0, -3.
 operation = 2
 size = Vector3(1.5, 2, 0.5)
 
+[node name="Blumentopf" parent="." instance=ExtResource("16_tq7sv")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 5, 1.49763, -2.15)
+
+[node name="Cylinder" parent="Blumentopf" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_jgoup")
+
+[node name="Blumentopf2" parent="." instance=ExtResource("16_tq7sv")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.8, 1.49763, -2.1)
+
+[node name="Cylinder" parent="Blumentopf2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_jgoup")
+
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Räume/Raum 2/Aufzug" to="Player" method="_on_aufzug_body_entered"]
@@ -943,3 +962,5 @@ size = Vector3(1.5, 2, 0.5)
 [editable path="Räume/Raum 1/Tuer1/tuer_L"]
 [editable path="Räume/Raum 1/Tuer1/tuer_R"]
 [editable path="key"]
+[editable path="Blumentopf"]
+[editable path="Blumentopf2"]
