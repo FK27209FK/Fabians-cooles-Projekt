@@ -44,7 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://joeq0xx7cuwg" path="res://assets/Beleuchtung.blend" id="42_15j4e"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="43_pwvd8"]
-[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/Imphenzia/PixPal/Materials/ImphenziaPixPal.tres" id="45_qhh7h"]
+[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/Imphenzia/PixPal/Materials/ImphenziaPixPal.tres" id="45_yf6ui"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -281,7 +281,7 @@ size = Vector3(2.80859, 1, 8.84882)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jgoup"]
 render_priority = 0
-shader = ExtResource("45_qhh7h")
+shader = ExtResource("45_yf6ui")
 shader_parameter/EmissionStrength = 3.0
 
 [node name="Node3D" type="Node3D"]
