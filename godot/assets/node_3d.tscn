@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=75 format=3 uid="uid://dl1ii0r547lps"]
-
+[gd_scene load_steps=80 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -48,8 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://joeq0xx7cuwg" path="res://assets/Beleuchtung.blend" id="42_15j4e"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="43_pwvd8"]
-
-[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/Imphenzia/PixPal/Materials/ImphenziaPixPal.tres" id="46_7oppp"]
+[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/Imphenzia/PixPal/Materials/ImphenziaPixPal.tres" id="45_yf6ui"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -326,12 +323,12 @@ size = Vector3(3.05853, 1, 8.52466)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dmny8"]
 render_priority = 0
-shader = ExtResource("46_7oppp")
+shader = ExtResource("45_yf6ui")
 shader_parameter/EmissionStrength = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vbbiu"]
 render_priority = 0
-shader = ExtResource("46_7oppp")
+shader = ExtResource("45_yf6ui")
 shader_parameter/EmissionStrength = 3.0
 
 [node name="Node3D" type="Node3D"]
@@ -344,7 +341,7 @@ light_color = Color(0.698311, 0.728599, 0.765548, 1)
 script = ExtResource("1_kjaci")
 
 [node name="Player" parent="." instance=ExtResource("8_vdfl2")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.5, 1, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
 collision_layer = 2
 speed = 6.0
 jump_height = 1.6
