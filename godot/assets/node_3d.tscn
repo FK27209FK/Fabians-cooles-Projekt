@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=82 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -46,7 +46,8 @@
 [ext_resource type="PackedScene" uid="uid://joeq0xx7cuwg" path="res://assets/Beleuchtung.blend" id="42_15j4e"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="43_pwvd8"]
-[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/Imphenzia/PixPal/Materials/ImphenziaPixPal.tres" id="45_yf6ui"]
+[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/ImphenziaPixPal.tres" id="45_yf6ui"]
+[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/Imphenzia/PixPal/Materials/ImphenziaPixPal.tres" id="48_k6580"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -318,17 +319,22 @@ size = Vector3(0.9, 1, 0.9)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2enrv"]
 size = Vector3(1.7, 3.9, 1.7)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qaggi"]
+render_priority = 1
+shader = ExtResource("45_yf6ui")
+shader_parameter/EmissionStrength = 3.0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_gvj5m"]
 size = Vector3(3.05853, 1, 8.52466)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dmny8"]
 render_priority = 0
-shader = ExtResource("45_yf6ui")
+shader = ExtResource("48_k6580")
 shader_parameter/EmissionStrength = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vbbiu"]
 render_priority = 0
-shader = ExtResource("45_yf6ui")
+shader = ExtResource("48_k6580")
 shader_parameter/EmissionStrength = 3.0
 
 [node name="Node3D" type="Node3D"]
@@ -931,6 +937,9 @@ size = Vector3(10.2, 0.5, 9.5)
 
 [node name="key" parent="." instance=ExtResource("42_oj5xc")]
 transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.0324385, 2.57285, 1.41013, -1.71402)
+
+[node name="Torus" parent="key" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qaggi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="key"]
 collision_layer = 5

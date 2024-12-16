@@ -58,7 +58,7 @@ input_name = "uv"
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx, depth_test_disabled;
 
 uniform sampler2D tex_frg_6;
 uniform sampler2D tex_frg_14;
@@ -138,6 +138,7 @@ void fragment() {
 
 }
 "
+flags/depth_test_disabled = true
 nodes/fragment/0/position = Vector2(1500, -360)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_vpdvu")
 nodes/fragment/3/position = Vector2(60, 100)
