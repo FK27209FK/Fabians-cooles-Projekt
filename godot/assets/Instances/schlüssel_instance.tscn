@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqx8thtld1eax"]
+[gd_scene load_steps=5 format=3 uid="uid://dqx8thtld1eax"]
 
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="1_q77i4"]
-[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/ImphenziaPixPal.tres" id="2_tgkih"]
+[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/AlwaysInFront.tres" id="2_tgkih"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3c4i7"]
+render_priority = 1
+shader = ExtResource("2_tgkih")
+shader_parameter/EmissionStrength = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0lkt"]
+resource_local_to_scene = true
 render_priority = 1
 shader = ExtResource("2_tgkih")
 shader_parameter/EmissionStrength = 3.0
@@ -13,3 +19,4 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.438813)
 
 [node name="Torus" parent="." index="0"]
 material_override = SubResource("ShaderMaterial_3c4i7")
+surface_material_override/0 = SubResource("ShaderMaterial_k0lkt")
