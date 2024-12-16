@@ -891,10 +891,6 @@ transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.03
 collision_layer = 5
 script = ExtResource("38_reby7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="key/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0409946, 0.0186691, -3.15356)
-shape = SubResource("BoxShape3D_1oe2s")
-
 [node name="Stuhl" parent="." instance=ExtResource("41_77st4")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.48663, 0.570163, -2.97941)
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand10"]
