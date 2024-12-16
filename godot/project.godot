@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Escape from Space"
-run/main_scene="res://assets/node_3d.tscn"
+run/main_scene="res://assets/Instances/Startbildschirm.tscn"
+run/enable_alt_space_menu=true
 config/features=PackedStringArray("4.3")
 
 [autoload]

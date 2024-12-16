@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://4v6ji51x3jcu"
-path="res://.godot/imported/türrahmen.blend-8e28b6f8b9d17910af3f28fc7d662162.scn"
+uid="uid://dvch22ol6ic23"
+path="res://.godot/imported/Stuhl.blend-01bcddafbff0206783805964c625c479.scn"
 
 [deps]
 
-source_file="res://türrahmen.blend"
-dest_files=["res://.godot/imported/türrahmen.blend-8e28b6f8b9d17910af3f28fc7d662162.scn"]
+source_file="res://assets/Stuhl.blend"
+dest_files=["res://.godot/imported/Stuhl.blend-01bcddafbff0206783805964c625c479.scn"]
 
 [params]
 
