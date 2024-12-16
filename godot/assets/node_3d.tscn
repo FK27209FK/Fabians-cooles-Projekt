@@ -1,4 +1,5 @@
-[gd_scene load_steps=73 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=75 format=3 uid="uid://dl1ii0r547lps"]
+
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
 [ext_resource type="ArrayMesh" uid="uid://pjlcej3ddqer" path="res://assets/Stromkasten_ungeloest.obj" id="2_fc55h"]
@@ -44,7 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://joeq0xx7cuwg" path="res://assets/Beleuchtung.blend" id="42_15j4e"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="43_pwvd8"]
-[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/Imphenzia/PixPal/Materials/ImphenziaPixPal.tres" id="45_yf6ui"]
+[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/ImphenziaPixPal.tres" id="45_yf6ui"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -278,6 +279,9 @@ size = Vector3(1.7, 3.9, 1.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_da1nj"]
 size = Vector3(0.1, 0.1, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gvj5m"]
+size = Vector3(3.05853, 1, 8.52466)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jgoup"]
 render_priority = 0
@@ -891,9 +895,14 @@ transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.03
 collision_layer = 5
 script = ExtResource("38_reby7")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="key/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0526524, 0, -2.95886)
+shape = SubResource("BoxShape3D_gvj5m")
+
 [node name="Stuhl" parent="." instance=ExtResource("41_77st4")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.48663, 0.570163, -2.97941)
-[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand10"]
+
+[node name="Wand10#Tuerausschnitt" type="CSGBox3D" parent="."]
 
 [node name="Wand11" type="CSGBox3D" parent="."]
 transform = Transform3D(-0.499987, 0, -0.00713825, 0, 1, 0, 0.00356913, 0, -0.999974, 16.4403, 7.96797, 0.051015)
