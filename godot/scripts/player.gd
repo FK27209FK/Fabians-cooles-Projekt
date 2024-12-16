@@ -166,11 +166,4 @@ func _on_timer_2_timeout():
 		$Timer2.stop()
 
 func _on_aufzug_body_entered(body: Player) -> void:
-	if $"../Räume/Raum 2/Schalter 1/Schalter_Hebel/StaticBody3D".switchActive && body.position.y < 5.5:
-		body.gravity = 0
-		var target_position_y = body.position.y + 5.5 
-		var tween = create_tween()
-		tween.tween_property(body, "position:y", target_position_y, 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-
-func _on_aufzug_body_exited(body: Player) -> void:
-	body.gravity = 9.8
+	$"../Räume/Raum 2/Plattform/AnimationPlayer2".play("aufzug_2")
