@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=75 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -276,9 +276,6 @@ size = Vector3(0.9, 1, 0.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2enrv"]
 size = Vector3(1.7, 3.9, 1.7)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_da1nj"]
-size = Vector3(0.1, 0.1, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gvj5m"]
 size = Vector3(3.05853, 1, 8.52466)
@@ -809,19 +806,6 @@ stream = ExtResource("36_jj8ie")
 stream = ExtResource("37_s0unp")
 
 [node name="Audio 21+" type="Node" parent="Audio"]
-
-[node name="Schlüssel" type="CSGBox3D" parent="."]
-transform = Transform3D(0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, 0.433013, 2.55, 1.42763, -1.54728)
-layers = 4
-size = Vector3(0.0839961, 0.0610469, 0.318214)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Schlüssel"]
-collision_layer = 5
-collision_mask = 5
-script = ExtResource("38_reby7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Schlüssel/StaticBody3D"]
-shape = SubResource("BoxShape3D_da1nj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
