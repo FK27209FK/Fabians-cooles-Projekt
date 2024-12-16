@@ -1,4 +1,6 @@
-[gd_scene load_steps=79 format=3 uid="uid://dl1ii0r547lps"]
+
+[gd_scene load_steps=75 format=3 uid="uid://dl1ii0r547lps"]
+
 
 [ext_resource type="Script" path="res://scripts/stromkasten.gd" id="1_as3n8"]
 [ext_resource type="Script" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -46,7 +48,8 @@
 [ext_resource type="PackedScene" uid="uid://joeq0xx7cuwg" path="res://assets/Beleuchtung.blend" id="42_15j4e"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="43_pwvd8"]
-[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/ImphenziaPixPal.tres" id="45_yf6ui"]
+
+[ext_resource type="Shader" uid="uid://dxoncufpd7fij" path="res://materials/Imphenzia/PixPal/Materials/ImphenziaPixPal.tres" id="46_7oppp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -318,12 +321,17 @@ size = Vector3(0.9, 1, 0.9)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2enrv"]
 size = Vector3(1.7, 3.9, 1.7)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_da1nj"]
-size = Vector3(0.1, 0.1, 0.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_gvj5m"]
+size = Vector3(3.05853, 1, 8.52466)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jgoup"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmny8"]
 render_priority = 0
-shader = ExtResource("45_yf6ui")
+shader = ExtResource("46_7oppp")
+shader_parameter/EmissionStrength = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbbiu"]
+render_priority = 0
+shader = ExtResource("46_7oppp")
 shader_parameter/EmissionStrength = 3.0
 
 [node name="Node3D" type="Node3D"]
@@ -854,19 +862,6 @@ stream = ExtResource("37_s0unp")
 
 [node name="Audio 21+" type="Node" parent="Audio"]
 
-[node name="Schlüssel" type="CSGBox3D" parent="."]
-transform = Transform3D(0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, 0.433013, 2.55, 1.42763, -1.54728)
-layers = 4
-size = Vector3(0.0839961, 0.0610469, 0.318214)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Schlüssel"]
-collision_layer = 5
-collision_mask = 5
-script = ExtResource("38_reby7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Schlüssel/StaticBody3D"]
-shape = SubResource("BoxShape3D_da1nj")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Wand" type="CSGBox3D" parent="."]
@@ -944,6 +939,10 @@ transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.03
 collision_layer = 5
 script = ExtResource("38_reby7")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="key/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0526524, 0, -2.95886)
+shape = SubResource("BoxShape3D_gvj5m")
+
 [node name="Stuhl" parent="." instance=ExtResource("41_77st4")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.48663, 0.570163, -2.97941)
 
@@ -1008,13 +1007,13 @@ size = Vector3(1.5, 2, 0.5)
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 5, 1.49763, -2.15)
 
 [node name="Cylinder" parent="Blumentopf" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_jgoup")
+surface_material_override/0 = SubResource("ShaderMaterial_dmny8")
 
 [node name="Blumentopf2" parent="." instance=ExtResource("16_tq7sv")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.8, 1.49763, -2.1)
 
 [node name="Cylinder" parent="Blumentopf2" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_jgoup")
+surface_material_override/0 = SubResource("ShaderMaterial_vbbiu")
 
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
