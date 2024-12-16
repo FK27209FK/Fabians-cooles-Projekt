@@ -1,6 +1,7 @@
 extends StaticBody3D
 
 @export var showLabel = true
+@export var interactText = "Starten [E]"
 
 func interact():
 	if $"../Player".playerIsAlive && showLabel:

@@ -1,8 +1,8 @@
 [gd_resource type="VisualShader" load_steps=18 format=3 uid="uid://dxoncufpd7fij"]
 
-[ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_Emission.png" id="1_2xod1"]
-[ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_BaseColor.png" id="2_7ekeq"]
-[ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_Attributes.png" id="3_v2mot"]
+[ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="1_2xod1"]
+[ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="2_7ekeq"]
+[ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="3_v2mot"]
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_frlxv"]
 default_input_values = [0, Vector2(0, 0)]
