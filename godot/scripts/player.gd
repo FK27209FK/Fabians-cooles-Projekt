@@ -165,5 +165,5 @@ func _on_timer_2_timeout():
 		# Stop the timer when time reaches 0
 		$Timer2.stop()
 
-func _on_aufzug_body_entered(body: Player) -> void:
+func _on_aufzug_body_entered(_body: Player) -> void:
 	$"../Räume/Raum 2/Plattform/AnimationPlayer2".play("aufzug_2")
