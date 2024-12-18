@@ -6,9 +6,16 @@ extends StaticBody3D
 func interact():
 	if $"../Player".playerIsAlive && showLabel:
 		showLabel = !showLabel
-		#TODO: Computer-UI (#23)
+		#Computer-UI (#23)
+		$"../PC".visible = true
+		$"../Player/UI".visible = false
 		$"../Player".release_mouse()
-		get_tree().change_scene_to_file("res://assets/Instances/PC.tscn")
 	else:
 		showLabel = false
 		print("Player is not allowed to do this action!")
+
+
+func _on_pc_relay() -> void:
+	$"../PC".visible = false
+	$"../Player/UI".visible = true
+	$"../Player".capture_mouse()
