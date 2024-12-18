@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://fodbwvg73jqq"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Wand3" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.0189236, 0, -0.999284, 0, 1, 0, 0.499642, 0, -0.0378471, 13.1806, 3.10437, 16.8801)
+use_collision = true
+size = Vector3(1, 6.2179, 13.0783)
+
+[node name="Wand5" type="CSGBox3D" parent="."]
+transform = Transform3D(0.499888, 0, -0.0212041, 0, 1, 0, 0.010602, 0, 0.999775, 19.5417, 2.71167, 11.1759)
+use_collision = true
+size = Vector3(1, 6.29707, 12.2074)
+
+[node name="Decke2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.999926, 0, -0.0121472, 0, 1, 0, 0.0121472, 0, 0.999926, 13.0973, 5.97838, 10.9562)
+use_collision = true
+size = Vector3(13.3571, 0.5, 11.909)

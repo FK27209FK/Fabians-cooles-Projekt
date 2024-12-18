@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bivpeu5cfwqnt"]
+
+[ext_resource type="PackedScene" uid="uid://bavm420ysjtq1" path="res://assets/Schalter_Hebel.fbx" id="1_m7w34"]
+[ext_resource type="Script" path="res://scripts/Tür_oefnen_schalter.gd" id="2_2pams"]
+[ext_resource type="PackedScene" uid="uid://b0smyonys6pd3" path="res://assets/Schalter_main.fbx" id="3_c8n3a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jhuul"]
+size = Vector3(1, 1.85, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2aa76"]
+size = Vector3(1, 0.55, 1)
+
+[node name="Schalter 1" type="Node3D"]
+transform = Transform3D(-4.37114e-09, -0.1, 4.37114e-09, 2.11758e-23, -4.37114e-09, -0.1, 0.1, -4.37114e-09, 1.91069e-16, 5.25, 0.75, -3.1)
+
+[node name="Schalter_Hebel" parent="." instance=ExtResource("1_m7w34")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Schalter_Hebel"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("2_2pams")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Schalter_Hebel/StaticBody3D"]
+transform = Transform3D(1, -3.55271e-13, -1.75859e-13, 0, 1, -5.66244e-07, 0, 5.66244e-07, 1, 0, 0.775009, 1.90735e-06)
+shape = SubResource("BoxShape3D_jhuul")
+
+[node name="Schalter_main" parent="." instance=ExtResource("3_c8n3a")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Schalter_main"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Schalter_main/StaticBody3D"]
+transform = Transform3D(2.03, -8.2423e-13, 2.03288e-20, 8.2423e-13, 2.03, -8.17124e-13, 1.99053e-20, 8.17124e-13, 2.03, 0, -0.0130959, 0)
+shape = SubResource("BoxShape3D_2aa76")

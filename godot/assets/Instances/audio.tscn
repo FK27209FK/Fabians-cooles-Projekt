@@ -1,0 +1,91 @@
+[gd_scene load_steps=21 format=3 uid="uid://d33rewl64amxw"]
+
+[ext_resource type="AudioStream" uid="uid://ck031spsi8mjd" path="res://assets/voicelines/1-20/Nr.1.wav" id="1_4g1ka"]
+[ext_resource type="AudioStream" uid="uid://bty4cbva8ye6s" path="res://assets/voicelines/1-20/Nr.2.wav" id="2_lr4nv"]
+[ext_resource type="AudioStream" uid="uid://c53nx8xj0mbho" path="res://assets/voicelines/1-20/Nr.3.wav" id="3_fqxhk"]
+[ext_resource type="AudioStream" uid="uid://cvpf0j6xtw82n" path="res://assets/voicelines/1-20/Nr.4.wav" id="4_jqmwu"]
+[ext_resource type="AudioStream" uid="uid://ddg38wmnd64sa" path="res://assets/voicelines/1-20/Nr.5.wav" id="5_nfyq5"]
+[ext_resource type="AudioStream" uid="uid://c58yrws7njrpa" path="res://assets/voicelines/1-20/Nr.6.wav" id="6_ryxlq"]
+[ext_resource type="AudioStream" uid="uid://dnwa5it85tv2b" path="res://assets/voicelines/1-20/Nr.7.wav" id="7_fygse"]
+[ext_resource type="AudioStream" uid="uid://byeceelfbqmte" path="res://assets/voicelines/1-20/Nr.8.wav" id="8_1tx1b"]
+[ext_resource type="AudioStream" uid="uid://bcl5d41cn1742" path="res://assets/voicelines/1-20/Nr.9.wav" id="9_wwd2c"]
+[ext_resource type="AudioStream" uid="uid://dywsxt0ytss3a" path="res://assets/voicelines/1-20/Nr.10.wav" id="10_ui81c"]
+[ext_resource type="AudioStream" uid="uid://wksfk6ofqajf" path="res://assets/voicelines/1-20/Nr.11.wav" id="11_mca4s"]
+[ext_resource type="AudioStream" uid="uid://nea5agl578eq" path="res://assets/voicelines/1-20/Nr.12.wav" id="12_u3oqh"]
+[ext_resource type="AudioStream" uid="uid://ov17q3b7whbt" path="res://assets/voicelines/1-20/Nr.13.wav" id="13_npey4"]
+[ext_resource type="AudioStream" uid="uid://bd1crjaet0fyh" path="res://assets/voicelines/1-20/Nr.14.wav" id="14_y18cx"]
+[ext_resource type="AudioStream" uid="uid://m5weo2ywyyob" path="res://assets/voicelines/1-20/Nr.15.wav" id="15_4hdt5"]
+[ext_resource type="AudioStream" uid="uid://bvep71buqqgt7" path="res://assets/voicelines/1-20/Nr.16.wav" id="16_ipyiy"]
+[ext_resource type="AudioStream" uid="uid://bjfskiadtqyxw" path="res://assets/voicelines/1-20/Nr.17.wav" id="17_kfkun"]
+[ext_resource type="AudioStream" uid="uid://bkqeg5yakrg1j" path="res://assets/voicelines/1-20/Nr.18.wav" id="18_82hy1"]
+[ext_resource type="AudioStream" uid="uid://cdkybs8itgj6y" path="res://assets/voicelines/1-20/Nr.19.wav" id="19_x0x6t"]
+[ext_resource type="AudioStream" uid="uid://l53jchjmfb7d" path="res://assets/voicelines/1-20/Nr.20.wav" id="20_p1bhb"]
+
+[node name="Audio" type="Node"]
+
+[node name="Play Audio at Start _ Audio 1" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_4g1ka")
+autoplay = true
+
+[node name="Sprüche bei Tod" type="Node" parent="."]
+
+[node name="Audio 2-20" type="Node" parent="."]
+
+[node name="2" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("2_lr4nv")
+
+[node name="3" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("3_fqxhk")
+
+[node name="4" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("4_jqmwu")
+
+[node name="5" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("5_nfyq5")
+
+[node name="6" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("6_ryxlq")
+
+[node name="7" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("7_fygse")
+
+[node name="8" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("8_1tx1b")
+
+[node name="9" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("9_wwd2c")
+
+[node name="10" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("10_ui81c")
+
+[node name="11" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("11_mca4s")
+
+[node name="12" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("12_u3oqh")
+
+[node name="13" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("13_npey4")
+
+[node name="14" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("14_y18cx")
+
+[node name="15" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("15_4hdt5")
+
+[node name="16" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("16_ipyiy")
+
+[node name="17" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("17_kfkun")
+
+[node name="18" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("18_82hy1")
+
+[node name="19" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("19_x0x6t")
+
+[node name="20" type="AudioStreamPlayer3D" parent="Audio 2-20"]
+stream = ExtResource("20_p1bhb")
+
+[node name="Audio 21+" type="Node" parent="."]

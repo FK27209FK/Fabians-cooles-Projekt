@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://tb3me6hh7tl"]
+
+[node name="raum4" type="Node3D"]
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 9.45, 1.6, 28.8)
+
+[node name="Wand17" type="CSGBox3D" parent="."]
+transform = Transform3D(4.99642, 0, -0.378471, 0, 10, 0, 0.189235, 0, 9.99284, -111.179, 8.9381, 84.415)
+use_collision = true
+size = Vector3(1, 7.99, 6.25)
+
+[node name="Wand18" type="CSGBox3D" parent="."]
+transform = Transform3D(4.99642, 0, -0.378471, 0, 10, 0, 0.189235, 0, 9.99284, -77.2459, 8.9381, 89.1638)
+use_collision = true
+size = Vector3(1, 7.99, 5.9)
+
+[node name="Wand19" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.189236, 0, -9.99284, 0, 10, 0, 4.99642, 0, -0.378472, -81.9324, 11.9381, 65.5572)
+use_collision = true
+size = Vector3(1, 4.7, 5.2)
+
+[node name="Wand20" type="CSGBox3D" parent="."]
+transform = Transform3D(4.99642, 0, -0.378471, 0, 10, 0, 0.189235, 0, 9.99284, -93.0692, 8.9381, 110.898)
+use_collision = true
+size = Vector3(1, 7.99, 6.25)
+
+[node name="Wand21" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.99987, 0, -0.0713828, 0, 10, 0, 0.0356914, 0, -9.99974, -22.3784, 11.2733, 120.841)
+use_collision = true
+size = Vector3(1, 7.01398, 5.4)
+
+[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand21"]
+transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, 0, -1.5, 0.75)
+operation = 2
+size = Vector3(3, 2, 0.5)
+
+[node name="Wand22" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.99987, 0, -0.0713828, 0, 10, 0, 0.0356914, 0, -9.99974, -22.3975, 11.2733, 63.091)
+use_collision = true
+size = Vector3(1, 7.01398, 6.35)
+
+[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand22"]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.5, 0)
+operation = 2
+size = Vector3(1.5, 2, 0.5)
+
+[node name="Wand23" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, 42.9556, 3.7356, 33.8663)
+use_collision = true
+size = Vector3(1, 8.8, 13.6)
+
+[node name="Wand24" type="CSGBox3D" parent="."]
+transform = Transform3D(5, 0, -8.52651e-14, 0, 10, 0, 4.26326e-14, 0, 10, 107.956, 17.7356, 92.1163)
+use_collision = true
+size = Vector3(1, 6, 11.25)
+
+[node name="Decke5" type="CSGBox3D" parent="."]
+transform = Transform3D(0.121472, 0, 9.99926, 0, 10, 0, -9.99926, 0, 0.121472, 42.8696, 44.0104, 91.0171)
+use_collision = true
+size = Vector3(11.3, 0.5, 12.8)
+
+[node name="Wand25" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, 3.95462, 3.7356, 111.866)
+use_collision = true
+size = Vector3(1, 8.8, 5.8)
+
+[node name="Wand26" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.99987, 0, -0.0713828, 0, 10, 0, 0.0356914, 0, -9.99974, 30.6896, 11.2733, 90.3406)
+use_collision = true
+size = Vector3(1, 7.01398, 3.9)
+
+[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand26"]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.5, 0)
+operation = 2
+size = Vector3(1.5, 2, 0.5)
+
+[node name="Wand27" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, 4.45461, 3.7356, 71.8663)
+use_collision = true
+size = Vector3(1, 8.8, 4.9)
+
+[node name="Wand28" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, 57.9547, 2.7356, 128.866)
+use_collision = true
+size = Vector3(1, 8.8, 5.8)
+
+[node name="Wand29" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.99987, 0, -0.0713828, 0, 10, 0, 0.0356914, 0, -9.99974, 84.7536, 11.2733, 99.3404)
+use_collision = true
+size = Vector3(1, 7.01398, 5.7)
+
+[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand29"]
+transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, 0, -2.4995, 0)
+operation = 2
+size = Vector3(1.5, 0.001, 0.5)
+
+[node name="Wand30" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, 59.4546, 2.7356, 72.8663)
+use_collision = true
+size = Vector3(1, 8.8, 5.5)
+
+[node name="Wand31" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -40.5444, 3.7356, 95.8663)
+use_collision = true
+size = Vector3(1, 8.8, 3.3)
+
+[node name="Wand32" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -40.5444, 3.7356, 71.8663)
+use_collision = true
+size = Vector3(1, 8.8, 3.3)
+
+[node name="Wand33" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -129.794, 3.7356, 51.8663)
+use_collision = true
+size = Vector3(1, 8.8, 21.15)
+
+[node name="Decke6" type="CSGBox3D" parent="."]
+transform = Transform3D(0.121472, 0, 9.99926, 0, 10, 0, -9.99926, 0, 0.121472, -123.865, 44.0104, 89.4007)
+use_collision = true
+size = Vector3(11.1, 0.5, 22.75)
+
+[node name="Wand34" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -75.0444, 3.7356, 33.8663)
+use_collision = true
+size = Vector3(1, 8.8, 10)
+
+[node name="Wand" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -66.11, 1.427, 144.657)
+use_collision = true
+size = Vector3(1, 8.54303, 34.35)
+
+[node name="Wand4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0356915, 0, -9.99974, 0, 10, 0, 4.99987, 0, 0.0713829, -180.411, 10.2496, 34.0534)
+use_collision = true
+size = Vector3(1, 7.01398, 11.5158)
+
+[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand4"]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.5, 0)
+operation = 2
+size = Vector3(1.5, 2, 0.5)
+
+[node name="Wand36" type="CSGBox3D" parent="."]
+transform = Transform3D(0.189235, 0, 9.99284, 0, 10, 0, -4.99642, 0, 0.378471, -159.861, 8.9381, 111.734)
+use_collision = true
+size = Vector3(1, 7.99, 10.1)
+
+[node name="Wand37" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.99642, 0, 0.37847, 0, 10, 0, -0.189235, 0, -9.99284, -206.586, 13.6381, 89.9893)
+use_collision = true
+size = Vector3(1, 7.05, 4.05)
+
+[node name="Wand38" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.189234, 0, -9.99284, 0, 10, 0, 4.99642, 0, -0.37847, -170.599, 13.6381, 73.3904)
+use_collision = true
+size = Vector3(1, 7.05, 7.4)
