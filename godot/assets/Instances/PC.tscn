@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv3ps840or7n8"]
+[gd_scene load_steps=13 format=3 uid="uid://di3laugq41e6e"]
 
-[ext_resource type="Script" path="res://assets/Instances/changeSzene.gd" id="1_vljti"]
+[ext_resource type="Script" path="res://assets/Instances/pc.gd" id="1_bqgky"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5xw4"]
 bg_color = Color(0, 0.364706, 0.52549, 1)
@@ -71,6 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bqgky")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -224,6 +225,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_518sa")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_purc7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_u8vmp")
 text = "X"
-script = ExtResource("1_vljti")
 
-[connection signal="pressed" from="exit" to="exit" method="_on_main_button_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="exit" to="exit" method="_on_pressed"]

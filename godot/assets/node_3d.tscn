@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=50 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
 [ext_resource type="Script" path="res://scripts/use_pc.gd" id="4_56dsg"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/gegner_bewegung.gd" id="18_sxefn"]
 [ext_resource type="PackedScene" uid="uid://d33rewl64amxw" path="res://assets/Instances/audio.tscn" id="19_5beqm"]
 [ext_resource type="Script" path="res://scripts/deatharea.gd" id="20_q31as"]
+[ext_resource type="PackedScene" uid="uid://di3laugq41e6e" path="res://assets/Instances/PC.tscn" id="26_aowiy"]
 [ext_resource type="PackedScene" uid="uid://fodbwvg73jqq" path="res://assets/Instances/raum_5.tscn" id="35_chlt8"]
 [ext_resource type="Script" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
 [ext_resource type="PackedScene" uid="uid://joeq0xx7cuwg" path="res://assets/Beleuchtung.blend" id="42_15j4e"]
@@ -219,6 +220,27 @@ shader_parameter/EmissionStrength = 3.0
 size = Vector3(3.05853, 1, 8.52466)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="PC" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PC"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="PC/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1440, 1024)
+render_target_update_mode = 0
+
+[node name="Node2D" type="Node2D" parent="PC/SubViewportContainer/SubViewport"]
+
+[node name="Pc" parent="PC/SubViewportContainer/SubViewport/Node2D" instance=ExtResource("26_aowiy")]
 
 [node name="LampeRaum1" parent="." instance=ExtResource("42_15j4e")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.310543, 4.90069, 0.349203)
@@ -448,8 +470,7 @@ shape = SubResource("BoxShape3D_gvj5m")
 [node name="Sicherungskasten2" parent="." instance=ExtResource("48_dtbvd")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -4.3, 1.6, -1.7)
 
-[node name="SubViewport" type="SubViewport" parent="."]
-
+[connection signal="relay" from="PC/SubViewportContainer/SubViewport/Node2D/Pc" to="Computer_Tisch" method="_on_pc_relay"]
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]
