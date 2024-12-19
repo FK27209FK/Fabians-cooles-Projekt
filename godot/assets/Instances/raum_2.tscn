@@ -154,7 +154,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0.35, -0.35, -0.25)]
 }
 
 [sub_resource type="Animation" id="Animation_yvxo3"]
@@ -170,7 +170,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(3.7, 1.1, -3), Vector3(3.7, 5.9, -3)]
+"values": [Vector3(0.35, 0, -0.15), Vector3(0.35, 2.2, -0.15)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ykfhl"]
@@ -277,16 +277,19 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.875, -0.15)
 shape = SubResource("BoxShape3D_6a6u1")
 
-[node name="Plattform" parent="." instance=ExtResource("5_me168")]
+[node name="Plattform" parent="Aufzug" instance=ExtResource("5_me168")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.35, -0.35, -0.25)
 script = ExtResource("6_yhv5d")
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Plattform"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Aufzug/Plattform"]
 libraries = {
 "": SubResource("AnimationLibrary_ykfhl")
 }
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Plattform"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Aufzug/Plattform"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plattform/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Aufzug/Plattform/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19209e-07, 0)
 shape = SubResource("BoxShape3D_ra76n")
+
+[connection signal="body_entered" from="Aufzug" to="Aufzug/Plattform" method="_on_aufzug_body_entered"]

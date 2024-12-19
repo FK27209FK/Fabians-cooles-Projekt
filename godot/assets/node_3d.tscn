@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=51 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Script" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
 [ext_resource type="Script" path="res://scripts/use_pc.gd" id="4_56dsg"]
@@ -45,6 +45,20 @@ albedo_texture = ExtResource("6_npl21")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ry4hy"]
 size = Vector3(50, 1, 50)
+
+[sub_resource type="GDScript" id="GDScript_hrbav"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_yv0ba"]
 default_input_values = [0, Vector2(0, 0)]
@@ -253,7 +267,7 @@ light_color = Color(0.698311, 0.728599, 0.765548, 1)
 script = ExtResource("1_kjaci")
 
 [node name="Player" parent="." instance=ExtResource("8_vdfl2")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 11.95, 1, 0)
 collision_layer = 2
 speed = 6.0
 jump_height = 1.6
@@ -440,6 +454,7 @@ shape = SubResource("BoxShape3D_ry4hy")
 [node name="Raum 1" parent="Räume" instance=ExtResource("8_te61n")]
 
 [node name="Raum 2" parent="Räume" instance=ExtResource("9_vosqf")]
+script = SubResource("GDScript_hrbav")
 
 [node name="Raum 3" parent="Räume" instance=ExtResource("10_hw7ro")]
 
