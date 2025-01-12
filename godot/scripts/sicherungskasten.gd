@@ -25,6 +25,8 @@ func interact(collider):
 				showLabel = false
 				for light in lights:
 					light.light_color = Color(1,1,1) #Farbe zu weiß ändern
+					$"../SpotLight3D/LichtAus".visible = false
+					$"../SpotLight3D/LichtAn".visible = true
 					while light.light_energy < 2:
 						await get_tree().create_timer(0.05).timeout #Warte 0.05 Sekunden
 						light.light_energy = light.light_energy + 0.1
