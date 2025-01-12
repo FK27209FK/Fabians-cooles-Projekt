@@ -790,6 +790,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49137e-06, 0, -1.53315e-06)
 shape = SubResource("BoxShape3D_ry4hy")
 
 [node name="Schalter 1" parent="." instance=ExtResource("8_4q77u")]
+transform = Transform3D(-4.37114e-09, -0.1, 4.37114e-09, 2.11758e-23, -4.37114e-09, -0.1, 0.1, -4.37114e-09, 1.91069e-16, 5.25, 0.75, -2.6)
 
 [node name="Räume" type="Node3D" parent="."]
 
