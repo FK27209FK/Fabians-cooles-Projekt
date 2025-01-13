@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://fodbwvg73jqq"]
 
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_oyapy"]
-[ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="2_jvdtp"]
-[ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="3_veovt"]
-[ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="4_bpnec"]
+[ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_Emission.png" id="2_jvdtp"]
+[ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_BaseColor.png" id="3_veovt"]
+[ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_Attributes.png" id="4_bpnec"]
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_50fyg"]
 default_input_values = [0, Vector2(0, 0)]
@@ -194,7 +194,6 @@ size = Vector3(13.3571, 0.5, 11.909)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 2.27374e-14, 6.77626e-22, 0, -2.98023e-08, 1, 2.27374e-14, -1, -2.98023e-08, 12.95, 5.65, 11.45)
-light_color = Color(0.951157, 0.586819, 0.544975, 1)
 spot_range = 7.95
 spot_angle = 89.99
 

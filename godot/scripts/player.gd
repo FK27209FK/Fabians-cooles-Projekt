@@ -24,7 +24,7 @@ class_name Player extends CharacterBody3D
 ]
 
 # Total time in seconds (1 hour = 3600 seconds)
-var total_time: int = 3600
+var total_time: int = 600 #10min
 var playerIsAlive: bool = true
 var jumping: bool = false
 var mouse_captured: bool = false
