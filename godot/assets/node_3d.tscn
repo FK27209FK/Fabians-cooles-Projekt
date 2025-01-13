@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=79 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Texture2D" uid="uid://d15em0opo6p8k" path="res://assets/20 background textures for mtc-sets/space-gc497fd7be_640.png" id="1_743hh"]
 [ext_resource type="Script" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://crmv7tshub1fn" path="res://assets/TischMitMonitoren.blend" id="27_0kylr"]
 [ext_resource type="PackedScene" uid="uid://dineikd3xxv7x" path="res://assets/LichtAn.blend" id="27_8fk5c"]
 [ext_resource type="PackedScene" uid="uid://hc05fokka4k6" path="res://assets/LichtAus.blend" id="28_76n4b"]
+[ext_resource type="PackedScene" uid="uid://dtt30j2x62xcy" path="res://assets/Taschenlampe.blend" id="29_u2652"]
+[ext_resource type="Script" path="res://assets/taschenlampe.gd" id="30_mwol7"]
 [ext_resource type="PackedScene" uid="uid://fodbwvg73jqq" path="res://assets/Instances/raum_5.tscn" id="35_chlt8"]
 [ext_resource type="Script" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
@@ -419,6 +421,9 @@ data = PackedVector3Array(0, 1, -1, -1, 1, 1, -1, 1, -1, 0, 1, -1, 0, 1, 1, -1, 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6hlve"]
 data = PackedVector3Array(0, 1, -1, -1, 1, 1, -1, 1, -1, 0, 1, -1, 0, 1, 1, -1, 1, 1, 0, -1, 1, -1, 1, 1, 0, 1, 1, 0, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 0, -1, -1, 1, -1, 1.6766, 1, -1, -0.3234, 0, -1, -1, 0, -1, 1, 1, -1, 1.6766, 1, -1, -0.3234, 1, 1, 1.6766, 1, 1, -0.3234, 1, -1, -0.3234, 1, -1, 1.6766, 1, 1, 1.6766, 0, -1, -1, 1, 1, -0.3234, 0, 1, -1, 0, -1, -1, 1, -1, -0.3234, 1, 1, -0.3234, -1, -1, -1, 0, 1, -1, -1, 1, -1, -1, -1, -1, 0, -1, -1, 0, 1, -1, -1, -1, -1, 0, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, 1, 0, -1, 1, 1, -1, 1.6766, 0, 1, 1, 1, 1, 1.6766, 1, -1, 1.6766, 0, -1, 1, 0, 1, 1, 1, 1, -0.3234, 0, 1, 1, 0, 1, -1, 1, 1, -0.3234, 1, 1, 1.6766, 0, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_idn4x"]
+size = Vector3(1.99316, 2.37653, 4.69055)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -505,6 +510,10 @@ vertical_alignment = 1
 [node name="SchlüsselPoint" type="Node3D" parent="Player/Camera"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.446817, -0.334318, -1)
+
+[node name="Taschenlampenpoint" type="Node3D" parent="Player/Camera"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.426933, -0.343824, -0.67364)
 
 [node name="Game Over" type="Control" parent="Player"]
 visible = false
@@ -755,6 +764,17 @@ visible = false
 
 [node name="LichtAus" parent="SpotLight3D" instance=ExtResource("28_76n4b")]
 transform = Transform3D(-1, -8.74228e-08, 0, -2.6054e-15, 2.98023e-08, -1, 8.74228e-08, -1, -2.98023e-08, 0, 0, 0)
+
+[node name="Taschenlampe" parent="." instance=ExtResource("29_u2652")]
+transform = Transform3D(-4.37114e-09, 0, 0.2, 0, 0.1, 0, -0.1, 0, -8.74228e-09, 3.38648, 1.51984, -1.92737)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Taschenlampe"]
+collision_layer = 5
+script = ExtResource("30_mwol7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Taschenlampe/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0288067, -0.0338459, -0.285582)
+shape = SubResource("BoxShape3D_idn4x")
 
 [connection signal="relay" from="PC/SubViewportContainer/SubViewport/Node2D/Pc" to="TischMitMonitoren/Cube_009/StaticBody3D" method="_on_pc_relay"]
 [connection signal="relay" from="PC/SubViewportContainer/SubViewport/Node2D/Pc" to="TischMitMonitoren/Cube_007/StaticBody3D" method="_on_pc_relay"]
