@@ -1,4 +1,5 @@
 extends Node3D
+signal lichtAn
 @onready var showLabel = true
 @onready var collider
 @onready var lastpath
