@@ -26,9 +26,9 @@
 [ext_resource type="Script" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://tb3me6hh7tl" path="res://assets/Instances/raum_4.tscn" id="44_i4u54"]
-[ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_Emission.png" id="44_j745y"]
-[ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_BaseColor.png" id="45_dhbyt"]
-[ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_Attributes.png" id="46_3b36h"]
+[ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="44_j745y"]
+[ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="45_dhbyt"]
+[ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="46_3b36h"]
 [ext_resource type="PackedScene" uid="uid://cgoupxnky0xxl" path="res://assets/Instances/sicherungskasten.tscn" id="48_dtbvd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_b053g"]
