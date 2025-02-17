@@ -326,6 +326,7 @@ use_collision = true
 size = Vector3(1, 7.05, 7.4)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 2.27374e-14, 9.93882e-22, 0, -4.37114e-08, 1, 2.27374e-14, -1, -4.37114e-08, -225, 41, 118)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
@@ -339,6 +340,7 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(10, 2.84217e-13, 8.47033e-21, 0, -2.98023e-07, 10, 2.84217e-13, -10, -2.98023e-07, -129.5, 41, 129.5)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
@@ -352,6 +354,7 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(10, 3.12639e-13, 9.31736e-21, 0, -2.98023e-07, 10, 3.12639e-13, -10, -2.98023e-07, -160.5, 41, 62.0001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
@@ -365,6 +368,7 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(10, 2.55795e-13, 7.6233e-21, 0, -2.98023e-07, 10, 2.55795e-13, -10, -2.98023e-07, -52.0001, 41, 118)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
@@ -378,6 +382,7 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(10, 2.84217e-13, 8.47033e-21, 0, -2.98023e-07, 10, 2.84217e-13, -10, -2.98023e-07, 11.9999, 41, 125.5)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
@@ -391,6 +396,7 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D6" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(10, 3.41061e-13, 1.01644e-20, 0, -2.98023e-07, 10, 3.41061e-13, -10, -2.98023e-07, 57.9998, 41, 92.5001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
@@ -404,6 +410,7 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D7" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(10, 2.84217e-13, 8.47033e-21, 0, -2.98023e-07, 10, 2.84217e-13, -10, -2.98023e-07, -6.50009, 41, 89.5001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
@@ -417,6 +424,7 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D8" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(10, 3.41061e-13, 1.01644e-20, 0, -2.98023e-07, 10, 3.41061e-13, -10, -2.98023e-07, 30.9999, 41, 54.0001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
@@ -430,6 +438,7 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D9" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(10, 4.26326e-13, 1.27055e-20, 0, -2.98023e-07, 10, 4.26326e-13, -10, -2.98023e-07, 95.9999, 41, 94.5001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
@@ -443,6 +452,7 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D10" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(10, 3.97904e-13, 1.10114e-20, 0, -2.98023e-07, 10, 3.97904e-13, -10, -2.98023e-07, -169.5, 41, 92)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
@@ -456,6 +466,7 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D11" type="SpotLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(10, 3.41061e-13, 1.01644e-20, 0, -2.98023e-07, 10, 3.41061e-13, -10, -2.98023e-07, -92.0001, 41, 67.0001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
