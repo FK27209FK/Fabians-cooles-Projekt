@@ -817,7 +817,7 @@ transform = Transform3D(-4.37114e-09, -0.1, 4.37114e-09, 2.11758e-23, -4.37114e-
 
 [node name="Raum 3" parent="Räume" instance=ExtResource("10_hw7ro")]
 
-[node name="Raum 4" parent="Räume" instance=ExtResource("44_i4u54")]
+[node name="raum4" parent="Räume" instance=ExtResource("44_i4u54")]
 
 [node name="Raum 5" parent="Räume" instance=ExtResource("35_chlt8")]
 
@@ -979,10 +979,10 @@ surface_material_override/0 = SubResource("ShaderMaterial_uwd76")
 [connection signal="relay" from="PC/SubViewportContainer/SubViewport/Node2D/Pc" to="TischMitMonitoren/Cube_007/StaticBody3D" method="_on_pc_relay"]
 [connection signal="relay" from="PC/SubViewportContainer/SubViewport/Node2D/Pc" to="TischMitMonitoren/Cube_005/StaticBody3D" method="_on_pc_relay"]
 [connection signal="relay" from="PC/SubViewportContainer/SubViewport/Node2D/Pc" to="TischMitMonitoren/Cube_003/StaticBody3D" method="_on_pc_relay"]
+[connection signal="reaktortimeraktualisieren" from="Player" to="Räume/raum4" method="_on_player_reaktortimeraktualisieren"]
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]
-[connection signal="lichtAn" from="Sicherungskasten2" to="Räume/Raum 4" method="_on_sicherungskasten_2_licht_an"]
 [connection signal="LichtAus" from="Taschenlampe/Cylinder/StaticBody3D" to="Taschenlampe" method="_on_static_body_3d_licht_aus"]
 
 [editable path="key"]
