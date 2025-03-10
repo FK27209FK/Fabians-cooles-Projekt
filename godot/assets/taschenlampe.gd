@@ -6,6 +6,8 @@ var showLabel = true
 const Taschenlampen_INSTANCE = preload("res://assets/Instances/taschenlampe.tscn")
 var interactText = "Taschenlampe Aufheben [E]"
 
+#Test
+
 func interact():
 	var Taschenlampe = Taschenlampen_INSTANCE.instantiate()
 	%Taschenlampenpoint.add_child(Taschenlampe)
