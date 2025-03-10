@@ -62,9 +62,6 @@ albedo_texture = ExtResource("6_npl21")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ry4hy"]
 size = Vector3(50, 1, 50)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ahcei"]
-size = Vector3(3.82617, 1.15, 6.97314)
-
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_yv0ba"]
 default_input_values = [0, Vector2(0, 0)]
 op_type = 0
@@ -823,33 +820,6 @@ transform = Transform3D(-4.37114e-09, -0.1, 4.37114e-09, 2.11758e-23, -4.37114e-
 [node name="raum4" parent="Räume" instance=ExtResource("44_i4u54")]
 
 [node name="Raum 5" parent="Räume" instance=ExtResource("35_chlt8")]
-
-[node name="Bett" parent="Räume/Raum 5" instance=ExtResource("16_1tgl0")]
-transform = Transform3D(-2.62268e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.62268e-08, 19, 1, 7.5)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 5/Bett"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 5/Bett/StaticBody3D"]
-transform = Transform3D(1, 0, 4.83169e-13, 0, 1, 0, -4.83169e-13, 0, 1, -0.0644541, -0.0749999, 2.98657)
-shape = SubResource("BoxShape3D_ahcei")
-
-[node name="Bett2" parent="Räume/Raum 5" instance=ExtResource("16_1tgl0")]
-transform = Transform3D(-2.62268e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.62268e-08, 19, 1, 11)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 5/Bett2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 5/Bett2/StaticBody3D"]
-transform = Transform3D(1, 0, 4.83169e-13, 0, 1, 0, -4.83169e-13, 0, 1, -0.0644541, -0.0749999, 2.98657)
-shape = SubResource("BoxShape3D_ahcei")
-
-[node name="Bett3" parent="Räume/Raum 5" instance=ExtResource("16_1tgl0")]
-transform = Transform3D(-2.62268e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.62268e-08, 19, 1, 14.5)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Räume/Raum 5/Bett3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Räume/Raum 5/Bett3/StaticBody3D"]
-transform = Transform3D(1, 0, 4.83169e-13, 0, 1, 0, -4.83169e-13, 0, 1, -0.0644541, -0.0749999, 2.98657)
-shape = SubResource("BoxShape3D_ahcei")
 
 [node name="Raum 6" parent="Räume" instance=ExtResource("13_02c0j")]
 
