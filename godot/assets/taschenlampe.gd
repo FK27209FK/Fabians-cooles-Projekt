@@ -1,12 +1,9 @@
 extends Node3D
 
-signal LichtAus
 var PlayerOwnsItem = false
 var showLabel = true
 const Taschenlampen_INSTANCE = preload("res://assets/Instances/taschenlampe.tscn")
 var interactText = "Taschenlampe Aufheben [E]"
-
-#Test
 
 func interact():
 	var Taschenlampe = Taschenlampen_INSTANCE.instantiate()
@@ -19,6 +16,7 @@ func _process(_delta: float) -> void:
 		$"../../DropControl".visible = true
 		if Input.is_action_just_pressed("drop_item"):
 			print("test")
+			#TODO
 			$"../../DropControl".visible = false
 		if Input.is_action_just_released("toggle_item"):
 			print("toggle")
