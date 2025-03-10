@@ -12,7 +12,7 @@ func interact():
 	get_parent().visible = false
 	PlayerOwnsItem = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if PlayerOwnsItem:
 		$"../../DropControl".visible = true
 		if Input.is_action_just_pressed("drop_item"):
