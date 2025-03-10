@@ -1,31 +1,31 @@
 [gd_scene load_steps=98 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Texture2D" uid="uid://d15em0opo6p8k" path="res://assets/20 background textures for mtc-sets/space-gc497fd7be_640.png" id="1_743hh"]
-[ext_resource type="Script" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
-[ext_resource type="Script" path="res://scripts/use_pc.gd" id="4_56dsg"]
+[ext_resource type="Script" uid="uid://hc18lharhgd7" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
+[ext_resource type="Script" uid="uid://b1x70m31dyx5s" path="res://scripts/use_pc.gd" id="4_56dsg"]
 [ext_resource type="Texture2D" uid="uid://b3w5x60ik18lh" path="res://assets/20 background textures for mtc-sets/hg01.png" id="6_npl21"]
 [ext_resource type="PackedScene" uid="uid://bivpeu5cfwqnt" path="res://assets/Instances/schalter_1.tscn" id="8_4q77u"]
 [ext_resource type="PackedScene" uid="uid://b44vepus6yx37" path="res://assets/Instances/raum_1.tscn" id="8_te61n"]
 [ext_resource type="PackedScene" uid="uid://8dwqpqkq4j6n" path="res://assets/player.tscn" id="8_vdfl2"]
-[ext_resource type="Script" path="res://scripts/interact.gd" id="9_2up1x"]
+[ext_resource type="Script" uid="uid://b88jpkmkg22oo" path="res://scripts/interact.gd" id="9_2up1x"]
 [ext_resource type="PackedScene" uid="uid://dekjnsishyetk" path="res://assets/Instances/raum_2.tscn" id="9_vosqf"]
 [ext_resource type="PackedScene" uid="uid://d1e6rsl508t8t" path="res://assets/Instances/raum_3.tscn" id="10_hw7ro"]
 [ext_resource type="PackedScene" uid="uid://dscn3fpcul2mw" path="res://assets/Instances/raum_6.tscn" id="13_02c0j"]
 [ext_resource type="PackedScene" uid="uid://b3jfapxcnfjx0" path="res://assets/Instances/raum_7.tscn" id="14_55rdn"]
 [ext_resource type="PackedScene" uid="uid://bep4cinay7ach" path="res://assets/Gegner.blend" id="14_otkgv"]
 [ext_resource type="PackedScene" uid="uid://dt6uk2vr5pd1d" path="res://assets/gang.blend" id="18_027nc"]
-[ext_resource type="Script" path="res://scripts/gegner_bewegung.gd" id="18_sxefn"]
+[ext_resource type="Script" uid="uid://853d8t2rn00h" path="res://scripts/gegner_bewegung.gd" id="18_sxefn"]
 [ext_resource type="PackedScene" uid="uid://d33rewl64amxw" path="res://assets/Instances/audio.tscn" id="19_5beqm"]
-[ext_resource type="Script" path="res://scripts/deatharea.gd" id="20_q31as"]
+[ext_resource type="Script" uid="uid://b4ucqd111gvoy" path="res://scripts/deatharea.gd" id="20_q31as"]
 [ext_resource type="PackedScene" uid="uid://di3laugq41e6e" path="res://assets/Instances/PC.tscn" id="26_aowiy"]
 [ext_resource type="PackedScene" uid="uid://crmv7tshub1fn" path="res://assets/TischMitMonitoren.blend" id="27_0kylr"]
 [ext_resource type="PackedScene" uid="uid://dineikd3xxv7x" path="res://assets/LichtAn.blend" id="27_8fk5c"]
 [ext_resource type="PackedScene" uid="uid://hc05fokka4k6" path="res://assets/LichtAus.blend" id="28_76n4b"]
 [ext_resource type="PackedScene" uid="uid://dee6qmsdic5dj" path="res://assets/Instances/taschenlampe.tscn" id="29_cjm7s"]
-[ext_resource type="Script" path="res://assets/taschenlampe.gd" id="30_mwol7"]
+[ext_resource type="Script" uid="uid://ck42qlqftp6p0" path="res://assets/taschenlampe.gd" id="30_mwol7"]
 [ext_resource type="PackedScene" uid="uid://c0e7f3puwecms" path="res://assets/Reagenzglas.blend" id="32_v5lon"]
 [ext_resource type="PackedScene" uid="uid://fodbwvg73jqq" path="res://assets/Instances/raum_5.tscn" id="35_chlt8"]
-[ext_resource type="Script" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
+[ext_resource type="Script" uid="uid://b0vecck2rxpec" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://tb3me6hh7tl" path="res://assets/Instances/raum_4.tscn" id="44_i4u54"]
 [ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="44_j745y"]
@@ -121,7 +121,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 uniform sampler2D tex_frg_6;
 uniform sampler2D tex_frg_14;
 uniform sampler2D tex_frg_13;
-uniform float EmissionStrength : hint_range(0, 20) = 3;
+uniform float EmissionStrength : hint_range(0.0, 20.0) = 3.0;
 
 
 
@@ -294,7 +294,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 uniform sampler2D tex_frg_6;
 uniform sampler2D tex_frg_14;
 uniform sampler2D tex_frg_13;
-uniform float EmissionStrength : hint_range(0, 20) = 3;
+uniform float EmissionStrength : hint_range(0.0, 20.0) = 3.0;
 
 
 
@@ -490,7 +490,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 uniform sampler2D tex_frg_6;
 uniform sampler2D tex_frg_14;
 uniform sampler2D tex_frg_13;
-uniform float EmissionStrength : hint_range(0, 20) = 3;
+uniform float EmissionStrength : hint_range(0.0, 20.0) = 3.0;
 
 
 

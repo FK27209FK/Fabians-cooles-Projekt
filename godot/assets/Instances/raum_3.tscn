@@ -59,8 +59,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lfjpu"]
 _data = {
-"RESET": SubResource("Animation_q8oqq"),
-"oeffnen": SubResource("Animation_42is0")
+&"RESET": SubResource("Animation_q8oqq"),
+&"oeffnen": SubResource("Animation_42is0")
 }
 
 [node name="Raum 3" type="Node3D"]

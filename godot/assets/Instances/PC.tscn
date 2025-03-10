@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://di3laugq41e6e"]
 
-[ext_resource type="Script" path="res://assets/Instances/pc.gd" id="1_bqgky"]
-[ext_resource type="Script" path="res://assets/Instances/reaktortimer.gd" id="2_mksex"]
+[ext_resource type="Script" uid="uid://ms4xaem4lq0i" path="res://assets/Instances/pc.gd" id="1_bqgky"]
+[ext_resource type="Script" uid="uid://cic01olq48yyj" path="res://assets/Instances/reaktortimer.gd" id="2_mksex"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5xw4"]
 bg_color = Color(0, 0.364706, 0.52549, 1)

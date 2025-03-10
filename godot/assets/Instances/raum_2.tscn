@@ -1,11 +1,11 @@
 [gd_scene load_steps=42 format=3 uid="uid://dekjnsishyetk"]
 
-[ext_resource type="Script" path="res://scripts/test_tür.gd" id="1_g8nha"]
+[ext_resource type="Script" uid="uid://coceiefrebvuk" path="res://scripts/test_tür.gd" id="1_g8nha"]
 [ext_resource type="PackedScene" uid="uid://bavm420ysjtq1" path="res://assets/Schalter_Hebel.fbx" id="2_oaxje"]
-[ext_resource type="Script" path="res://scripts/schalter1FalltuerRaum2.gd" id="3_rnbus"]
+[ext_resource type="Script" uid="uid://eo38qw0guec4" path="res://scripts/schalter1FalltuerRaum2.gd" id="3_rnbus"]
 [ext_resource type="PackedScene" uid="uid://b0smyonys6pd3" path="res://assets/Schalter_main.fbx" id="4_vgfi2"]
 [ext_resource type="PackedScene" uid="uid://dhtya8d40p78s" path="res://assets/Plattform.blend" id="5_me168"]
-[ext_resource type="Script" path="res://assets/set_pos.gd" id="6_yhv5d"]
+[ext_resource type="Script" uid="uid://1f82y83stx2j" path="res://assets/set_pos.gd" id="6_yhv5d"]
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="7_bhlv1"]
 [ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="8_lu3ee"]
 [ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="9_lag32"]
@@ -70,8 +70,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lfjpu"]
 _data = {
-"RESET": SubResource("Animation_q8oqq"),
-"oeffnen": SubResource("Animation_42is0")
+&"RESET": SubResource("Animation_q8oqq"),
+&"oeffnen": SubResource("Animation_42is0")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ct0x"]
@@ -139,8 +139,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_77yno"]
 _data = {
-"RESET": SubResource("Animation_lwqcx"),
-"falltuerOeffnen": SubResource("Animation_e8dlp")
+&"RESET": SubResource("Animation_lwqcx"),
+&"falltuerOeffnen": SubResource("Animation_e8dlp")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6a6u1"]
@@ -179,8 +179,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ykfhl"]
 _data = {
-"RESET": SubResource("Animation_thwpa"),
-"aufzug_2": SubResource("Animation_yvxo3")
+&"RESET": SubResource("Animation_thwpa"),
+&"aufzug_2": SubResource("Animation_yvxo3")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ra76n"]
@@ -245,7 +245,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 uniform sampler2D tex_frg_6;
 uniform sampler2D tex_frg_14;
 uniform sampler2D tex_frg_13;
-uniform float EmissionStrength : hint_range(0, 20) = 3;
+uniform float EmissionStrength : hint_range(0.0, 20.0) = 3.0;
 
 
 

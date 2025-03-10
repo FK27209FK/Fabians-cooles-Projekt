@@ -72,8 +72,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jiodu"]
 _data = {
-"RESET": SubResource("Animation_gujuv"),
-"oeffnen": SubResource("Animation_kwc3t")
+&"RESET": SubResource("Animation_gujuv"),
+&"oeffnen": SubResource("Animation_kwc3t")
 }
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_h0sga"]
@@ -135,7 +135,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 uniform sampler2D tex_frg_6;
 uniform sampler2D tex_frg_14;
 uniform sampler2D tex_frg_13;
-uniform float EmissionStrength : hint_range(0, 20) = 3;
+uniform float EmissionStrength : hint_range(0.0, 20.0) = 3.0;
 
 
 

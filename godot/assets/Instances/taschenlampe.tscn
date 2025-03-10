@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dee6qmsdic5dj"]
 
 [ext_resource type="PackedScene" uid="uid://dtt30j2x62xcy" path="res://assets/Taschenlampe.blend" id="1_fdsnd"]
-[ext_resource type="Script" path="res://scripts/taschenlampe.gd" id="2_ywr4n"]
+[ext_resource type="Script" uid="uid://clx77kcr60ica" path="res://scripts/taschenlampe.gd" id="2_ywr4n"]
 
 [node name="Taschenlampe" instance=ExtResource("1_fdsnd")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
