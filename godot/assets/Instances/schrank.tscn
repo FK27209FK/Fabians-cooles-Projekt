@@ -1,0 +1,182 @@
+[gd_scene load_steps=21 format=3 uid="uid://biopdida1lree"]
+
+[ext_resource type="PackedScene" uid="uid://c2b1ujr18x845" path="res://assets/Schrank.blend" id="1_o4q75"]
+[ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="2_1vex7"]
+[ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="3_45dhq"]
+[ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="4_31csq"]
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_ur0jb"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_docsw"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_o1ej6"]
+function = 31
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_aw83g"]
+output_port_for_preview = 0
+texture = ExtResource("2_1vex7")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_bg3cr"]
+texture = ExtResource("3_45dhq")
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_6dxje"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(3, 3, 3, 1)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_i1c6x"]
+parameter_name = "EmissionStrength"
+hint = 1
+max = 20.0
+default_value_enabled = true
+default_value = 3.0
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_o75i7"]
+default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 0.0]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_o333q"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_ugmfk"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_510us"]
+texture = ExtResource("4_31csq")
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_wb8t1"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_tmt1b"]
+operator = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_56wqh"]
+input_name = "uv"
+
+[sub_resource type="VisualShader" id="VisualShader_w4q7g"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_6;
+uniform sampler2D tex_frg_14;
+uniform sampler2D tex_frg_13;
+uniform float EmissionStrength : hint_range(0, 20) = 3;
+
+
+
+void fragment() {
+// Input:9
+	vec2 n_out9p0 = UV;
+
+
+// VectorDecompose:10
+	float n_out10p0 = n_out9p0.x;
+	float n_out10p1 = n_out9p0.y;
+
+
+// Input:3
+	float n_out3p0 = TIME;
+
+
+// Texture2D:6
+	vec4 n_out6p0 = texture(tex_frg_6, UV);
+
+
+// VectorDecompose:7
+	float n_out7p0 = n_out6p0.x;
+	float n_out7p1 = n_out6p0.y;
+	float n_out7p2 = n_out6p0.z;
+	float n_out7p3 = n_out6p0.w;
+
+
+// FloatOp:4
+	float n_out4p0 = n_out3p0 * n_out7p2;
+
+
+// FloatOp:8
+	float n_out8p0 = n_out10p1 - n_out4p0;
+
+
+// VectorCompose:11
+	vec2 n_out11p0 = vec2(n_out10p0, n_out8p0);
+
+
+// Texture2D:14
+	vec4 n_out14p0 = texture(tex_frg_14, n_out11p0);
+
+
+// FloatFunc:12
+	float n_out12p0 = 1.0 - n_out7p1;
+
+
+// Texture2D:13
+	vec4 n_out13p0 = texture(tex_frg_13, n_out11p0);
+
+
+// FloatParameter:16
+	float n_out16p0 = EmissionStrength;
+
+
+// VectorCompose:17
+	float n_in17p3 = 0.00000;
+	vec4 n_out17p0 = vec4(n_out16p0, n_out16p0, n_out16p0, n_in17p3);
+
+
+// VectorOp:15
+	vec4 n_out15p0 = n_out13p0 * n_out17p0;
+
+
+// Output:0
+	ALBEDO = vec3(n_out14p0.xyz);
+	METALLIC = n_out7p0;
+	ROUGHNESS = n_out12p0;
+	EMISSION = vec3(n_out15p0.xyz);
+
+
+}
+"
+nodes/fragment/0/position = Vector2(1500, -360)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_o333q")
+nodes/fragment/3/position = Vector2(60, 100)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatOp_ugmfk")
+nodes/fragment/4/position = Vector2(360, 280)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_510us")
+nodes/fragment/6/position = Vector2(-620, 60)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorDecompose_wb8t1")
+nodes/fragment/7/position = Vector2(-320, -40)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatOp_tmt1b")
+nodes/fragment/8/position = Vector2(520, 180)
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_56wqh")
+nodes/fragment/9/position = Vector2(-220, -320)
+nodes/fragment/10/node = SubResource("VisualShaderNodeVectorDecompose_ur0jb")
+nodes/fragment/10/position = Vector2(160, -360)
+nodes/fragment/11/node = SubResource("VisualShaderNodeVectorCompose_docsw")
+nodes/fragment/11/position = Vector2(620, -80)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatFunc_o1ej6")
+nodes/fragment/12/position = Vector2(1060, -220)
+nodes/fragment/13/node = SubResource("VisualShaderNodeTexture_aw83g")
+nodes/fragment/13/position = Vector2(1040, -140)
+nodes/fragment/14/node = SubResource("VisualShaderNodeTexture_bg3cr")
+nodes/fragment/14/position = Vector2(1020, -560)
+nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_6dxje")
+nodes/fragment/15/position = Vector2(1320, 240)
+nodes/fragment/16/node = SubResource("VisualShaderNodeFloatParameter_i1c6x")
+nodes/fragment/16/position = Vector2(640, 320)
+nodes/fragment/17/node = SubResource("VisualShaderNodeVectorCompose_o75i7")
+nodes/fragment/17/position = Vector2(1040, 300)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 6, 0, 7, 0, 7, 2, 4, 1, 9, 0, 10, 0, 10, 1, 8, 0, 4, 0, 8, 1, 10, 0, 11, 0, 8, 0, 11, 1, 7, 0, 0, 2, 7, 1, 12, 0, 11, 0, 13, 0, 12, 0, 0, 3, 14, 0, 0, 0, 11, 0, 14, 0, 13, 0, 15, 0, 15, 0, 0, 5, 17, 0, 15, 1, 16, 0, 17, 0, 16, 0, 17, 1, 16, 0, 17, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xr7ne"]
+render_priority = 0
+shader = SubResource("VisualShader_w4q7g")
+shader_parameter/EmissionStrength = 3.0
+
+[node name="Schrank" instance=ExtResource("1_o4q75")]
+
+[node name="Cylinder" parent="." index="0"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 5.4, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_xr7ne")
