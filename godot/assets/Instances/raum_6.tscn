@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dscn3fpcul2mw"]
+[gd_scene load_steps=22 format=3 uid="uid://dscn3fpcul2mw"]
 
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_vojm0"]
 [ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="2_iuk87"]
 [ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="3_hn66x"]
 [ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="4_ldy85"]
+[ext_resource type="PackedScene" uid="uid://c2b8jmjj0ibam" path="res://assets/serverschrank.blend" id="5_bssf7"]
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_2fk38"]
 default_input_values = [0, Vector2(0, 0)]
@@ -203,12 +204,12 @@ use_collision = true
 size = Vector3(1, 3.9, 8.9)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand11"]
-transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, 0, -0.75, 0)
+transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, -0.149998, -0.75, 4.47035e-08)
 operation = 2
-size = Vector3(1.5, 2.5, 0.5)
+size = Vector3(1.5, 2.5, 0.95)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 2.27374e-14, 6.77626e-22, 0, -2.98023e-08, 1, 2.27374e-14, -1, -2.98023e-08, 8.6, 9.85, 0)
+transform = Transform3D(1, 2.27374e-14, 6.77627e-22, 0, -2.98023e-08, 1, 2.27374e-14, -1, -2.98023e-08, 8.6, 9.3, -1.35)
 spot_range = 7.95
 spot_angle = 89.99
 
@@ -219,4 +220,50 @@ transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 
 transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_nf47s")
 
+[node name="serverschrank" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 7.3, 6.7, 3.7)
+
+[node name="serverschrank2" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 9.3, 6.7, 3.7)
+
+[node name="serverschrank3" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 11.3, 6.7, 3.7)
+
+[node name="serverschrank4" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 13.3, 6.7, 3.7)
+
+[node name="serverschrank5" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 15.3, 6.7, 3.7)
+
+[node name="serverschrank8" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 0.8, 0, 1, 0, 1.31134e-07, 11.3, 6.7, -3.3)
+
+[node name="serverschrank9" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 0.8, 0, 1, 0, 1.31134e-07, 9.3, 6.7, -3.3)
+
+[node name="serverschrank10" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 0.8, 0, 1, 0, 1.31134e-07, 7.3, 6.7, -3.3)
+
+[node name="serverschrank11" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 7.3, 6.7, 0.7)
+
+[node name="serverschrank12" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 9.3, 6.7, 0.7)
+
+[node name="serverschrank13" parent="." instance=ExtResource("5_bssf7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 11.3, 6.7, 0.7)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 2.27374e-14, 6.77627e-22, 0, -2.98023e-08, 1, 2.27374e-14, -1, -2.98023e-08, 14.1, 9.3, 0.85)
+spot_range = 7.95
+spot_angle = 89.99
+
+[node name="Licht" parent="SpotLight3D2" instance=ExtResource("1_vojm0")]
+transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+
+[node name="Cylinder" parent="SpotLight3D2/Licht" index="0"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+surface_material_override/0 = SubResource("ShaderMaterial_nf47s")
+
 [editable path="SpotLight3D/Licht"]
+[editable path="SpotLight3D2/Licht"]
