@@ -1,10 +1,76 @@
-[gd_scene load_steps=22 format=3 uid="uid://tb3me6hh7tl"]
+[gd_scene load_steps=28 format=3 uid="uid://tb3me6hh7tl"]
 
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_6lxik"]
 [ext_resource type="Script" uid="uid://8gewydrgfr5i" path="res://scripts/raum_4_relay.gd" id="1_wj7xp"]
 [ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="2_cbeb7"]
+[ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="2_g41s0"]
 [ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="3_e72a8"]
+[ext_resource type="Script" uid="uid://djqr3jcbeooah" path="res://scripts/tuer.gd" id="3_yo0wv"]
 [ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="4_66j88"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yo0wv"]
+size = Vector3(2.9, 4.6, 1)
+
+[sub_resource type="Animation" id="Animation_gujuv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tuer_L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tuer_R:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06)]
+}
+
+[sub_resource type="Animation" id="Animation_kwc3t"]
+resource_name = "oeffnen"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tuer_L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06), Vector3(2.9, 0, 1.90735e-06)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tuer_R:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06), Vector3(-2.8, 0, 1.90735e-06)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jiodu"]
+_data = {
+&"RESET": SubResource("Animation_gujuv"),
+&"oeffnen": SubResource("Animation_kwc3t")
+}
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_50fyg"]
 default_input_values = [0, Vector2(0, 0)]
@@ -181,37 +247,89 @@ transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 
 script = ExtResource("1_wj7xp")
 
 [node name="Wand17" type="CSGBox3D" parent="."]
-transform = Transform3D(4.99642, 0, -0.378471, 0, 10, 0, 0.189235, 0, 9.99284, -111.179, 8.9381, 84.415)
+transform = Transform3D(4.99642, 0, -0.37847, 0, 10, 0, 0.189235, 0, 9.99284, -111.179, 8.9381, 84.415)
 use_collision = true
 size = Vector3(1, 7.99, 6.25)
 
+[node name="Wand4" type="CSGBox3D" parent="Wand17"]
+transform = Transform3D(-0.500003, 0, -2.25753e-06, 0, 1, 0, 2.47732e-07, 0, -1.00001, -24.8259, 1.14763, 0.996138)
+use_collision = true
+size = Vector3(1, 5.2, 11.45)
+
+[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand17/Wand4"]
+transform = Transform3D(-8.9407e-08, 0, 2, 0, 1, 0, -1, 0, -4.47035e-08, 0.0545158, -1.35, -1.20237)
+operation = 2
+size = Vector3(3, 2.3, 0.85)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wand17/Wand4"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86265e-09, 0.707107, 0.707107, 0.00459099, 0.0482314, -2.94376)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Wand17/Wand4"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86265e-09, 0.707107, 0.707107, 0.00458908, 0.0482314, 0.537178)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Wand17/Wand4"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86265e-09, 0.707107, 0.707107, 0.00459099, -2.69907, -2.94376)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Wand17/Wand4"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86265e-09, 0.707107, 0.707107, 0.00458908, -2.81806, 0.459598)
+
+[node name="Tuer1" type="Node3D" parent="Wand17"]
+transform = Transform3D(7.45058e-09, 0, -0.5, 0, 0.5, 0, 0.5, 0, -3.72529e-09, -24.7099, -0.19584, 2.20631)
+
+[node name="tuer_L" parent="Wand17/Tuer1" instance=ExtResource("2_g41s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.90735e-06)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wand17/Tuer1/tuer_L"]
+collision_layer = 5
+script = ExtResource("3_yo0wv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand17/Tuer1/tuer_L/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.38419e-07, 0)
+shape = SubResource("BoxShape3D_yo0wv")
+
+[node name="tuer_R" parent="Wand17/Tuer1" instance=ExtResource("2_g41s0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 1.90735e-06)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wand17/Tuer1/tuer_R"]
+collision_layer = 5
+script = ExtResource("3_yo0wv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand17/Tuer1/tuer_R/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.38419e-07, 0)
+shape = SubResource("BoxShape3D_yo0wv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wand17/Tuer1"]
+libraries = {
+&"": SubResource("AnimationLibrary_jiodu")
+}
+
 [node name="Wand18" type="CSGBox3D" parent="."]
-transform = Transform3D(4.99642, 0, -0.378471, 0, 10, 0, 0.189235, 0, 9.99284, -77.2459, 8.9381, 89.1638)
+transform = Transform3D(4.99642, 0, -0.37847, 0, 10, 0, 0.189235, 0, 9.99284, -77.2459, 8.9381, 89.1638)
 use_collision = true
 size = Vector3(1, 7.99, 5.9)
 
 [node name="Wand20" type="CSGBox3D" parent="."]
-transform = Transform3D(4.99642, 0, -0.378471, 0, 10, 0, 0.189235, 0, 9.99284, -93.0692, 8.9381, 110.898)
+transform = Transform3D(4.99642, 0, -0.37847, 0, 10, 0, 0.189235, 0, 9.99284, -93.0692, 8.9381, 110.898)
 use_collision = true
 size = Vector3(1, 7.99, 6.25)
 
 [node name="Wand21" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.99987, 0, -0.0713828, 0, 10, 0, 0.0356914, 0, -9.99974, -22.3784, 11.2733, 120.841)
+transform = Transform3D(-4.99987, 0, -0.0713834, 0, 10, 0, 0.0356917, 0, -9.99974, -22.3784, 17.3432, 120.841)
 use_collision = true
-size = Vector3(1, 7.01398, 5.4)
+size = Vector3(1, 5.8, 5.4)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand21"]
-transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, -0.249985, -1.5, 0.75)
+transform = Transform3D(-4.37114e-08, 0, 2, 0, 1, 0, -1, 0, -8.74228e-08, -0.249985, -1.5, 0.75)
 operation = 2
 size = Vector3(3, 2, 0.85)
 
 [node name="Wand22" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.99987, 0, -0.0713828, 0, 10, 0, 0.0356914, 0, -9.99974, -22.3315, 11.2733, 72.3408)
+transform = Transform3D(-4.99987, 0, -0.0713834, 0, 10, 0, 0.0356917, 0, -9.99974, -22.3315, 11.2733, 72.3408)
 use_collision = true
 size = Vector3(1, 7.01398, 4.5)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand22"]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.5, 0)
+transform = Transform3D(-4.37114e-08, 0, 2, 0, 1, 0, -1, 0, -8.74228e-08, 0, -1.5, 0)
 operation = 2
 size = Vector3(1.5, 2, 0.5)
 
@@ -221,7 +339,7 @@ use_collision = true
 size = Vector3(1, 8.8, 13.6)
 
 [node name="Wand24" type="CSGBox3D" parent="."]
-transform = Transform3D(5, 0, -8.52651e-14, 0, 10, 0, 4.26326e-14, 0, 10, 107.956, 17.7356, 92.1163)
+transform = Transform3D(5, 0, -8.52652e-14, 0, 10, 0, 4.26326e-14, 0, 10, 107.956, 17.7356, 92.1163)
 use_collision = true
 size = Vector3(1, 6, 11.25)
 
@@ -236,12 +354,12 @@ use_collision = true
 size = Vector3(1, 8.8, 5.8)
 
 [node name="Wand26" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.99987, 0, -0.0713828, 0, 10, 0, 0.0356914, 0, -9.99974, 30.6896, 11.2733, 90.3406)
+transform = Transform3D(-4.99987, 0, -0.0713834, 0, 10, 0, 0.0356917, 0, -9.99974, 30.6896, 11.2733, 90.3406)
 use_collision = true
 size = Vector3(1, 7.01398, 3.9)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand26"]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.5, 0)
+transform = Transform3D(-4.37114e-08, 0, 2, 0, 1, 0, -1, 0, -8.74228e-08, 0, -1.5, 0)
 operation = 2
 size = Vector3(1.5, 2, 0.5)
 
@@ -256,12 +374,12 @@ use_collision = true
 size = Vector3(1, 8.8, 5.8)
 
 [node name="Wand29" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.99987, 0, -0.0713828, 0, 10, 0, 0.0356914, 0, -9.99974, 84.7536, 11.2733, 99.3404)
+transform = Transform3D(-4.99987, 0, -0.0713834, 0, 10, 0, 0.0356917, 0, -9.99974, 84.7536, 11.2733, 99.3404)
 use_collision = true
 size = Vector3(1, 7.01398, 5.7)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand29"]
-transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, 0, -2.4995, 0)
+transform = Transform3D(-4.37114e-08, 0, 2, 0, 1, 0, -1, 0, -8.74228e-08, 0, -2.4995, 0)
 operation = 2
 size = Vector3(1.5, 0.001, 0.5)
 
@@ -281,14 +399,14 @@ use_collision = true
 size = Vector3(1, 8.8, 3.3)
 
 [node name="Wand33" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -129.794, 3.7356, 51.8663)
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -129.544, 3.2356, 51.8663)
 use_collision = true
-size = Vector3(1, 8.8, 21.15)
+size = Vector3(1, 8.7, 21.1)
 
 [node name="Decke6" type="CSGBox3D" parent="."]
-transform = Transform3D(0.121472, 0, 9.99926, 0, 10, 0, -9.99926, 0, 0.121472, -123.865, 44.0104, 89.4007)
+transform = Transform3D(0.121472, 0, 9.99926, 0, 10, 0, -9.99926, 0, 0.121472, -122.615, 44.0104, 89.4159)
 use_collision = true
-size = Vector3(11.1, 0.5, 22.75)
+size = Vector3(11.1, 0.5, 22.5)
 
 [node name="Wand34" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -75.0444, 3.7356, 33.8663)
@@ -296,22 +414,22 @@ use_collision = true
 size = Vector3(1, 8.8, 10)
 
 [node name="Wand" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -66.11, 1.427, 144.657)
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -66.36, 1.427, 144.657)
 use_collision = true
-size = Vector3(1, 8.54303, 34.35)
+size = Vector3(1, 8.54303, 34.4)
 
 [node name="Wand4" type="CSGBox3D" parent="."]
-transform = Transform3D(0.0356915, 0, -9.99974, 0, 10, 0, 4.99987, 0, 0.0713829, -180.411, 10.2496, 34.0534)
+transform = Transform3D(0.0356913, 0, -9.99974, 0, 10, 0, 4.99987, 0, 0.0713826, -178.582, 10.2496, 34.0404)
 use_collision = true
-size = Vector3(1, 7.01398, 11.5158)
+size = Vector3(1, 7.01398, 11.15)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, 0.200001, -1.5, -3.8147e-06)
+transform = Transform3D(-4.37722e-08, 0, 2, 0, 1, 0, -1, 0, -8.75443e-08, 0.55917, -0.55, -12.3122)
 operation = 2
-size = Vector3(1.5, 2, 1)
+size = Vector3(2.675, 2, 1.175)
 
 [node name="Wand36" type="CSGBox3D" parent="."]
-transform = Transform3D(0.189235, 0, 9.99284, 0, 10, 0, -4.99642, 0, 0.378471, -159.861, 8.9381, 111.734)
+transform = Transform3D(0.189235, 0, 9.99284, 0, 10, 0, -4.99642, 0, 0.37847, -159.861, 8.9381, 111.734)
 use_collision = true
 size = Vector3(1, 7.99, 10.1)
 
@@ -321,164 +439,166 @@ use_collision = true
 size = Vector3(1, 7.05, 4.05)
 
 [node name="Wand38" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.189234, 0, -9.99284, 0, 10, 0, 4.99642, 0, -0.37847, -170.599, 13.6381, 73.3904)
+transform = Transform3D(-0.189234, 0, -9.99284, 0, 10, 0, 4.99642, 0, -0.378468, -170.599, 13.6381, 73.3904)
 use_collision = true
 size = Vector3(1, 7.05, 7.4)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 2.27374e-14, 9.93882e-22, 0, -4.37114e-08, 1, 2.27374e-14, -1, -4.37114e-08, -225, 41, 118)
+transform = Transform3D(1, 2.27374e-14, 9.93883e-22, 0, -4.37114e-08, 1, 2.27374e-14, -1, -4.37114e-08, -225, 41, 118)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(10, 2.84217e-13, 8.47033e-21, 0, -2.98023e-07, 10, 2.84217e-13, -10, -2.98023e-07, -129.5, 41, 129.5)
+transform = Transform3D(10, 2.84217e-13, 1.24235e-20, 0, -4.37114e-07, 10, 2.84217e-13, -10, -4.37114e-07, -129.5, 41, 129.5)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D2" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D2/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(10, 3.12639e-13, 9.31736e-21, 0, -2.98023e-07, 10, 3.12639e-13, -10, -2.98023e-07, -160.5, 41, 62.0001)
+transform = Transform3D(10, 3.12639e-13, 1.36659e-20, 0, -4.37114e-07, 10, 3.12639e-13, -10, -4.37114e-07, -160.5, 41, 62.0001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D3" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D3/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(10, 2.55795e-13, 7.6233e-21, 0, -2.98023e-07, 10, 2.55795e-13, -10, -2.98023e-07, -52.0001, 41, 118)
+transform = Transform3D(10, 2.55795e-13, 1.11812e-20, 0, -4.37114e-07, 10, 2.55795e-13, -10, -4.37114e-07, -52.0001, 41, 118)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D4" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D4/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(10, 2.84217e-13, 8.47033e-21, 0, -2.98023e-07, 10, 2.84217e-13, -10, -2.98023e-07, 11.9999, 41, 125.5)
+transform = Transform3D(10, 2.84217e-13, 1.24235e-20, 0, -4.37114e-07, 10, 2.84217e-13, -10, -4.37114e-07, 11.9999, 41, 125.5)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D5" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D5/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D6" type="SpotLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(10, 3.41061e-13, 1.01644e-20, 0, -2.98023e-07, 10, 3.41061e-13, -10, -2.98023e-07, 57.9998, 41, 92.5001)
+transform = Transform3D(10, 3.41061e-13, 1.49083e-20, 0, -4.37114e-07, 10, 3.41061e-13, -10, -4.37114e-07, 57.9998, 41, 92.5001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D6" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D6/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D7" type="SpotLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(10, 2.84217e-13, 8.47033e-21, 0, -2.98023e-07, 10, 2.84217e-13, -10, -2.98023e-07, -6.50009, 41, 89.5001)
+transform = Transform3D(10, 2.84217e-13, 1.24235e-20, 0, -4.37114e-07, 10, 2.84217e-13, -10, -4.37114e-07, -6.50009, 41, 89.5001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D7" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D7/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D8" type="SpotLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(10, 3.41061e-13, 1.01644e-20, 0, -2.98023e-07, 10, 3.41061e-13, -10, -2.98023e-07, 30.9999, 41, 54.0001)
+transform = Transform3D(10, 3.41061e-13, 1.49083e-20, 0, -4.37114e-07, 10, 3.41061e-13, -10, -4.37114e-07, 30.9999, 41, 54.0001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D8" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D8/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D9" type="SpotLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(10, 4.26326e-13, 1.27055e-20, 0, -2.98023e-07, 10, 4.26326e-13, -10, -2.98023e-07, 95.9999, 41, 94.5001)
+transform = Transform3D(10, 4.26326e-13, 1.86353e-20, 0, -4.37114e-07, 10, 4.26326e-13, -10, -4.37114e-07, 95.9999, 41, 94.5001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D9" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D9/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D10" type="SpotLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(10, 3.97904e-13, 1.10114e-20, 0, -2.98023e-07, 10, 3.97904e-13, -10, -2.98023e-07, -169.5, 41, 92)
+transform = Transform3D(10, 3.97904e-13, 1.73929e-20, 0, -4.37114e-07, 10, 3.97904e-13, -10, -4.37114e-07, -169.5, 41, 92)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D10" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D10/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [node name="SpotLight3D11" type="SpotLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(10, 3.41061e-13, 1.01644e-20, 0, -2.98023e-07, 10, 3.41061e-13, -10, -2.98023e-07, -92.0001, 41, 67.0001)
+transform = Transform3D(10, 3.41061e-13, 1.49083e-20, 0, -4.37114e-07, 10, 3.41061e-13, -10, -4.37114e-07, -92.0001, 41, 67.0001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
 
 [node name="Licht" parent="SpotLight3D11" instance=ExtResource("1_6lxik")]
-transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" parent="SpotLight3D11/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [connection signal="relayreaktortimer" from="." to="." method="_on_relayreaktortimer"]
 
+[editable path="Wand17/Tuer1/tuer_L"]
+[editable path="Wand17/Tuer1/tuer_R"]
 [editable path="SpotLight3D/Licht"]
 [editable path="SpotLight3D2/Licht"]
 [editable path="SpotLight3D3/Licht"]
