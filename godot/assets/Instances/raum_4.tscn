@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://tb3me6hh7tl"]
+[gd_scene load_steps=32 format=3 uid="uid://tb3me6hh7tl"]
 
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_6lxik"]
 [ext_resource type="Script" uid="uid://8gewydrgfr5i" path="res://scripts/raum_4_relay.gd" id="1_wj7xp"]
@@ -70,6 +70,70 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_gujuv"),
 &"oeffnen": SubResource("Animation_kwc3t")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_frsct"]
+size = Vector3(2.9, 4.6, 1)
+
+[sub_resource type="Animation" id="Animation_8ppo1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tuer_L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tuer_R:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06)]
+}
+
+[sub_resource type="Animation" id="Animation_sxvka"]
+resource_name = "oeffnen"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tuer_L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06), Vector3(2.9, 0, 1.90735e-06)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tuer_R:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.90735e-06), Vector3(-2.8, 0, 1.90735e-06)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a1rln"]
+_data = {
+&"RESET": SubResource("Animation_8ppo1"),
+&"oeffnen": SubResource("Animation_sxvka")
 }
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_50fyg"]
@@ -334,9 +398,56 @@ operation = 2
 size = Vector3(1.5, 2, 0.5)
 
 [node name="Wand23" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, 42.9556, 3.7356, 33.8663)
+transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -61.2444, 8.48561, 33.8663)
 use_collision = true
-size = Vector3(1, 8.8, 13.6)
+size = Vector3(1, 7.85, 34.44)
+
+[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand23"]
+transform = Transform3D(-8.94202e-08, 0, 2, 0, 1, 0, -1, 0, -4.47035e-08, 0.72452, -0.054606, 2.07261)
+operation = 2
+size = Vector3(2.95, 2.3, 1.98)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wand23"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, -0.0421877, 1.34363, 0.356224)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Wand23"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, -0.0421886, 1.34363, 3.78716)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Wand23"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, -0.0421877, -1.40368, 0.356224)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Wand23"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, -0.0421896, -1.52267, 3.75958)
+
+[node name="Tuer1" type="Node3D" parent="Wand23"]
+transform = Transform3D(1.49012e-08, 0, -1, 0, 0.5, 0, 0.5, 0, -3.72528e-09, -0.0467787, -0.054606, 2.04998)
+
+[node name="tuer_L" parent="Wand23/Tuer1" instance=ExtResource("2_g41s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.90735e-06)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wand23/Tuer1/tuer_L"]
+collision_layer = 5
+script = ExtResource("3_yo0wv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand23/Tuer1/tuer_L/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.38419e-07, 0)
+shape = SubResource("BoxShape3D_frsct")
+
+[node name="tuer_R" parent="Wand23/Tuer1" instance=ExtResource("2_g41s0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 1.90735e-06)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wand23/Tuer1/tuer_R"]
+collision_layer = 5
+script = ExtResource("3_yo0wv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand23/Tuer1/tuer_R/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.38419e-07, 0)
+shape = SubResource("BoxShape3D_frsct")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wand23/Tuer1"]
+libraries = {
+&"": SubResource("AnimationLibrary_a1rln")
+}
 
 [node name="Wand24" type="CSGBox3D" parent="."]
 transform = Transform3D(5, 0, -8.52652e-14, 0, 10, 0, 4.26326e-14, 0, 10, 107.956, 17.7356, 92.1163)
@@ -408,25 +519,10 @@ transform = Transform3D(0.121472, 0, 9.99926, 0, 10, 0, -9.99926, 0, 0.121472, -
 use_collision = true
 size = Vector3(11.1, 0.5, 22.5)
 
-[node name="Wand34" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -75.0444, 3.7356, 33.8663)
-use_collision = true
-size = Vector3(1, 8.8, 10)
-
 [node name="Wand" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.18557e-07, 0, 10, 0, 10, 0, -5, 0, -4.37114e-07, -66.36, 1.427, 144.657)
 use_collision = true
 size = Vector3(1, 8.54303, 34.4)
-
-[node name="Wand4" type="CSGBox3D" parent="."]
-transform = Transform3D(0.0356913, 0, -9.99974, 0, 10, 0, 4.99987, 0, 0.0713826, -178.582, 10.2496, 34.0404)
-use_collision = true
-size = Vector3(1, 7.01398, 11.15)
-
-[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(-4.37722e-08, 0, 2, 0, 1, 0, -1, 0, -8.75443e-08, 0.55917, -0.55, -12.3122)
-operation = 2
-size = Vector3(2.675, 2, 1.175)
 
 [node name="Wand36" type="CSGBox3D" parent="."]
 transform = Transform3D(0.189235, 0, 9.99284, 0, 10, 0, -4.99642, 0, 0.37847, -159.861, 8.9381, 111.734)
@@ -599,6 +695,8 @@ surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
 [editable path="Wand17/Tuer1/tuer_L"]
 [editable path="Wand17/Tuer1/tuer_R"]
+[editable path="Wand23/Tuer1/tuer_L"]
+[editable path="Wand23/Tuer1/tuer_R"]
 [editable path="SpotLight3D/Licht"]
 [editable path="SpotLight3D2/Licht"]
 [editable path="SpotLight3D3/Licht"]
