@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=62 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Texture2D" uid="uid://d15em0opo6p8k" path="res://assets/20 background textures for mtc-sets/space-gc497fd7be_640.png" id="1_743hh"]
 [ext_resource type="Script" uid="uid://hc18lharhgd7" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cilkwuyqoq8ld" path="res://assets/Gang_orangeV2_KURVE.blend" id="34_sqyik"]
 [ext_resource type="PackedScene" uid="uid://1v6plgusjipf" path="res://assets/Gang_orangev2_KLEIN.blend" id="35_by7wp"]
 [ext_resource type="PackedScene" uid="uid://fodbwvg73jqq" path="res://assets/Instances/raum_5.tscn" id="35_chlt8"]
+[ext_resource type="PackedScene" uid="uid://bpr0ponqko483" path="res://assets/Tisch Faebienne rund #(der beste).blend" id="35_o1ald"]
 [ext_resource type="Script" uid="uid://b0vecck2rxpec" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://tb3me6hh7tl" path="res://assets/Instances/raum_4.tscn" id="44_i4u54"]
@@ -562,6 +563,10 @@ transform = Transform3D(3.64804e-08, 0.0327124, -0.899405, 7.86285e-08, -0.89940
 
 [node name="Gang_orangeV2_KURVE4" parent="." instance=ExtResource("34_sqyik")]
 transform = Transform3D(-0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 65.3924, 0.744235, -19.1686)
+
+[node name="Tisch Faebienne rund #(der beste)" parent="." instance=ExtResource("35_o1ald")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.85551, 0.57768, 2.42643)
+
 
 [connection signal="reaktortimeraktualisieren" from="Player" to="Räume/Raum4" method="_on_player_reaktortimeraktualisieren"]
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
