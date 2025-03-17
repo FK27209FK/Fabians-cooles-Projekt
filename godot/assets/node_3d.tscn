@@ -518,7 +518,7 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 17.55, 0.75, 8.5)
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5.3, 0.75, 8.5)
 
 [node name="Tisch Faebienne rund #(der beste)" parent="." instance=ExtResource("35_o1ald")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85551, 0.57768, 2.42643)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.85551, 0.57768, 2.42643)
 
 [connection signal="reaktortimeraktualisieren" from="Player" to="Räume/Raum4" method="_on_player_reaktortimeraktualisieren"]
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
