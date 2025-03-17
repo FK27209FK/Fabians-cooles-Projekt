@@ -293,7 +293,7 @@ one_shot = true
 autostart = true
 
 [node name="Gegner" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -1.39768, 0.707728, 40.9704)
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -24.5417, 0.707728, 40.9704)
 script = ExtResource("18_sxefn")
 
 [node name="Gegner" parent="Gegner" instance=ExtResource("14_otkgv")]
