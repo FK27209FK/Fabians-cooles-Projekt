@@ -584,6 +584,5 @@ libraries = {
 }
 
 [editable path="SpotLight3D/Licht"]
-[editable path="Schrank"]
 [editable path="Tuer1/tuer_L"]
 [editable path="Tuer1/tuer_R"]
