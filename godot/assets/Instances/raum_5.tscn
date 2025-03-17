@@ -1,9 +1,9 @@
 [gd_scene load_steps=32 format=3 uid="uid://fodbwvg73jqq"]
 
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_oyapy"]
-[ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_Emission.png" id="2_jvdtp"]
-[ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_BaseColor.png" id="3_veovt"]
-[ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Imphenzia/PixPal/Textures/ImphenziaPixPal_Attributes.png" id="4_bpnec"]
+[ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="2_jvdtp"]
+[ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="3_veovt"]
+[ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="4_bpnec"]
 [ext_resource type="PackedScene" uid="uid://3k34hm0bkyb2" path="res://assets/Erste_Hilfe_Kasten.blend" id="5_3d64d"]
 [ext_resource type="PackedScene" uid="uid://cwyy3fu1hfe02" path="res://assets/Bett.blend" id="6_wnisv"]
 [ext_resource type="PackedScene" uid="uid://biopdida1lree" path="res://assets/Instances/schrank.tscn" id="7_vmscx"]
@@ -11,59 +11,59 @@
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="9_qwwha"]
 [ext_resource type="Script" uid="uid://djqr3jcbeooah" path="res://scripts/tuer.gd" id="10_2326j"]
 
-[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_50fyg"]
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_qwwha"]
 default_input_values = [0, Vector2(0, 0)]
 op_type = 0
 
-[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_vjw6j"]
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_2326j"]
 op_type = 0
 
-[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_r5wgs"]
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_ghyyi"]
 function = 31
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_fk5qt"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_8jrpg"]
 output_port_for_preview = 0
 texture = ExtResource("2_jvdtp")
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_i0ra4"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_mam5p"]
 texture = ExtResource("3_veovt")
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_lhqbq"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_fo6yx"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(3, 3, 3, 1)]
 op_type = 2
 operator = 2
 
-[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_tbh7r"]
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_2fnm5"]
 parameter_name = "EmissionStrength"
 hint = 1
 max = 20.0
 default_value_enabled = true
 default_value = 3.0
 
-[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_pxbrp"]
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_2gka7"]
 default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 0.0]
 op_type = 2
 
-[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_xdu3y"]
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_41hh8"]
 input_name = "time"
 
-[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_hlrba"]
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_wv5d5"]
 operator = 2
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_rksp2"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ewpvx"]
 texture = ExtResource("4_bpnec")
 
-[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_dywc7"]
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_kaeqa"]
 default_input_values = [0, Quaternion(0, 0, 0, 0)]
 op_type = 2
 
-[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_hrnpx"]
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_qe1ot"]
 operator = 1
 
-[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_0mr8k"]
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_7hcrc"]
 input_name = "uv"
 
-[sub_resource type="VisualShader" id="VisualShader_5ekq0"]
+[sub_resource type="VisualShader" id="VisualShader_vlgio"]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
@@ -146,39 +146,39 @@ void fragment() {
 }
 "
 nodes/fragment/0/position = Vector2(1500, -360)
-nodes/fragment/3/node = SubResource("VisualShaderNodeInput_xdu3y")
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_41hh8")
 nodes/fragment/3/position = Vector2(60, 100)
-nodes/fragment/4/node = SubResource("VisualShaderNodeFloatOp_hlrba")
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatOp_wv5d5")
 nodes/fragment/4/position = Vector2(360, 280)
-nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_rksp2")
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_ewpvx")
 nodes/fragment/6/position = Vector2(-620, 60)
-nodes/fragment/7/node = SubResource("VisualShaderNodeVectorDecompose_dywc7")
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorDecompose_kaeqa")
 nodes/fragment/7/position = Vector2(-320, -40)
-nodes/fragment/8/node = SubResource("VisualShaderNodeFloatOp_hrnpx")
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatOp_qe1ot")
 nodes/fragment/8/position = Vector2(520, 180)
-nodes/fragment/9/node = SubResource("VisualShaderNodeInput_0mr8k")
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_7hcrc")
 nodes/fragment/9/position = Vector2(-220, -320)
-nodes/fragment/10/node = SubResource("VisualShaderNodeVectorDecompose_50fyg")
+nodes/fragment/10/node = SubResource("VisualShaderNodeVectorDecompose_qwwha")
 nodes/fragment/10/position = Vector2(160, -360)
-nodes/fragment/11/node = SubResource("VisualShaderNodeVectorCompose_vjw6j")
+nodes/fragment/11/node = SubResource("VisualShaderNodeVectorCompose_2326j")
 nodes/fragment/11/position = Vector2(620, -80)
-nodes/fragment/12/node = SubResource("VisualShaderNodeFloatFunc_r5wgs")
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatFunc_ghyyi")
 nodes/fragment/12/position = Vector2(1060, -220)
-nodes/fragment/13/node = SubResource("VisualShaderNodeTexture_fk5qt")
+nodes/fragment/13/node = SubResource("VisualShaderNodeTexture_8jrpg")
 nodes/fragment/13/position = Vector2(1040, -140)
-nodes/fragment/14/node = SubResource("VisualShaderNodeTexture_i0ra4")
+nodes/fragment/14/node = SubResource("VisualShaderNodeTexture_mam5p")
 nodes/fragment/14/position = Vector2(1020, -560)
-nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_lhqbq")
+nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_fo6yx")
 nodes/fragment/15/position = Vector2(1320, 240)
-nodes/fragment/16/node = SubResource("VisualShaderNodeFloatParameter_tbh7r")
+nodes/fragment/16/node = SubResource("VisualShaderNodeFloatParameter_2fnm5")
 nodes/fragment/16/position = Vector2(640, 320)
-nodes/fragment/17/node = SubResource("VisualShaderNodeVectorCompose_pxbrp")
+nodes/fragment/17/node = SubResource("VisualShaderNodeVectorCompose_2gka7")
 nodes/fragment/17/position = Vector2(1040, 300)
 nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 6, 0, 7, 0, 7, 2, 4, 1, 9, 0, 10, 0, 10, 1, 8, 0, 4, 0, 8, 1, 10, 0, 11, 0, 8, 0, 11, 1, 7, 0, 0, 2, 7, 1, 12, 0, 11, 0, 13, 0, 12, 0, 0, 3, 14, 0, 0, 0, 11, 0, 14, 0, 13, 0, 15, 0, 15, 0, 0, 5, 17, 0, 15, 1, 16, 0, 17, 0, 16, 0, 17, 1, 16, 0, 17, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_axgfu"]
 render_priority = 0
-shader = SubResource("VisualShader_5ekq0")
+shader = SubResource("VisualShader_vlgio")
 shader_parameter/EmissionStrength = 1.0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qwwha"]
