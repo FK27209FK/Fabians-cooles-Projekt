@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d02vnt8kadvvq"
-path="res://.godot/imported/schrank.blend-b941cbfe69daf913bf8a64010dc6af57.scn"
+uid="uid://bpr0ponqko483"
+path="res://.godot/imported/Tisch Faebienne rund #(der beste).blend-7273ec4620bb34877c6b7b6a3b34e532.scn"
 
 [deps]
 
-source_file="res://assets/schrank.blend"
-dest_files=["res://.godot/imported/schrank.blend-b941cbfe69daf913bf8a64010dc6af57.scn"]
+source_file="res://assets/Tisch Faebienne rund #(der beste).blend"
+dest_files=["res://.godot/imported/Tisch Faebienne rund #(der beste).blend-7273ec4620bb34877c6b7b6a3b34e532.scn"]
 
 [params]
 
