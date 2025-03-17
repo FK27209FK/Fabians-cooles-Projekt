@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=61 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Texture2D" uid="uid://d15em0opo6p8k" path="res://assets/20 background textures for mtc-sets/space-gc497fd7be_640.png" id="1_743hh"]
 [ext_resource type="Script" uid="uid://hc18lharhgd7" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://c0e7f3puwecms" path="res://assets/Reagenzglas.blend" id="32_v5lon"]
 [ext_resource type="PackedScene" uid="uid://ctas4c26roryo" path="res://assets/Erlenmeierkolben.blend" id="33_5myyk"]
 [ext_resource type="PackedScene" uid="uid://cdrwvyqf02tuq" path="res://assets/Gang_orangev2_DOPPEL_TUER.blend" id="33_by7wp"]
-[ext_resource type="PackedScene" uid="uid://cc8qiqjsg7x8b" path="res://assets/science table.blend" id="33_sqyik"]
 [ext_resource type="PackedScene" uid="uid://cilkwuyqoq8ld" path="res://assets/Gang_orangeV2_KURVE.blend" id="34_sqyik"]
 [ext_resource type="PackedScene" uid="uid://1v6plgusjipf" path="res://assets/Gang_orangev2_KLEIN.blend" id="35_by7wp"]
 [ext_resource type="PackedScene" uid="uid://fodbwvg73jqq" path="res://assets/Instances/raum_5.tscn" id="35_chlt8"]
@@ -483,11 +482,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.55, 1.61572, -1.35)
 
 [node name="Cylinder" parent="Erlenmeierkolben" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_5myyk")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-
-[node name="science table" parent="." instance=ExtResource("33_sqyik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15, 5951.76, -2.05)
 
 [node name="Gang_orangev2" parent="." instance=ExtResource("19_uy46h")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 57, 0.7, 8.5)

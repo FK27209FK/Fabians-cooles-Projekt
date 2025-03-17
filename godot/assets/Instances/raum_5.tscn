@@ -586,6 +586,5 @@ transform = Transform3D(0.193185, 0.0517638, 2.26267e-09, 1.01864e-15, -8.74228e
 transform = Transform3D(0.193185, -0.0517638, -2.26267e-09, 8.47061e-16, -8.74228e-09, 0.2, -0.0517638, -0.193185, -8.44439e-09, 8.67622, 3.08653, 15.9776)
 
 [editable path="SpotLight3D/Licht"]
-[editable path="Schrank"]
 [editable path="Tuer1/tuer_L"]
 [editable path="Tuer1/tuer_R"]
