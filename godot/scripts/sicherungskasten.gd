@@ -1,7 +1,6 @@
 extends Node3D
 signal lichtAn
 @onready var showLabel = true
-@onready var collider
 @onready var lastpath
 @onready var solved: int = 0
 @onready var lights = [$"../SpotLight3D"]

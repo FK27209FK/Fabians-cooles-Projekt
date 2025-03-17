@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://cgoupxnky0xxl"]
 
 [ext_resource type="PackedScene" uid="uid://bqky1tieaoegj" path="res://assets/Sicherungskasten2.blend" id="1_a3d0l"]
-[ext_resource type="Script" path="res://scripts/sicherungskasten.gd" id="2_034ex"]
+[ext_resource type="Script" uid="uid://d35no0shj78ay" path="res://scripts/sicherungskasten.gd" id="2_034ex"]
 [ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="3_fqxtg"]
 [ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="4_6qa8y"]
 [ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="5_keh3v"]
@@ -65,7 +65,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 uniform sampler2D tex_frg_6;
 uniform sampler2D tex_frg_14;
 uniform sampler2D tex_frg_13;
-uniform float EmissionStrength : hint_range(0, 20) = 3;
+uniform float EmissionStrength : hint_range(0.0, 20.0) = 3.0;
 
 
 

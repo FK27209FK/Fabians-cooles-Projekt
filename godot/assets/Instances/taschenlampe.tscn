@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dee6qmsdic5dj"]
 
 [ext_resource type="PackedScene" uid="uid://dtt30j2x62xcy" path="res://assets/Taschenlampe.blend" id="1_fdsnd"]
-[ext_resource type="Script" path="res://scripts/taschenlampe.gd" id="2_ywr4n"]
+[ext_resource type="Script" uid="uid://clx77kcr60ica" path="res://scripts/taschenlampe.gd" id="2_ywr4n"]
 
 [node name="Taschenlampe" instance=ExtResource("1_fdsnd")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
@@ -12,8 +12,9 @@ transform = Transform3D(0, -1, -8.74228e-08, -1, 0, 0, 0, 8.74228e-08, -1, 0, 0,
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
 transform = Transform3D(10, 0, 2.84217e-14, 0, 10, 0, -2.84217e-14, 0, 10, 0, 0, -2.15998)
-spot_range = 11.8
-spot_angle = 53.8136
+light_energy = 2.0
+spot_range = 57.9
+spot_angle = 29.687
 
 [node name="DropControl" type="Control" parent="." index="2"]
 visible = false

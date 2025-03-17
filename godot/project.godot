@@ -14,11 +14,11 @@ config/name="Escape from Space"
 config/tags=PackedStringArray("schulprojekt")
 run/main_scene="res://assets/node_3d.tscn"
 run/enable_alt_space_menu=true
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.4")
 
 [autoload]
 
-StartTest="*res://scripts/start_test.gd"
+Global="*res://scripts/global.gd"
 
 [input]
 

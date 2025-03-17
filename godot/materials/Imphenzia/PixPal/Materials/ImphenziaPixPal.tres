@@ -63,7 +63,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 uniform sampler2D tex_frg_6;
 uniform sampler2D tex_frg_14;
 uniform sampler2D tex_frg_13;
-uniform float EmissionStrength : hint_range(0, 20) = 3;
+uniform float EmissionStrength : hint_range(0.0, 20.0) = 3.0;
 
 
 

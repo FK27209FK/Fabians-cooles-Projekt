@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bivpeu5cfwqnt"]
 
 [ext_resource type="PackedScene" uid="uid://bavm420ysjtq1" path="res://assets/Schalter_Hebel.fbx" id="1_m7w34"]
-[ext_resource type="Script" path="res://scripts/Tür_oefnen_schalter.gd" id="2_2pams"]
+[ext_resource type="Script" uid="uid://dnj7fc3rei7c2" path="res://scripts/Tür_oefnen_schalter.gd" id="2_2pams"]
 [ext_resource type="PackedScene" uid="uid://b0smyonys6pd3" path="res://assets/Schalter_main.fbx" id="3_c8n3a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jhuul"]

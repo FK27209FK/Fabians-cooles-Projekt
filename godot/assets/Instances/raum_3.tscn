@@ -1,66 +1,70 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1e6rsl508t8t"]
+[gd_scene load_steps=7 format=3 uid="uid://d1e6rsl508t8t"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17yug"]
-albedo_color = Color(0.326199, 0.815211, 0.731941, 1)
+[ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="1_56528"]
+[ext_resource type="Script" uid="uid://djqr3jcbeooah" path="res://scripts/tuer.gd" id="2_n7jpr"]
 
-[sub_resource type="Animation" id="Animation_q8oqq"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_bx7hm"]
+size = Vector3(2.9, 4.6, 1)
+
+[sub_resource type="Animation" id="Animation_gujuv"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("tuer_L:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.25, 1.49763, 4.75)]
+"values": [Vector3(0, 0, 1.90735e-06)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
+tracks/1/path = NodePath("tuer_R:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -1.5708, 0)]
+"values": [Vector3(0, 0, 1.90735e-06)]
 }
 
-[sub_resource type="Animation" id="Animation_42is0"]
+[sub_resource type="Animation" id="Animation_kwc3t"]
 resource_name = "oeffnen"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("tuer_L:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.25, 1.49763, 4.75), Vector3(-0.75, 1.49763, 5.75)]
+"values": [Vector3(0, 0, 1.90735e-06), Vector3(2.9, 0, 1.90735e-06)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
+tracks/1/path = NodePath("tuer_R:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -1.5708, 0), Vector3(0, -3.14159, 0)]
+"values": [Vector3(0, 0, 1.90735e-06), Vector3(-2.8, 0, 1.90735e-06)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lfjpu"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jiodu"]
 _data = {
-"RESET": SubResource("Animation_q8oqq"),
-"oeffnen": SubResource("Animation_42is0")
+&"RESET": SubResource("Animation_gujuv"),
+&"oeffnen": SubResource("Animation_kwc3t")
 }
 
 [node name="Raum 3" type="Node3D"]
@@ -87,22 +91,56 @@ use_collision = true
 size = Vector3(1, 5, 10)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.5, 0)
+transform = Transform3D(-8.94202e-08, 0, 2, 0, 1, 0, -1, 0, -4.47035e-08, 0.0545206, -0.9, -1.22737)
 operation = 2
-size = Vector3(1.5, 2, 0.5)
+size = Vector3(2.95, 2.3, 0.85)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wand4"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, 0.00459099, 0.498231, -2.94376)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Wand4"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, 0.00459003, 0.498231, 0.487179)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Wand4"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, 0.00459099, -2.24907, -2.94376)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Wand4"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, 0.00458908, -2.36806, 0.459598)
+
+[node name="Tuer1" type="Node3D" parent="Wand4"]
+transform = Transform3D(1.49012e-08, 0, -1, 0, 0.5, 0, 0.5, 0, -3.72528e-09, 0, -0.9, -1.25)
+
+[node name="tuer_L" parent="Wand4/Tuer1" instance=ExtResource("1_56528")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.90735e-06)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wand4/Tuer1/tuer_L"]
+collision_layer = 5
+script = ExtResource("2_n7jpr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand4/Tuer1/tuer_L/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.38419e-07, 0)
+shape = SubResource("BoxShape3D_bx7hm")
+
+[node name="tuer_R" parent="Wand4/Tuer1" instance=ExtResource("1_56528")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 1.90735e-06)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wand4/Tuer1/tuer_R"]
+collision_layer = 5
+script = ExtResource("2_n7jpr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand4/Tuer1/tuer_R/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.38419e-07, 0)
+shape = SubResource("BoxShape3D_bx7hm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wand4/Tuer1"]
+libraries = {
+&"": SubResource("AnimationLibrary_jiodu")
+}
 
 [node name="Decke" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 5.75, 0)
 use_collision = true
 size = Vector3(11, 0.5, 10)
 
-[node name="Tuer1" type="CSGBox3D" parent="."]
-transform = Transform3D(-1.81e-06, 0, -1, 0, 1, 0, 0.5, 0, -3.61999e-06, 0.25, 1.49763, 4.75)
-use_collision = true
-size = Vector3(1, 2, 1.5)
-material = SubResource("StandardMaterial3D_17yug")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Tuer1"]
-libraries = {
-"": SubResource("AnimationLibrary_lfjpu")
-}
+[editable path="Wand4/Tuer1/tuer_L"]
+[editable path="Wand4/Tuer1/tuer_R"]

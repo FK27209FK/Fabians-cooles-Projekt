@@ -5,6 +5,7 @@ class_name Player extends CharacterBody3D
 @onready var respawnTimer: Timer = $RespawnTimer
 @onready var reaktorTimer: Timer = $UI/ReaktorTimer
 @onready var reaktorTimerText: RichTextLabel = $UI/ReaktorTimerText
+#@onready var reaktorTimerText2: RichTextLabel = 
 @export_category("Player")
 @export_range(1, 35, 1) var speed: float = 10 # m/s
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
@@ -22,6 +23,7 @@ class_name Player extends CharacterBody3D
 	"Ein weiterer Hinweis, den du übersehen hast! Schade!",
 	"Der Raum hat gesprochen. Vielleicht solltest du es einfach lassen?",
 ]
+signal reaktortimeraktualisieren
 
 # Total time in seconds (1 hour = 3600 seconds)
 var total_time: int = 600 #10min
@@ -38,11 +40,13 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	reaktorTimerText.text = format_time(total_time)
+	reaktortimeraktualisieren.emit(format_time(total_time))
 	capture_mouse()
 
 func _process(_delta: float) -> void:
 	@warning_ignore("narrowing_conversion")
 	reaktorTimerText.text = format_time(reaktorTimer.time_left)
+	reaktortimeraktualisieren.emit(format_time(total_time))
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

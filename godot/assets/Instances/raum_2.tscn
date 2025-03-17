@@ -1,11 +1,11 @@
 [gd_scene load_steps=42 format=3 uid="uid://dekjnsishyetk"]
 
-[ext_resource type="Script" path="res://scripts/test_tür.gd" id="1_g8nha"]
+[ext_resource type="Script" uid="uid://coceiefrebvuk" path="res://scripts/test_tür.gd" id="1_g8nha"]
 [ext_resource type="PackedScene" uid="uid://bavm420ysjtq1" path="res://assets/Schalter_Hebel.fbx" id="2_oaxje"]
-[ext_resource type="Script" path="res://scripts/schalter1FalltuerRaum2.gd" id="3_rnbus"]
+[ext_resource type="Script" uid="uid://eo38qw0guec4" path="res://scripts/schalter1FalltuerRaum2.gd" id="3_rnbus"]
 [ext_resource type="PackedScene" uid="uid://b0smyonys6pd3" path="res://assets/Schalter_main.fbx" id="4_vgfi2"]
 [ext_resource type="PackedScene" uid="uid://dhtya8d40p78s" path="res://assets/Plattform.blend" id="5_me168"]
-[ext_resource type="Script" path="res://assets/set_pos.gd" id="6_yhv5d"]
+[ext_resource type="Script" uid="uid://1f82y83stx2j" path="res://assets/set_pos.gd" id="6_yhv5d"]
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="7_bhlv1"]
 [ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="8_lu3ee"]
 [ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="9_lag32"]
@@ -70,8 +70,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lfjpu"]
 _data = {
-"RESET": SubResource("Animation_q8oqq"),
-"oeffnen": SubResource("Animation_42is0")
+&"RESET": SubResource("Animation_q8oqq"),
+&"oeffnen": SubResource("Animation_42is0")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ct0x"]
@@ -139,8 +139,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_77yno"]
 _data = {
-"RESET": SubResource("Animation_lwqcx"),
-"falltuerOeffnen": SubResource("Animation_e8dlp")
+&"RESET": SubResource("Animation_lwqcx"),
+&"falltuerOeffnen": SubResource("Animation_e8dlp")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6a6u1"]
@@ -179,8 +179,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ykfhl"]
 _data = {
-"RESET": SubResource("Animation_thwpa"),
-"aufzug_2": SubResource("Animation_yvxo3")
+&"RESET": SubResource("Animation_thwpa"),
+&"aufzug_2": SubResource("Animation_yvxo3")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ra76n"]
@@ -245,7 +245,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 uniform sampler2D tex_frg_6;
 uniform sampler2D tex_frg_14;
 uniform sampler2D tex_frg_13;
-uniform float EmissionStrength : hint_range(0, 20) = 3;
+uniform float EmissionStrength : hint_range(0.0, 20.0) = 3.0;
 
 
 
@@ -380,9 +380,9 @@ use_collision = true
 size = Vector3(1, 5, 10)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.5, 0)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 1, 0, -1, 0, -4.37114e-08, -0.1, -1.5, 0)
 operation = 2
-size = Vector3(1.5, 2, 0.5)
+size = Vector3(1.5, 2, 0.7)
 
 [node name="Decke" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 5.75, 0)
@@ -392,7 +392,7 @@ size = Vector3(11, 0.5, 10)
 [node name="Falltuerschacht" type="CSGBox3D" parent="Decke"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -3)
 operation = 2
-size = Vector3(2, 0.5, 2)
+size = Vector3(2, 0.6, 2)
 
 [node name="Tuer1" type="CSGBox3D" parent="."]
 transform = Transform3D(-1.81e-06, 0, -1, 0, 1, 0, 0.5, 0, -3.61999e-06, 0.25, 1.49763, 4.75)
@@ -405,7 +405,7 @@ script = ExtResource("1_g8nha")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Tuer1"]
 libraries = {
-"": SubResource("AnimationLibrary_lfjpu")
+&"": SubResource("AnimationLibrary_lfjpu")
 }
 
 [node name="Schalter 1" type="Node3D" parent="."]
@@ -439,7 +439,7 @@ material = SubResource("StandardMaterial3D_fsvrm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Falltuer1"]
 libraries = {
-"": SubResource("AnimationLibrary_77yno")
+&"": SubResource("AnimationLibrary_77yno")
 }
 
 [node name="Aufzug" type="Area3D" parent="."]
@@ -457,7 +457,7 @@ script = ExtResource("6_yhv5d")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Aufzug/Plattform"]
 libraries = {
-"": SubResource("AnimationLibrary_ykfhl")
+&"": SubResource("AnimationLibrary_ykfhl")
 }
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Aufzug/Plattform"]
