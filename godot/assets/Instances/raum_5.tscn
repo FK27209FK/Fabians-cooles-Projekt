@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://fodbwvg73jqq"]
+[gd_scene load_steps=33 format=3 uid="uid://fodbwvg73jqq"]
 
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_oyapy"]
 [ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="2_jvdtp"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b386s7wdyb46v" path="res://assets/Instances/buch.tscn" id="8_plnem"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="9_qwwha"]
 [ext_resource type="Script" uid="uid://djqr3jcbeooah" path="res://scripts/tuer.gd" id="10_2326j"]
+[ext_resource type="PackedScene" uid="uid://bpr0ponqko483" path="res://assets/Tisch Faebienne rund #(der beste).blend" id="11_2326j"]
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_50fyg"]
 default_input_values = [0, Vector2(0, 0)]
@@ -582,6 +583,9 @@ shape = SubResource("BoxShape3D_ghyyi")
 libraries = {
 &"": SubResource("AnimationLibrary_jiodu")
 }
+
+[node name="Tisch Faebienne rund #(der beste)" parent="." instance=ExtResource("11_2326j")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 11.3933, 1.11262, 3.21512)
 
 [editable path="SpotLight3D/Licht"]
 [editable path="Tuer1/tuer_L"]
