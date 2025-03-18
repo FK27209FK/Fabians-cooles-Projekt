@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d02vnt8kadvvq"
-path="res://.godot/imported/schrank.blend-b941cbfe69daf913bf8a64010dc6af57.scn"
+path="res://.godot/imported/Schrank.blend-07456fd8022c657f6e1b12c3a29b2ae1.scn"
 
 [deps]
 
-source_file="res://assets/schrank.blend"
-dest_files=["res://.godot/imported/schrank.blend-b941cbfe69daf913bf8a64010dc6af57.scn"]
+source_file="res://assets/Schrank.blend"
+dest_files=["res://.godot/imported/Schrank.blend-07456fd8022c657f6e1b12c3a29b2ae1.scn"]
 
 [params]
 

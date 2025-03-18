@@ -1,15 +1,15 @@
-[gd_scene load_steps=62 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=61 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Texture2D" uid="uid://d15em0opo6p8k" path="res://assets/20 background textures for mtc-sets/space-gc497fd7be_640.png" id="1_743hh"]
 [ext_resource type="Script" uid="uid://hc18lharhgd7" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
 [ext_resource type="Script" uid="uid://b1v5pxkg46fsq" path="res://scripts/global.gd" id="1_nbi6m"]
-[ext_resource type="Texture2D" uid="uid://b3w5x60ik18lh" path="res://assets/20 background textures for mtc-sets/hg01.png" id="6_npl21"]
 [ext_resource type="PackedScene" uid="uid://bivpeu5cfwqnt" path="res://assets/Instances/schalter_1.tscn" id="8_4q77u"]
 [ext_resource type="PackedScene" uid="uid://b44vepus6yx37" path="res://assets/Instances/raum_1.tscn" id="8_te61n"]
 [ext_resource type="PackedScene" uid="uid://8dwqpqkq4j6n" path="res://assets/player.tscn" id="8_vdfl2"]
 [ext_resource type="Script" uid="uid://b88jpkmkg22oo" path="res://scripts/interact.gd" id="9_2up1x"]
 [ext_resource type="PackedScene" uid="uid://dekjnsishyetk" path="res://assets/Instances/raum_2.tscn" id="9_vosqf"]
 [ext_resource type="PackedScene" uid="uid://d1e6rsl508t8t" path="res://assets/Instances/raum_3.tscn" id="10_hw7ro"]
+[ext_resource type="Texture2D" uid="uid://dteih8t0u88v7" path="res://assets/Gang_orangev2_KLEIN_grunge-wall-texture.jpg" id="10_sqyik"]
 [ext_resource type="PackedScene" uid="uid://dscn3fpcul2mw" path="res://assets/Instances/raum_6.tscn" id="13_02c0j"]
 [ext_resource type="PackedScene" uid="uid://b3jfapxcnfjx0" path="res://assets/Instances/raum_7.tscn" id="14_55rdn"]
 [ext_resource type="PackedScene" uid="uid://bep4cinay7ach" path="res://assets/Gegner.blend" id="14_otkgv"]
@@ -21,14 +21,13 @@
 [ext_resource type="PackedScene" uid="uid://crmv7tshub1fn" path="res://assets/TischMitMonitoren.blend" id="27_0kylr"]
 [ext_resource type="PackedScene" uid="uid://dineikd3xxv7x" path="res://assets/LichtAn.blend" id="27_8fk5c"]
 [ext_resource type="PackedScene" uid="uid://hc05fokka4k6" path="res://assets/LichtAus.blend" id="28_76n4b"]
-[ext_resource type="PackedScene" uid="uid://byrtyf6cybbuf" path="res://assets/Tisch_Eckig.blend" id="29_by7wp"]
+[ext_resource type="PackedScene" uid="uid://cem1junrj1kit" path="res://assets/Tisch_Eckig.blend" id="29_by7wp"]
 [ext_resource type="PackedScene" uid="uid://dee6qmsdic5dj" path="res://assets/Instances/taschenlampe.tscn" id="29_cjm7s"]
 [ext_resource type="Script" uid="uid://ck42qlqftp6p0" path="res://assets/taschenlampe.gd" id="30_mwol7"]
 [ext_resource type="PackedScene" uid="uid://c0e7f3puwecms" path="res://assets/Reagenzglas.blend" id="32_v5lon"]
 [ext_resource type="PackedScene" uid="uid://ctas4c26roryo" path="res://assets/Erlenmeierkolben.blend" id="33_5myyk"]
 [ext_resource type="PackedScene" uid="uid://cdrwvyqf02tuq" path="res://assets/Gang_orangev2_DOPPEL_TUER.blend" id="33_by7wp"]
 [ext_resource type="PackedScene" uid="uid://cilkwuyqoq8ld" path="res://assets/Gang_orangeV2_KURVE.blend" id="34_sqyik"]
-[ext_resource type="PackedScene" uid="uid://1v6plgusjipf" path="res://assets/Gang_orangev2_KLEIN.blend" id="35_by7wp"]
 [ext_resource type="PackedScene" uid="uid://fodbwvg73jqq" path="res://assets/Instances/raum_5.tscn" id="35_chlt8"]
 [ext_resource type="PackedScene" uid="uid://bpr0ponqko483" path="res://assets/Tisch Faebienne rund #(der beste).blend" id="35_o1ald"]
 [ext_resource type="Script" uid="uid://b0vecck2rxpec" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
@@ -60,10 +59,11 @@ size = Vector3(0.9, 1, 0.9)
 size = Vector3(1.7, 3.9, 1.7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oiu51"]
-albedo_texture = ExtResource("6_npl21")
+albedo_texture = ExtResource("10_sqyik")
+uv1_scale = Vector3(5, 5, 5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ry4hy"]
-size = Vector3(50, 1, 50)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u6sld"]
+data = PackedVector3Array(-14.5, -0.5, 12.5, -14.5, -0.5, -12.5, -14.5, 0.5, -12.5, 14.5, -0.5, -12.5, -14.5, -0.5, -12.5, -14.5, -0.5, 12.5, -14.5, 0.5, -12.5, -14.5, -0.5, -12.5, 14.5, -0.5, -12.5, -14.5, 0.5, -12.5, -14.5, 0.5, 12.5, -14.5, -0.5, 12.5, -14.5, -0.5, 12.5, -14.5, 0.5, 12.5, 14.5, 0.5, 12.5, 14.5, 0.5, 12.5, -14.5, 0.5, 12.5, -14.5, 0.5, -12.5, -14.5, -0.5, 12.5, 14.5, -0.5, 12.5, 14.5, -0.5, -12.5, 14.5, 0.5, 12.5, 14.5, -0.5, 12.5, -14.5, -0.5, 12.5, 14.5, -0.5, -12.5, 14.5, -0.5, 12.5, 14.5, 0.5, 12.5, 14.5, -0.5, -12.5, 14.5, 0.5, -12.5, -14.5, 0.5, -12.5, -14.5, 0.5, -12.5, 14.5, 0.5, -12.5, 14.5, 0.5, 12.5, 14.5, 0.5, 12.5, 14.5, 0.5, -12.5, 14.5, -0.5, -12.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gvj5m"]
 size = Vector3(3.05853, 1, 8.52466)
@@ -314,16 +314,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
 shape = SubResource("BoxShape3D_2enrv")
 
 [node name="Boden" type="CSGBox3D" parent="."]
-transform = Transform3D(4.97628, 0, 0, 0, 0.995257, 0, 0, 0, 4.97628, 0, 0, 0)
-size = Vector3(50, 1, 50)
+transform = Transform3D(4.97628, 0, 0, 0, 0.995257, 0, 0, 0, 4.97628, 9.95256, 0, 0)
+size = Vector3(29, 1, 25)
 material = SubResource("StandardMaterial3D_oiu51")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Boden"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49137e-06, 0, -1.53315e-06)
-shape = SubResource("BoxShape3D_ry4hy")
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Boden/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_u6sld")
 
 [node name="Schalter 1" parent="." instance=ExtResource("8_4q77u")]
 transform = Transform3D(-4.37114e-09, -0.1, 4.37114e-09, 2.11758e-23, -4.37114e-09, -0.1, 0.1, -4.37114e-09, 1.91069e-16, 5.25, 0.75, -2.6)
@@ -337,20 +336,79 @@ transform = Transform3D(-4.37114e-09, -0.1, 4.37114e-09, 2.11758e-23, -4.37114e-
 [node name="Raum3" parent="Räume" instance=ExtResource("10_hw7ro")]
 
 [node name="Raum4" parent="Räume" instance=ExtResource("44_i4u54")]
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 9.45, 1.08694, 35.7)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 9.45, 1.08694, 35.45)
 
 [node name="Raum5" parent="Räume" instance=ExtResource("35_chlt8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0.00185376, 7.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0.00185376, 6.8)
 
 [node name="Raum6" parent="Räume" instance=ExtResource("13_02c0j")]
 
 [node name="Raum7" parent="Räume" instance=ExtResource("14_55rdn")]
 
 [node name="Raum8" parent="Räume" instance=ExtResource("10_hw7ro")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 24.7, 0, 17.25)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 24.7, 0, 16.75)
 
 [node name="Raum9" parent="Räume" instance=ExtResource("10_hw7ro")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.3, 0, 29.45)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.3, 0, 28.95)
+
+[node name="Gaenge" type="Node3D" parent="Räume"]
+
+[node name="Gang_orangev3" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 33.5, 0.6, 8.3)
+
+[node name="Gang_orangev2_DOPPEL_TUER" parent="Räume/Gaenge" instance=ExtResource("33_by7wp")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.6, 0.6, 8.3)
+
+[node name="Gang_orangev2_DOPPEL_TUER2" parent="Räume/Gaenge" instance=ExtResource("33_by7wp")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 11.3506, 0.6, 8.3)
+
+[node name="Gang_orangeV2_KURVE" parent="Räume/Gaenge" instance=ExtResource("34_sqyik")]
+transform = Transform3D(-0.9, 0, 7.86805e-08, 0, 0.9, 0, -7.86805e-08, 0, -0.9, -18.329, 0.6, 8.3)
+
+[node name="Gang_orangev2_DOPPEL_TUER3" parent="Räume/Gaenge" instance=ExtResource("33_by7wp")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 23.35, 0.6, 8.3)
+
+[node name="Gang_orangev7" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(-3.93403e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.93403e-08, -20.75, 0.6, -1.31804)
+
+[node name="Gang_orangev8" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(-3.93403e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.93403e-08, -20.75, 0.6, -9.58077)
+
+[node name="Gang_orangev4" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -10.5, 0.6, 8.3)
+
+[node name="Gang_orangeV2_KURVE2" parent="Räume/Gaenge" instance=ExtResource("34_sqyik")]
+transform = Transform3D(1.18021e-07, 0, 0.9, 0, 0.9, 0, -0.9, 0, 1.18021e-07, -20.729, 0.6, -17.3875)
+
+[node name="Gang_orangev9" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -11, 0.6, -19.75)
+
+[node name="Gang_orangev10" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2.57751, 0.6, -19.75)
+
+[node name="Gang_orangev11" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 14.2875, 0.6, -19.75)
+
+[node name="Gang_orangev12" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5.84477, 0.6, -19.75)
+
+[node name="Gang_orangev13" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 22.7158, 0.6, -19.75)
+
+[node name="Gang_orangev14" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 31.1383, 0.6, -19.75)
+
+[node name="Gang_orangeV2_KURVE3" parent="Räume/Gaenge" instance=ExtResource("34_sqyik")]
+transform = Transform3D(0.9, 0, -5.72157e-08, 0, 0.9, 0, 5.72157e-08, 0, 0.9, 39.05, 0.6, -19.7932)
+
+[node name="Gang_orangev15" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(1.18021e-07, 0, -0.9, 0, 0.9, 0, 0.9, 0, 1.18021e-07, 41.471, 0.6, -10.1751)
+
+[node name="Gang_orangev16" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
+transform = Transform3D(1.18021e-07, 0, -0.9, 0, 0.9, 0, 0.9, 0, 1.18021e-07, 41.471, 0.6, -1.9124)
+
+[node name="Gang_orangeV2_KURVE4" parent="Räume/Gaenge" instance=ExtResource("34_sqyik")]
+transform = Transform3D(1.07324e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, 1.07324e-08, 41.45, 0.6, 5.89436)
 
 [node name="key" parent="." instance=ExtResource("42_oj5xc")]
 transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.0324385, 12.2189, 1.41013, 31.49)
@@ -487,90 +545,8 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.55, 1.61572, -1.35)
 [node name="Cylinder" parent="Erlenmeierkolben" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_5myyk")
 
-[node name="Gang_orangev2" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 57, 0.7, 8.5)
-
-[node name="Gang_orangev3" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 32.05, 0.7, 8.5)
-
-[node name="Gang_orangev4" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 40.35, 0.7, 8.5)
-
-[node name="Gang_orangev5" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 48.7, 0.7, 8.5)
-
-[node name="Gang_orangev2_DOPPEL_TUER" parent="." instance=ExtResource("33_by7wp")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1.15, 0.75, 8.5)
-
-[node name="Gang_orangev2_DOPPEL_TUER2" parent="." instance=ExtResource("33_by7wp")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 10.8, 0.75, 8.5)
-
-[node name="Gang_orangeV2_KURVE" parent="." instance=ExtResource("34_sqyik")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -17.855, 0.75, 8.5)
-
-[node name="Gang_orangev2_DOPPEL_TUER3" parent="." instance=ExtResource("33_by7wp")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 22.75, 0.75, 8.5)
-
-[node name="Gang_orangev2_KLEIN" parent="." instance=ExtResource("35_by7wp")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 17.55, 0.75, 8.5)
-
-[node name="Gang_orangev2_KLEIN2" parent="." instance=ExtResource("35_by7wp")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5.3, 0.75, 8.5)
-
-[node name="Gang_orangeV2_KURVE2" parent="." instance=ExtResource("34_sqyik")]
-transform = Transform3D(0.9, -7.86805e-08, -7.86805e-08, -7.86805e-08, -0.9, 0, -7.86805e-08, 6.87847e-15, -0.9, -17.9059, 4.73087, -19.0381)
-
-[node name="Gang_orangev6" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -9.5405, 0.7, 8.5)
-
-[node name="Gang_orangev7" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(-3.93403e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.93403e-08, -26.8209, 0.7, -1.31804)
-
-[node name="Gang_orangev8" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(-3.93403e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.93403e-08, -26.8209, 0.7, -9.58077)
-
-[node name="Gang_orangev9" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -9.5405, 0.7, -19.13)
-
-[node name="Gang_orangev10" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1.16187, 0.7, -19.13)
-
-[node name="Gang_orangev11" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 7.25741, 0.7, -19.13)
-
-[node name="Gang_orangev12" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 15.6793, 0.7, -19.13)
-
-[node name="Gang_orangev13" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 24.0579, 0.7, -19.13)
-
-[node name="Gang_orangev14" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 32.4772, 0.7, -19.13)
-
-[node name="Gang_orangev15" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 40.8279, 0.7, -19.13)
-
-[node name="Gang_orangev16" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 49.2065, 0.7, -19.13)
-
-[node name="Gang_orangev17" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 57.6258, 0.7, -19.13)
-
-[node name="Gang_orangeV2_KURVE3" parent="." instance=ExtResource("34_sqyik")]
-transform = Transform3D(-0.9, -7.86805e-08, 0, 7.86805e-08, -0.9, 0, 0, 0, 0.9, 65.3924, 4.88597, 8.5)
-
-[node name="Gang_orangev18" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(3.64804e-08, 0.0327124, -0.899405, 7.86285e-08, -0.899405, -0.0327124, -0.9, -7.72506e-08, -3.93143e-08, 74.3506, 4.88597, -1.31804)
-
-[node name="Gang_orangev19" parent="." instance=ExtResource("19_uy46h")]
-transform = Transform3D(3.64804e-08, 0.0327124, -0.899405, 7.86285e-08, -0.899405, -0.0327124, -0.9, -7.72506e-08, -3.93143e-08, 74.3506, 4.88597, -9.58077)
-
-[node name="Gang_orangeV2_KURVE4" parent="." instance=ExtResource("34_sqyik")]
-transform = Transform3D(-0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 65.3924, 0.744235, -19.1686)
-
 [node name="Tisch Faebienne rund #(der beste)" parent="." instance=ExtResource("35_o1ald")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.85551, 0.57768, 2.42643)
-
 
 [connection signal="reaktortimeraktualisieren" from="Player" to="Räume/Raum4" method="_on_player_reaktortimeraktualisieren"]
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
