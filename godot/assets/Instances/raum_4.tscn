@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://tb3me6hh7tl"]
+[gd_scene load_steps=33 format=3 uid="uid://tb3me6hh7tl"]
 
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_6lxik"]
 [ext_resource type="Script" uid="uid://8gewydrgfr5i" path="res://scripts/raum_4_relay.gd" id="1_wj7xp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="3_e72a8"]
 [ext_resource type="Script" uid="uid://djqr3jcbeooah" path="res://scripts/tuer.gd" id="3_yo0wv"]
 [ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="4_66j88"]
+[ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="4_frsct"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yo0wv"]
 size = Vector3(2.9, 4.6, 1)
@@ -539,155 +540,157 @@ transform = Transform3D(-0.189234, 0, -9.99284, 0, 10, 0, 4.99642, 0, -0.378468,
 use_collision = true
 size = Vector3(1, 7.05, 7.4)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="Deckenbeleuchtung" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 2.27374e-14, 9.93883e-22, 0, -4.37114e-08, 1, 2.27374e-14, -1, -4.37114e-08, -225, 41, 118)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(10, 2.84217e-13, 1.24235e-20, 0, -4.37114e-07, 10, 2.84217e-13, -10, -4.37114e-07, -129.5, 41, 129.5)
+[node name="Deckenbeleuchtung2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 2.84217e-14, 1.24235e-21, 0, -4.37114e-08, 1, 2.84217e-14, -1, -4.37114e-08, -129.5, 41, 129.5)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D2" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung2" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D2/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung2/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(10, 3.12639e-13, 1.36659e-20, 0, -4.37114e-07, 10, 3.12639e-13, -10, -4.37114e-07, -160.5, 41, 62.0001)
+[node name="Deckenbeleuchtung3" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 3.12639e-14, 1.36659e-21, 0, -4.37114e-08, 1, 3.12639e-14, -1, -4.37114e-08, -160.5, 41, 62.0001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D3" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung3" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D3/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung3/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(10, 2.55795e-13, 1.11812e-20, 0, -4.37114e-07, 10, 2.55795e-13, -10, -4.37114e-07, -52.0001, 41, 118)
+[node name="Deckenbeleuchtung4" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 2.55795e-14, 1.11812e-21, 0, -4.37114e-08, 1, 2.55795e-14, -1, -4.37114e-08, -52.0001, 41, 118)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D4" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung4" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D4/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung4/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(10, 2.84217e-13, 1.24235e-20, 0, -4.37114e-07, 10, 2.84217e-13, -10, -4.37114e-07, 11.9999, 41, 125.5)
+[node name="Deckenbeleuchtung5" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 2.84217e-14, 1.24235e-21, 0, -4.37114e-08, 1, 2.84217e-14, -1, -4.37114e-08, 11.9999, 41, 125.5)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D5" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung5" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D5/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung5/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
-[node name="SpotLight3D6" type="SpotLight3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(10, 3.41061e-13, 1.49083e-20, 0, -4.37114e-07, 10, 3.41061e-13, -10, -4.37114e-07, 57.9998, 41, 92.5001)
+[node name="Deckenbeleuchtung6" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 3.41061e-14, 1.49083e-21, 0, -4.37114e-08, 1, 3.41061e-14, -1, -4.37114e-08, 57.9998, 41, 92.5001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D6" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung6" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D6/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung6/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
-[node name="SpotLight3D7" type="SpotLight3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(10, 2.84217e-13, 1.24235e-20, 0, -4.37114e-07, 10, 2.84217e-13, -10, -4.37114e-07, -6.50009, 41, 89.5001)
+[node name="Deckenbeleuchtung7" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 2.84217e-14, 1.24235e-21, 0, -4.37114e-08, 1, 2.84217e-14, -1, -4.37114e-08, -6.50009, 41, 89.5001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D7" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung7" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D7/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung7/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
-[node name="SpotLight3D8" type="SpotLight3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(10, 3.41061e-13, 1.49083e-20, 0, -4.37114e-07, 10, 3.41061e-13, -10, -4.37114e-07, 30.9999, 41, 54.0001)
+[node name="Deckenbeleuchtung8" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 3.41061e-14, 1.49083e-21, 0, -4.37114e-08, 1, 3.41061e-14, -1, -4.37114e-08, 30.9999, 41, 54.0001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D8" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung8" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D8/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung8/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
-[node name="SpotLight3D9" type="SpotLight3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(10, 4.26326e-13, 1.86353e-20, 0, -4.37114e-07, 10, 4.26326e-13, -10, -4.37114e-07, 95.9999, 41, 94.5001)
+[node name="Deckenbeleuchtung9" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 4.26326e-14, 1.86353e-21, 0, -4.37114e-08, 1, 4.26326e-14, -1, -4.37114e-08, 95.9999, 41, 94.5001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D9" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung9" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D9/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung9/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
-[node name="SpotLight3D10" type="SpotLight3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(10, 3.97904e-13, 1.73929e-20, 0, -4.37114e-07, 10, 3.97904e-13, -10, -4.37114e-07, -169.5, 41, 92)
+[node name="Deckenbeleuchtung10" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 3.97904e-14, 1.73929e-21, 0, -4.37114e-08, 1, 3.97904e-14, -1, -4.37114e-08, -169.5, 41, 92)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D10" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung10" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D10/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung10/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
-[node name="SpotLight3D11" type="SpotLight3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(10, 3.41061e-13, 1.49083e-20, 0, -4.37114e-07, 10, 3.41061e-13, -10, -4.37114e-07, -92.0001, 41, 67.0001)
+[node name="Deckenbeleuchtung11" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 3.41061e-14, 1.49083e-21, 0, -4.37114e-08, 1, 3.41061e-14, -1, -4.37114e-08, -92.0001, 41, 67.0001)
 light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("4_frsct")
 
-[node name="Licht" parent="SpotLight3D11" instance=ExtResource("1_6lxik")]
+[node name="Licht" parent="Deckenbeleuchtung11" instance=ExtResource("1_6lxik")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cylinder" parent="SpotLight3D11/Licht" index="0"]
+[node name="Cylinder" parent="Deckenbeleuchtung11/Licht" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
 surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 
@@ -697,14 +700,14 @@ surface_material_override/0 = SubResource("ShaderMaterial_n3445")
 [editable path="Wand17/Tuer1/tuer_R"]
 [editable path="Wand23/Tuer1/tuer_L"]
 [editable path="Wand23/Tuer1/tuer_R"]
-[editable path="SpotLight3D/Licht"]
-[editable path="SpotLight3D2/Licht"]
-[editable path="SpotLight3D3/Licht"]
-[editable path="SpotLight3D4/Licht"]
-[editable path="SpotLight3D5/Licht"]
-[editable path="SpotLight3D6/Licht"]
-[editable path="SpotLight3D7/Licht"]
-[editable path="SpotLight3D8/Licht"]
-[editable path="SpotLight3D9/Licht"]
-[editable path="SpotLight3D10/Licht"]
-[editable path="SpotLight3D11/Licht"]
+[editable path="Deckenbeleuchtung/Licht"]
+[editable path="Deckenbeleuchtung2/Licht"]
+[editable path="Deckenbeleuchtung3/Licht"]
+[editable path="Deckenbeleuchtung4/Licht"]
+[editable path="Deckenbeleuchtung5/Licht"]
+[editable path="Deckenbeleuchtung6/Licht"]
+[editable path="Deckenbeleuchtung7/Licht"]
+[editable path="Deckenbeleuchtung8/Licht"]
+[editable path="Deckenbeleuchtung9/Licht"]
+[editable path="Deckenbeleuchtung10/Licht"]
+[editable path="Deckenbeleuchtung11/Licht"]

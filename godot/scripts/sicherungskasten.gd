@@ -3,7 +3,6 @@ signal lichtAn
 @onready var showLabel = true
 @onready var lastpath
 @onready var solved: int = 0
-@onready var lights = [$"../SpotLight3D"]
 @export var interactText = "Verbinde alle Kabel [e]"
 
 func interact(collider):
@@ -23,12 +22,6 @@ func interact(collider):
 			if solved == 6:
 				print("light")
 				showLabel = false
-				for light in lights:
-					light.light_color = Color(1,1,1) #Farbe zu weiß ändern
-					$"../SpotLight3D/LichtAus".visible = false
-					$"../SpotLight3D/LichtAn".visible = true
-					while light.light_energy < 2:
-						await get_tree().create_timer(0.05).timeout #Warte 0.05 Sekunden
-						light.light_energy = light.light_energy + 0.1
+				Global.emit_signal("BeleuchtungsfarbeAendern")
 		else:
 			lastpath = path	

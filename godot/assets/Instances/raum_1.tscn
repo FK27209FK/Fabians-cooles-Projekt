@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b44vepus6yx37"]
+[gd_scene load_steps=35 format=3 uid="uid://b44vepus6yx37"]
 
 [ext_resource type="PackedScene" uid="uid://dvch22ol6ic23" path="res://assets/Stuhl.blend" id="1_mdliu"]
 [ext_resource type="Script" uid="uid://c6dp8t8ynwlwg" path="res://scripts/StarterRaumTuer.gd" id="2_yub8p"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="6_va7e8"]
 [ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="7_rsw1m"]
 [ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="8_yvwxx"]
+[ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="9_1eekp"]
+[ext_resource type="PackedScene" uid="uid://dineikd3xxv7x" path="res://assets/LichtAn.blend" id="10_2e3mq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nxon0"]
 size = Vector3(1, 2.8, 1)
@@ -374,6 +376,16 @@ surface_material_override/0 = SubResource("ShaderMaterial_ku2rx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Blumentopf3/Cylinder/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_0xw7l")
+
+[node name="Deckenbeleuchtung" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0, 5.4, 0)
+light_color = Color(1, 0.470588, 0.509804, 1)
+spot_range = 7.95
+spot_angle = 89.99
+script = ExtResource("9_1eekp")
+
+[node name="LichtAn" parent="Deckenbeleuchtung" instance=ExtResource("10_2e3mq")]
+transform = Transform3D(-1, -8.74228e-08, 0, -2.6054e-15, 2.98023e-08, -1, 8.74228e-08, -1, -2.98023e-08, 0, 0, 0)
 
 [editable path="Tuer/tuer_L"]
 [editable path="Tuer/tuer_R"]

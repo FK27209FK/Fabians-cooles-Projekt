@@ -410,7 +410,7 @@ offset_top = 133.0
 offset_right = 408.0
 offset_bottom = 176.0
 theme_override_font_sizes/font_size = 25
-placeholder_text = "XXXX-XXXX-XXXX-XXXX"
+placeholder_text = "                  ****"
 scroll_fit_content_height = true
 
 [node name="Button" type="Button" parent="wrapper4"]

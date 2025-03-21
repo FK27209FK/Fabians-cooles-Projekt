@@ -1,180 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://dscn3fpcul2mw"]
+[gd_scene load_steps=4 format=3 uid="uid://dscn3fpcul2mw"]
 
+[ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="1_lbn3d"]
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_vojm0"]
-[ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="2_iuk87"]
-[ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="3_hn66x"]
-[ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="4_ldy85"]
 [ext_resource type="PackedScene" uid="uid://c2b8jmjj0ibam" path="res://assets/serverschrank.blend" id="5_bssf7"]
-
-[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_2fk38"]
-default_input_values = [0, Vector2(0, 0)]
-op_type = 0
-
-[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_g0lxf"]
-op_type = 0
-
-[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_y67id"]
-function = 31
-
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_so47n"]
-output_port_for_preview = 0
-texture = ExtResource("2_iuk87")
-
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_t456x"]
-texture = ExtResource("3_hn66x")
-
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_7pjb1"]
-default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(3, 3, 3, 1)]
-op_type = 2
-operator = 2
-
-[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_kgq8p"]
-parameter_name = "EmissionStrength"
-hint = 1
-max = 20.0
-default_value_enabled = true
-default_value = 3.0
-
-[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_5f2de"]
-default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 0.0]
-op_type = 2
-
-[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_l5tiu"]
-input_name = "time"
-
-[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_sidr8"]
-operator = 2
-
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_rjdm6"]
-texture = ExtResource("4_ldy85")
-
-[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_tukwi"]
-default_input_values = [0, Quaternion(0, 0, 0, 0)]
-op_type = 2
-
-[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_o1wn8"]
-operator = 1
-
-[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_j1t31"]
-input_name = "uv"
-
-[sub_resource type="VisualShader" id="VisualShader_llwem"]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
-
-uniform sampler2D tex_frg_6;
-uniform sampler2D tex_frg_14;
-uniform sampler2D tex_frg_13;
-uniform float EmissionStrength : hint_range(0.0, 20.0) = 3.0;
-
-
-
-void fragment() {
-// Input:9
-	vec2 n_out9p0 = UV;
-
-
-// VectorDecompose:10
-	float n_out10p0 = n_out9p0.x;
-	float n_out10p1 = n_out9p0.y;
-
-
-// Input:3
-	float n_out3p0 = TIME;
-
-
-// Texture2D:6
-	vec4 n_out6p0 = texture(tex_frg_6, UV);
-
-
-// VectorDecompose:7
-	float n_out7p0 = n_out6p0.x;
-	float n_out7p1 = n_out6p0.y;
-	float n_out7p2 = n_out6p0.z;
-	float n_out7p3 = n_out6p0.w;
-
-
-// FloatOp:4
-	float n_out4p0 = n_out3p0 * n_out7p2;
-
-
-// FloatOp:8
-	float n_out8p0 = n_out10p1 - n_out4p0;
-
-
-// VectorCompose:11
-	vec2 n_out11p0 = vec2(n_out10p0, n_out8p0);
-
-
-// Texture2D:14
-	vec4 n_out14p0 = texture(tex_frg_14, n_out11p0);
-
-
-// FloatFunc:12
-	float n_out12p0 = 1.0 - n_out7p1;
-
-
-// Texture2D:13
-	vec4 n_out13p0 = texture(tex_frg_13, n_out11p0);
-
-
-// FloatParameter:16
-	float n_out16p0 = EmissionStrength;
-
-
-// VectorCompose:17
-	float n_in17p3 = 0.00000;
-	vec4 n_out17p0 = vec4(n_out16p0, n_out16p0, n_out16p0, n_in17p3);
-
-
-// VectorOp:15
-	vec4 n_out15p0 = n_out13p0 * n_out17p0;
-
-
-// Output:0
-	ALBEDO = vec3(n_out14p0.xyz);
-	METALLIC = n_out7p0;
-	ROUGHNESS = n_out12p0;
-	EMISSION = vec3(n_out15p0.xyz);
-
-
-}
-"
-nodes/fragment/0/position = Vector2(1500, -360)
-nodes/fragment/3/node = SubResource("VisualShaderNodeInput_l5tiu")
-nodes/fragment/3/position = Vector2(60, 100)
-nodes/fragment/4/node = SubResource("VisualShaderNodeFloatOp_sidr8")
-nodes/fragment/4/position = Vector2(360, 280)
-nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_rjdm6")
-nodes/fragment/6/position = Vector2(-620, 60)
-nodes/fragment/7/node = SubResource("VisualShaderNodeVectorDecompose_tukwi")
-nodes/fragment/7/position = Vector2(-320, -40)
-nodes/fragment/8/node = SubResource("VisualShaderNodeFloatOp_o1wn8")
-nodes/fragment/8/position = Vector2(520, 180)
-nodes/fragment/9/node = SubResource("VisualShaderNodeInput_j1t31")
-nodes/fragment/9/position = Vector2(-220, -320)
-nodes/fragment/10/node = SubResource("VisualShaderNodeVectorDecompose_2fk38")
-nodes/fragment/10/position = Vector2(160, -360)
-nodes/fragment/11/node = SubResource("VisualShaderNodeVectorCompose_g0lxf")
-nodes/fragment/11/position = Vector2(620, -80)
-nodes/fragment/12/node = SubResource("VisualShaderNodeFloatFunc_y67id")
-nodes/fragment/12/position = Vector2(1060, -220)
-nodes/fragment/13/node = SubResource("VisualShaderNodeTexture_so47n")
-nodes/fragment/13/position = Vector2(1040, -140)
-nodes/fragment/14/node = SubResource("VisualShaderNodeTexture_t456x")
-nodes/fragment/14/position = Vector2(1020, -560)
-nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_7pjb1")
-nodes/fragment/15/position = Vector2(1320, 240)
-nodes/fragment/16/node = SubResource("VisualShaderNodeFloatParameter_kgq8p")
-nodes/fragment/16/position = Vector2(640, 320)
-nodes/fragment/17/node = SubResource("VisualShaderNodeVectorCompose_5f2de")
-nodes/fragment/17/position = Vector2(1040, 300)
-nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 6, 0, 7, 0, 7, 2, 4, 1, 9, 0, 10, 0, 10, 1, 8, 0, 4, 0, 8, 1, 10, 0, 11, 0, 8, 0, 11, 1, 7, 0, 0, 2, 7, 1, 12, 0, 11, 0, 13, 0, 12, 0, 0, 3, 14, 0, 0, 0, 11, 0, 14, 0, 13, 0, 15, 0, 15, 0, 0, 5, 17, 0, 15, 1, 16, 0, 17, 0, 16, 0, 17, 1, 16, 0, 17, 2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nf47s"]
-render_priority = 0
-shader = SubResource("VisualShader_llwem")
-shader_parameter/EmissionStrength = 1.0
 
 [node name="Raum 6" type="Node3D"]
 
@@ -208,17 +36,15 @@ transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, -0.149
 operation = 2
 size = Vector3(1.5, 2.5, 0.95)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="Deckenbeleuchtung2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 2.27374e-14, 6.77627e-22, 0, -2.98023e-08, 1, 2.27374e-14, -1, -2.98023e-08, 8.6, 9.3, -1.35)
+light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("1_lbn3d")
 
-[node name="Licht" parent="SpotLight3D" instance=ExtResource("1_vojm0")]
+[node name="Licht" parent="Deckenbeleuchtung2" instance=ExtResource("1_vojm0")]
 transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
-
-[node name="Cylinder" parent="SpotLight3D/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
-surface_material_override/0 = SubResource("ShaderMaterial_nf47s")
 
 [node name="serverschrank" parent="." instance=ExtResource("5_bssf7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 7.3, 6.7, 3.7)
@@ -253,17 +79,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 9.3,
 [node name="serverschrank13" parent="." instance=ExtResource("5_bssf7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 11.3, 6.7, 0.7)
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+[node name="Deckenbeleuchtung" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 2.27374e-14, 6.77627e-22, 0, -2.98023e-08, 1, 2.27374e-14, -1, -2.98023e-08, 14.1, 9.3, 0.85)
+light_color = Color(1, 0.470588, 0.509804, 1)
 spot_range = 7.95
 spot_angle = 89.99
+script = ExtResource("1_lbn3d")
 
-[node name="Licht" parent="SpotLight3D2" instance=ExtResource("1_vojm0")]
+[node name="Licht" parent="Deckenbeleuchtung" instance=ExtResource("1_vojm0")]
 transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
-
-[node name="Cylinder" parent="SpotLight3D2/Licht" index="0"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.0500002, 4.37117e-09)
-surface_material_override/0 = SubResource("ShaderMaterial_nf47s")
-
-[editable path="SpotLight3D/Licht"]
-[editable path="SpotLight3D2/Licht"]
