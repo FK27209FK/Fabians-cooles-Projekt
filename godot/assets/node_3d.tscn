@@ -43,6 +43,8 @@ background_color = Color(0.772549, 0, 0, 1)
 sky = SubResource("Sky_1upd0")
 ambient_light_source = 1
 reflected_light_source = 1
+glow_enabled = true
+volumetric_fog_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3

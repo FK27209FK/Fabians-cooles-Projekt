@@ -1,0 +1,68 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://ii4ywfx3mwn3"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_8f1o2"]
+parameter_name = "Texture2DParameter"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ne1xg"]
+source = 5
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_8f1o2"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8f1o2"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ne1xg"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D Texture2DParameter;
+
+
+
+void fragment() {
+// Input:5
+	vec4 n_out5p0 = COLOR;
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(Texture2DParameter, UV);
+
+
+// VectorOp:6
+	vec4 n_out6p0 = n_out5p0 * n_out3p0;
+
+
+// VectorDecompose:4
+	float n_out4p0 = n_out6p0.x;
+	float n_out4p1 = n_out6p0.y;
+	float n_out4p2 = n_out6p0.z;
+	float n_out4p3 = n_out6p0.w;
+
+
+// Output:0
+	ALBEDO = vec3(n_out6p0.xyz);
+	ALPHA = n_out4p3;
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_8f1o2")
+nodes/fragment/2/position = Vector2(-460, 100)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_ne1xg")
+nodes/fragment/3/position = Vector2(-140, 140)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_8f1o2")
+nodes/fragment/4/position = Vector2(180, 360)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_8f1o2")
+nodes/fragment/5/position = Vector2(-200, -80)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_ne1xg")
+nodes/fragment/6/position = Vector2(160, -20)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 3, 0, 1, 5, 0, 6, 0, 3, 0, 6, 1, 6, 0, 0, 0, 6, 0, 4, 0)
