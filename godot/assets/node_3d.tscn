@@ -300,7 +300,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0.00185376, 6.8)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 24.7, 0, 16.75)
 
 [node name="Raum9" parent="Räume" instance=ExtResource("10_hw7ro")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.3, 0, 28.95)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.2559, -0.279754, 28.95)
 
 [node name="Gaenge" type="Node3D" parent="Räume"]
 
