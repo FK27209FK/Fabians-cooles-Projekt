@@ -10,3 +10,5 @@ func interact():
 	else:
 		$"../../AnimationPlayer".play_backwards("oeffnen")
 		interactText = "Tür öffnen [e]"
+		
+		#test
