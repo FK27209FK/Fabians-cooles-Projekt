@@ -128,7 +128,7 @@ autowrap_mode = 0
 [node name="wrapper2" type="Panel" parent="."]
 layout_mode = 0
 offset_top = 56.0
-offset_right = 384.0
+offset_right = 398.0
 offset_bottom = 384.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0x2mv")
 
@@ -151,7 +151,7 @@ autowrap_mode = 0
 layout_mode = 0
 offset_left = 64.0
 offset_top = 50.0
-offset_right = 384.0
+offset_right = 401.0
 offset_bottom = 314.0
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true

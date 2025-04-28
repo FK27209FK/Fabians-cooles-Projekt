@@ -10,7 +10,7 @@ var droped = false
 func interact():
 	var Taschenlampe = Taschenlampen_INSTANCE.instantiate()
 	%Taschenlampenpoint.add_child(Taschenlampe)
-	get_parent().visible = false
+	get_parent().queue_free()
 	PlayerOwnsItem = true
 
 func _process(_delta: float) -> void:
