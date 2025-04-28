@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=42 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Texture2D" uid="uid://d15em0opo6p8k" path="res://assets/20 background textures for mtc-sets/space-gc497fd7be_640.png" id="1_743hh"]
 [ext_resource type="Script" uid="uid://hc18lharhgd7" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://xv4s4lc12ueq" path="res://assets/Gang_orangev2.blend" id="19_uy46h"]
 [ext_resource type="Script" uid="uid://b4ucqd111gvoy" path="res://scripts/deatharea.gd" id="20_q31as"]
 [ext_resource type="PackedScene" uid="uid://di3laugq41e6e" path="res://assets/Instances/PC.tscn" id="26_aowiy"]
+[ext_resource type="Script" uid="uid://b1x70m31dyx5s" path="res://scripts/use_pc.gd" id="26_uy46h"]
 [ext_resource type="PackedScene" uid="uid://crmv7tshub1fn" path="res://assets/TischMitMonitoren.blend" id="27_0kylr"]
 [ext_resource type="PackedScene" uid="uid://dee6qmsdic5dj" path="res://assets/Instances/taschenlampe.tscn" id="29_cjm7s"]
 [ext_resource type="Script" uid="uid://ck42qlqftp6p0" path="res://assets/taschenlampe.gd" id="30_mwol7"]
@@ -123,7 +124,7 @@ target_position = Vector3(0, 1, 0)
 collision_mask = 4
 script = ExtResource("9_2up1x")
 
-[node name="ColorRect" type="ColorRect" parent="Player/Camera/Interact"]
+[node name="Mittelpunkt" type="ColorRect" parent="Player/Camera/Interact"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -378,6 +379,22 @@ transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 
 [node name="TischMitMonitoren" parent="." instance=ExtResource("27_0kylr")]
 transform = Transform3D(-0.3, 0, 4.52987e-08, 0, 0.3, 0, -4.52987e-08, 0, -0.3, 3.45, 0.947629, -1.7)
 
+[node name="StaticBody3D" parent="TischMitMonitoren/Monitor-Bildschirm" index="0"]
+collision_layer = 5
+collision_mask = 5
+
+[node name="Monitor-Bildschirm_001" parent="TischMitMonitoren" index="4"]
+layers = 5
+
+[node name="StaticBody3D" parent="TischMitMonitoren/Monitor-Bildschirm_001" index="0" node_paths=PackedStringArray("player", "PC", "UI", "Mittelpunkt")]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("26_uy46h")
+player = NodePath("../../../Player")
+PC = NodePath("../../../PC/SubViewportContainer/SubViewport/Node2D/Pc")
+UI = NodePath("../../../Player/UI")
+Mittelpunkt = NodePath("../../../Player/Camera/Interact/Mittelpunkt")
+
 [node name="Audio" parent="." instance=ExtResource("19_5beqm")]
 
 [node name="Taschenlampe" parent="." instance=ExtResource("29_cjm7s")]
@@ -408,4 +425,5 @@ texture = ExtResource("7_by7wp")
 [connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]
 
 [editable path="key"]
+[editable path="TischMitMonitoren"]
 [editable path="Taschenlampe"]
