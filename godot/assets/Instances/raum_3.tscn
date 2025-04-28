@@ -96,7 +96,7 @@ use_collision = true
 size = Vector3(1, 5, 10)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(-8.94202e-08, 0, 2, 0, 1, 0, -1, 0, -4.47035e-08, 0.0545206, -0.9, -1.22737)
+transform = Transform3D(-8.94202e-08, 0, 2, 0, 1, 0, -1, 0, -4.47035e-08, 0.0545206, -1.04531, -1.22737)
 operation = 2
 size = Vector3(2.95, 2.3, 0.85)
 
