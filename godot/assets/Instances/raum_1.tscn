@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bln4kaydk2cal" path="res://materials/Textures/ImphenziaPixPal_Emission.png" id="6_va7e8"]
 [ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="7_rsw1m"]
 [ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="8_yvwxx"]
-[ext_resource type="Script" path="res://scripts/Beleuchtung.gd" id="9_1eekp"]
+[ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="9_1eekp"]
 [ext_resource type="PackedScene" uid="uid://dineikd3xxv7x" path="res://assets/LichtAn.blend" id="10_2e3mq"]
 [ext_resource type="Texture2D" uid="uid://dybg5obovugq7" path="res://assets/Flammentextur.png" id="11_1eekp"]
 
