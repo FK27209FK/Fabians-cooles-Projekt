@@ -1,6 +1,7 @@
 extends Control
 
 signal relay
+var Entsperrcode = "ERROR"
 
 func _on_exit_pressed() -> void:
 	emit_signal("relay")
@@ -9,6 +10,9 @@ func _on_exit_pressed() -> void:
 func _on_reaktortimer_timer_aktualisieren(time) -> void:
 	%Reaktortimer.text = time
 
-
 func _on_button_pressed() -> void:
-	pass # Replace with function body.
+	if Entsperrcode == "9167":
+		print("PC: entsperrt")
+	
+func _on_text_edit_text_changed() -> void:
+	Entsperrcode = %TextEdit.text
