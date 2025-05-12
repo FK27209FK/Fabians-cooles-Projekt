@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="7_bhlv1"]
 [ext_resource type="Script" path="res://scripts/Beleuchtung.gd" id="7_k62gv"]
 [ext_resource type="Texture2D" uid="uid://dybg5obovugq7" path="res://assets/Flammentextur.png" id="7_puhtw"]
-[ext_resource type="Script" uid="uid://c6dp8t8ynwlwg" path="res://scripts/StarterRaumTuer.gd" id="9_dcutf"]
+[ext_resource type="Script" uid="uid://coceiefrebvuk" path="res://scripts/test_tür.gd" id="9_dcutf"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="10_tpk7g"]
 [ext_resource type="Script" uid="uid://dgof7jq5p3jh6" path="res://scripts/StarterRaumTuerFehlermeldung.gd" id="11_ax4b3"]
 
