@@ -14,7 +14,6 @@ func interact():
 		UI.visible = false
 		player.release_mouse()
 		Mittelpunkt.visible = false
-		
 	else:
 		showLabel = false
 		print("Player is not allowed to do this action!")
