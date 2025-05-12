@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dekjnsishyetk"]
+[gd_scene load_steps=30 format=3 uid="uid://dekjnsishyetk"]
 
 [ext_resource type="PackedScene" uid="uid://bavm420ysjtq1" path="res://assets/Schalter_Hebel.fbx" id="2_oaxje"]
 [ext_resource type="Script" uid="uid://eo38qw0guec4" path="res://scripts/schalter1FalltuerRaum2.gd" id="3_rnbus"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhtya8d40p78s" path="res://assets/Plattform.blend" id="5_me168"]
 [ext_resource type="Script" uid="uid://1f82y83stx2j" path="res://assets/set_pos.gd" id="6_yhv5d"]
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="7_bhlv1"]
-[ext_resource type="Script" path="res://scripts/Beleuchtung.gd" id="7_k62gv"]
+[ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="7_k62gv"]
 [ext_resource type="Texture2D" uid="uid://dybg5obovugq7" path="res://assets/Flammentextur.png" id="7_puhtw"]
 [ext_resource type="Script" uid="uid://c6dp8t8ynwlwg" path="res://scripts/StarterRaumTuer.gd" id="9_dcutf"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="10_tpk7g"]
@@ -142,6 +142,8 @@ proximity_fade_distance = 15.05
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_dcutf"]
 material = SubResource("StandardMaterial3D_2e3mq")
+
+[sub_resource type="Skin" id="Skin_dcutf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ttc70"]
 size = Vector3(2.9, 4.6, 1)
@@ -310,22 +312,31 @@ libraries = {
 }
 
 [node name="Fire" type="GPUParticles3D" parent="Aufzug/Plattform"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.8, -0.2, 0.85)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 13.9, 0.6, -2.15)
+top_level = true
+transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_0xg7i")
 draw_pass_1 = SubResource("RibbonTrailMesh_dcutf")
+draw_skin = SubResource("Skin_dcutf")
 
 [node name="Fire2" type="GPUParticles3D" parent="Aufzug/Plattform"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.8, -0.2, -0.9)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 13.9, 0.6, -3.9)
+top_level = true
+transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_0xg7i")
 draw_pass_1 = SubResource("RibbonTrailMesh_dcutf")
 
 [node name="Fire3" type="GPUParticles3D" parent="Aufzug/Plattform"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.9, -0.2, 0.85)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 15.6, 0.6, -2.15)
+top_level = true
+transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_0xg7i")
 draw_pass_1 = SubResource("RibbonTrailMesh_dcutf")
 
 [node name="Fire4" type="GPUParticles3D" parent="Aufzug/Plattform"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.9, -0.2, -0.9)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 15.6, 0.6, -3.9)
+top_level = true
+transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_0xg7i")
 draw_pass_1 = SubResource("RibbonTrailMesh_dcutf")
 

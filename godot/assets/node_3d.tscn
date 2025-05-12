@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=41 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Texture2D" uid="uid://d15em0opo6p8k" path="res://assets/20 background textures for mtc-sets/space-gc497fd7be_640.png" id="1_743hh"]
 [ext_resource type="Script" uid="uid://hc18lharhgd7" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://cdrwvyqf02tuq" path="res://assets/Gang_orangev2_DOPPEL_TUER.blend" id="33_by7wp"]
 [ext_resource type="PackedScene" uid="uid://cilkwuyqoq8ld" path="res://assets/Gang_orangeV2_KURVE.blend" id="34_sqyik"]
 [ext_resource type="PackedScene" uid="uid://fodbwvg73jqq" path="res://assets/Instances/raum_5.tscn" id="35_chlt8"]
-[ext_resource type="PackedScene" uid="uid://bpr0ponqko483" path="res://assets/Tisch Faebienne rund #(der beste).blend" id="35_o1ald"]
 [ext_resource type="Script" uid="uid://b0vecck2rxpec" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://tb3me6hh7tl" path="res://assets/Instances/raum_4.tscn" id="44_i4u54"]
@@ -411,9 +410,6 @@ shape = SubResource("ConcavePolygonShape3D_lxxao")
 [node name="SpotLight3D" parent="Taschenlampe" index="1"]
 transform = Transform3D(1, 0, 2.84217e-15, 0, 1, 0, -2.84217e-15, 0, 1, 0, 0, -2.15998)
 light_energy = 0.0
-
-[node name="Tisch Faebienne rund #(der beste)" parent="." instance=ExtResource("35_o1ald")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.85551, 0.57768, 2.42643)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 6.73945, 1.97729, 18.2166)
