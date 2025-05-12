@@ -288,7 +288,7 @@ unique_name_in_owner = true
 [node name="Raum3" parent="Räume" instance=ExtResource("10_hw7ro")]
 
 [node name="Raum4" parent="Räume" instance=ExtResource("44_i4u54")]
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 9.45, 1.08694, 35.45)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 9.45, 1.08694, 35.3491)
 
 [node name="Raum5" parent="Räume" instance=ExtResource("35_chlt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0.00185376, 6.8)
@@ -301,7 +301,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0.00185376, 6.8)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 24.7, 0, 16.75)
 
 [node name="Raum9" parent="Räume" instance=ExtResource("10_hw7ro")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.3, 0, 28.95)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.284, -0.45, 28.95)
 
 [node name="Gaenge" type="Node3D" parent="Räume"]
 
@@ -363,7 +363,7 @@ transform = Transform3D(1.18021e-07, 0, -0.9, 0, 0.9, 0, 0.9, 0, 1.18021e-07, 41
 transform = Transform3D(1.07324e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, 1.07324e-08, 41.45, 0.6, 5.89436)
 
 [node name="key" parent="." instance=ExtResource("42_oj5xc")]
-transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.0324385, 12.5805, 1.63181, 31.9806)
+transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.0324385, 12.5805, 1.18181, 31.9806)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="key"]
 collision_layer = 5
