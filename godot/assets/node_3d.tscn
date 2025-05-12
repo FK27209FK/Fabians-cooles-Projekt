@@ -249,7 +249,7 @@ transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 67.6612,
 script = ExtResource("18_sxefn")
 
 [node name="Gegner" parent="Gegner" instance=ExtResource("14_otkgv")]
-transform = Transform3D(0.675026, 0, 0, 0, 0.816236, 0, 0, 0, 0.640047, -3.8147e-06, -0.177624, -0.000358582)
+transform = Transform3D(0.675026, 0, 0, 0, 0.816236, 0, 0, 0, 0.640047, -3.8147e-06, -0.177624, -25.3138)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25267, -0.0250015)
