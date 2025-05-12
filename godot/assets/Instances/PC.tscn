@@ -495,5 +495,6 @@ fit_content = true
 autowrap_mode = 0
 script = ExtResource("2_mksex")
 
+[connection signal="pressed" from="wrapper4/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
 [connection signal="timerAktualisieren" from="wrapper6/Reaktortimer" to="." method="_on_reaktortimer_timer_aktualisieren"]
