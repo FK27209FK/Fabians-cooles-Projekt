@@ -291,11 +291,12 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 9.45, 1.08694, 35.3491)
 
 [node name="Raum5" parent="Räume" instance=ExtResource("35_chlt8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0.00185376, 6.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.538796, -0.0514957, 6.8009)
 
 [node name="Raum6" parent="Räume" instance=ExtResource("13_02c0j")]
 
 [node name="Raum7" parent="Räume" instance=ExtResource("14_55rdn")]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 22.1877, 7.46057, 4.55845)
 
 [node name="Raum8" parent="Räume" instance=ExtResource("10_hw7ro")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 24.7, 0, 16.75)
@@ -345,7 +346,7 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 14.2875, 0.6, -19.75)
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5.84477, 0.6, -19.75)
 
 [node name="Gang_orangev13" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 22.7158, 0.6, -19.75)
+transform = Transform3D(0.898134, 0, 0.0579223, 0, 0.9, 0, -0.0579223, 0, 0.898134, 22.7158, 0.6, -19.75)
 
 [node name="Gang_orangev14" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 31.1383, 0.6, -19.75)

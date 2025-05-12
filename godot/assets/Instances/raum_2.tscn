@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhtya8d40p78s" path="res://assets/Plattform.blend" id="5_me168"]
 [ext_resource type="Script" uid="uid://1f82y83stx2j" path="res://assets/set_pos.gd" id="6_yhv5d"]
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="7_bhlv1"]
-[ext_resource type="Script" path="res://scripts/Beleuchtung.gd" id="7_k62gv"]
+[ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="7_k62gv"]
 [ext_resource type="Texture2D" uid="uid://dybg5obovugq7" path="res://assets/Flammentextur.png" id="7_puhtw"]
 [ext_resource type="Script" uid="uid://c6dp8t8ynwlwg" path="res://scripts/StarterRaumTuer.gd" id="9_dcutf"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="10_tpk7g"]
