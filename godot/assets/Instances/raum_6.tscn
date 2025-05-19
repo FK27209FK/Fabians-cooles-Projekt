@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dscn3fpcul2mw"]
+[gd_scene load_steps=11 format=3 uid="uid://dscn3fpcul2mw"]
 
+[ext_resource type="Script" uid="uid://dej53gv5xed60" path="res://assets/Instances/raum_6.gd" id="1_jwnw2"]
 [ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="1_lbn3d"]
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_vojm0"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="4_bssf7"]
@@ -71,6 +72,7 @@ _data = {
 }
 
 [node name="Raum 6" type="Node3D"]
+script = ExtResource("1_jwnw2")
 
 [node name="Wand7" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 12.9669, 7.78029, -4.48217)
