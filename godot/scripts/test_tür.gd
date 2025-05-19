@@ -11,5 +11,3 @@ func interact():
 		%AnimationPlayer.play("oeffnen")
 	else: 
 		print("Du hast den Schlüssel nicht gefunden!")
-	
-	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://di3laugq41e6e"]
+[gd_scene load_steps=17 format=3 uid="uid://di3laugq41e6e"]
 
 [ext_resource type="Script" uid="uid://ms4xaem4lq0i" path="res://assets/Instances/pc.gd" id="1_bqgky"]
 [ext_resource type="Script" uid="uid://cic01olq48yyj" path="res://assets/Instances/reaktortimer.gd" id="2_mksex"]
@@ -50,13 +50,16 @@ bg_color = Color(0.498039, 0, 0.0941176, 1)
 corner_radius_top_left = 35
 corner_radius_bottom_left = 35
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbg84"]
+bg_color = Color(0.913725, 0, 0.109804, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnqi3"]
 bg_color = Color(0, 0.364706, 0.52549, 1)
 corner_radius_bottom_right = 35
 corner_radius_bottom_left = 35
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cypq"]
-bg_color = Color(0, 0.364706, 0.52549, 1)
+bg_color = Color(0.721569, 0, 0.176471, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -373,7 +376,6 @@ text = "[color=yellow]!Work in Progress![/color]"
 fit_content = true
 
 [node name="wrapper4" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 416.0
 offset_top = 104.0
@@ -428,6 +430,15 @@ offset_bottom = 176.0
 theme_override_font_sizes/font_size = 25
 placeholder_text = "                  ****"
 scroll_fit_content_height = true
+
+[node name="exit" type="Button" parent="wrapper4"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 128.0
+offset_right = 600.0
+offset_bottom = 184.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jbg84")
+text = "Eingeben"
 
 [node name="wrapper5" type="Panel" parent="."]
 layout_mode = 0
@@ -516,6 +527,7 @@ offset_bottom = 283.0
 text = "Eingeben"
 
 [node name="wrapper8" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 864.0
 offset_top = 114.0
@@ -542,20 +554,22 @@ autowrap_mode = 0
 layout_mode = 0
 offset_left = 32.0
 offset_top = 62.0
-offset_right = 112.0
-offset_bottom = 86.0
+offset_right = 96.0
+offset_bottom = 142.0
 text = "Tür 1:
+
 Tür 2:"
 
 [node name="Button" type="Button" parent="wrapper8"]
 layout_mode = 0
-offset_left = 88.0
+offset_left = 96.0
 offset_top = 62.0
-offset_right = 160.0
+offset_right = 224.0
 offset_bottom = 93.0
 text = "Öffnen"
 
 [connection signal="text_changed" from="wrapper4/TextEdit" to="." method="_on_text_edit_text_changed"]
-[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="wrapper4/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed2"]
 [connection signal="timerAktualisieren" from="wrapper6/Reaktortimer" to="." method="_on_reaktortimer_timer_aktualisieren"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

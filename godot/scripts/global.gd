@@ -1,3 +1,5 @@
 extends Node3D
 signal starterRaumTuerTrigger
 signal BeleuchtungsfarbeAendern
+signal TuerOeffnen
+signal PCSchliessen

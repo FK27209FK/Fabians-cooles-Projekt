@@ -24,4 +24,7 @@ func _process(_delta: float) -> void:
 					$InteractControl/Label.text = text
 				if Input.is_action_just_pressed("interact"):
 					$"../..".vis_false()
-					get_collider().owner.interact(get_collider())
+					if (collider.owner.name == "TischMitMonitoren"):
+						get_collider().owner.interact()
+					else:
+						get_collider().owner.interact(get_collider())
