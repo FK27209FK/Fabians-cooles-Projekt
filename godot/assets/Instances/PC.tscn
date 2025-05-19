@@ -516,6 +516,7 @@ offset_bottom = 283.0
 text = "Eingeben"
 
 [node name="wrapper8" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 864.0
 offset_top = 114.0
 offset_right = 1152.0

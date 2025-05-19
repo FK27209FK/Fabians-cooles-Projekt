@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c78hml4g8ipgy" path="res://materials/Textures/ImphenziaPixPal_BaseColor.png" id="3_e72a8"]
 [ext_resource type="Script" uid="uid://djqr3jcbeooah" path="res://scripts/tuer.gd" id="3_yo0wv"]
 [ext_resource type="Texture2D" uid="uid://dhp5rmw7s2vcm" path="res://materials/Textures/ImphenziaPixPal_Attributes.png" id="4_66j88"]
-[ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="4_frsct"]
+[ext_resource type="Script" path="res://scripts/Beleuchtung.gd" id="4_frsct"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yo0wv"]
 size = Vector3(2.9, 4.6, 1)

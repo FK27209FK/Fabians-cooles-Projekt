@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="1_56528"]
 [ext_resource type="Script" uid="uid://djqr3jcbeooah" path="res://scripts/tuer.gd" id="2_n7jpr"]
-[ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="3_71122"]
+[ext_resource type="Script" path="res://scripts/Beleuchtung.gd" id="3_71122"]
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="3_flcp0"]
 [ext_resource type="PackedScene" uid="uid://c0e7f3puwecms" path="res://assets/Reagenzglas.blend" id="7_rvj4r"]
 [ext_resource type="PackedScene" uid="uid://ctas4c26roryo" path="res://assets/Erlenmeierkolben.blend" id="8_ildpr"]

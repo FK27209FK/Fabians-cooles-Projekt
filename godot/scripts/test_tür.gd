@@ -1,4 +1,4 @@
-extends Node3D
+extends StaticBody3D
 
 @onready var showLabel = true
 
@@ -8,7 +8,7 @@ func interact():
 		#$"../../../Alarmanlage".doorsToCloseIfAlarmanlageAktiv[1] = true
 		get_tree().queue_delete($"../../../Player/Camera/SchlüsselPoint".get_child(0))
 		#get_tree().queue_delete(get_parent())
-		$AnimationPlayer.play("oeffnen")
+		%AnimationPlayer.play("oeffnen")
 	else: 
 		print("Du hast den Schlüssel nicht gefunden!")
 	
