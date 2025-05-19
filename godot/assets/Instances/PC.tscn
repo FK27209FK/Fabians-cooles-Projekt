@@ -42,11 +42,10 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd7n2"]
 bg_color = Color(0, 0.364706, 0.52549, 1)
-corner_radius_top_left = 35
-corner_radius_bottom_left = 35
+corner_radius_top_right = 35
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7baea"]
-bg_color = Color(0.498039, 0, 0.0941176, 1)
+bg_color = Color(0, 0.364706, 0.52549, 1)
 corner_radius_top_left = 35
 corner_radius_bottom_left = 35
 
@@ -128,10 +127,9 @@ autowrap_mode = 0
 
 [node name="wrapper2" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 102.0
-offset_right = 399.0
-offset_bottom = 387.0
+offset_top = 56.0
+offset_right = 398.0
+offset_bottom = 384.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0x2mv")
 
 [node name="Ueberschrift" type="RichTextLabel" parent="wrapper2"]
@@ -188,7 +186,7 @@ scroll_active = false
 [node name="wrapper7" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 544.0
-offset_top = 412.0
+offset_top = 328.0
 offset_right = 1120.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_230uh")
@@ -361,19 +359,7 @@ text = "Schadensanzeige"
 fit_content = true
 autowrap_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="wrapper3"]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 96.0
-offset_right = 481.0
-offset_bottom = 175.0
-theme_override_font_sizes/normal_font_size = 50
-bbcode_enabled = true
-text = "[color=yellow]!Work in Progress![/color]"
-fit_content = true
-
 [node name="wrapper4" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 416.0
 offset_top = 104.0
@@ -406,8 +392,7 @@ theme_override_font_sizes/normal_font_size = 85
 bbcode_enabled = true
 text = "[color= orange]![/color]"
 
-[node name="zugriff_erkannt" type="RichTextLabel" parent="wrapper4"]
-unique_name_in_owner = true
+[node name="text" type="RichTextLabel" parent="wrapper4"]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 48.0
@@ -419,7 +404,6 @@ text = "[color=yellow]Unbefugter Zugriff auf Kontrollsysteme![/color]
 [color=red]Bitte Sicherheitscode eingeben:[/color]"
 
 [node name="TextEdit" type="TextEdit" parent="wrapper4"]
-unique_name_in_owner = true
 layout_mode = 0
 offset_left = 96.0
 offset_top = 133.0
@@ -428,6 +412,14 @@ offset_bottom = 176.0
 theme_override_font_sizes/font_size = 25
 placeholder_text = "                  ****"
 scroll_fit_content_height = true
+
+[node name="Button" type="Button" parent="wrapper4"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 133.0
+offset_right = 552.0
+offset_bottom = 176.0
+text = "Eingeben"
 
 [node name="wrapper5" type="Panel" parent="."]
 layout_mode = 0
@@ -468,7 +460,7 @@ text = "X"
 layout_mode = 0
 offset_left = 24.0
 offset_right = 440.0
-offset_bottom = 60.0
+offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fnqi3")
 
 [node name="Warnung" type="RichTextLabel" parent="wrapper6"]
@@ -477,9 +469,8 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -184.0
-offset_top = 11.0
 offset_right = 20.0
-offset_bottom = 43.0
+offset_bottom = 32.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
@@ -494,67 +485,15 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 20.0
-offset_top = 12.0
 offset_right = 176.0
-offset_bottom = 43.0
+offset_bottom = 32.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "[color=yellow]!WIP!"
+text = "ERROR"
 fit_content = true
 autowrap_mode = 0
 script = ExtResource("2_mksex")
 
-[node name="Button" type="Button" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_left = 831.0
-offset_top = 237.0
-offset_right = 971.0
-offset_bottom = 283.0
-text = "Eingeben"
-
-[node name="wrapper8" type="Panel" parent="."]
-offset_left = 864.0
-offset_top = 114.0
-offset_right = 1152.0
-offset_bottom = 346.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_yd7n2")
-
-[node name="Ueberschrift" type="RichTextLabel" parent="wrapper8"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -79.0
-offset_top = 8.0
-offset_right = 120.0
-offset_bottom = 50.0
-grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 30
-text = "Türen öffnen"
-fit_content = true
-autowrap_mode = 0
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="wrapper8"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 62.0
-offset_right = 112.0
-offset_bottom = 86.0
-text = "Tür 1:
-Tür 2:"
-
-[node name="Button" type="Button" parent="wrapper8"]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 62.0
-offset_right = 160.0
-offset_bottom = 93.0
-text = "Öffnen"
-
-[connection signal="text_changed" from="wrapper4/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
 [connection signal="timerAktualisieren" from="wrapper6/Reaktortimer" to="." method="_on_reaktortimer_timer_aktualisieren"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
