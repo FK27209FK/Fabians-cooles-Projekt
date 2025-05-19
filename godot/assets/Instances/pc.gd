@@ -12,6 +12,9 @@ func _on_reaktortimer_timer_aktualisieren(time) -> void:
 
 func _on_button_pressed() -> void:
 	if Entsperrcode == "9167":
+		
+		$"../../../../../Räume/Raum6".openDoor()
+		
 		print("PC: entsperrt")
 		%Button.visible = false
 		$wrapper4.visible = false
