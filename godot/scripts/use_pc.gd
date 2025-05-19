@@ -14,7 +14,7 @@ func interact():
 		UI.visible = false
 		player.release_mouse()
 		Mittelpunkt.visible = false
-		get_tree().change_scene_to_file("res://assets/Instances/PC.tscn")
+		
 	else:
 		showLabel = false
 		print("Player is not allowed to do this action!")

@@ -1,4 +1,4 @@
-extends Node3D
+extends CSGBox3D
 
 @onready var showLabel = true
 

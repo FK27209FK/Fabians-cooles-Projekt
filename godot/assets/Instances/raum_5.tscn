@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://fodbwvg73jqq"]
+[gd_scene load_steps=16 format=3 uid="uid://fodbwvg73jqq"]
 
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_oyapy"]
+[ext_resource type="Script" path="res://scripts/Beleuchtung.gd" id="1_vmscx"]
 [ext_resource type="Script" uid="uid://uoa007lqn4ji" path="res://assets/Instances/jumpscare.gd" id="1_plnem"]
 [ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="1_vmscx"]
 [ext_resource type="PackedScene" uid="uid://3k34hm0bkyb2" path="res://assets/Erste_Hilfe_Kasten.blend" id="5_3d64d"]
@@ -77,9 +78,6 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i6vby"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qwwha"]
-viewport_path = NodePath("SubViewport")
-
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_plnem")
 
@@ -121,14 +119,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.41667, 0.0666667, 0.333323
 transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 19.25, 1, 14.85)
 
 [node name="Wand4" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.25876e-07, 0, 1.00001, 0, 1, 0, -0.500003, 0, -2.21381e-06, 13.0741, 2.44667, 5.19614)
+transform = Transform3D(-2.25876e-07, 0, 1.00001, 0, 1, 0, -0.500003, 0, -2.21381e-06, 13.0741, 2.67263, 5.19614)
 use_collision = true
-size = Vector3(1, 6.51836, 12.95)
+size = Vector3(1, 6.15, 12.95)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(-8.94297e-08, 0, 2, 0, 1, 0, -1, 0, -4.47035e-08, 0.0379667, -1.06206, -1.23891)
+transform = Transform3D(-8.94202e-08, 0, 2, 0, 1, 0, -1, 0, -4.47035e-08, 0.0545206, -0.9, -1.22737)
 operation = 2
-size = Vector3(2.95, 2.61667, 0.85)
+size = Vector3(2.95, 2.3, 0.85)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Wand4"]
 transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, 0.00459099, 0.498231, -2.94376)
@@ -148,7 +146,7 @@ use_collision = true
 size = Vector3(1, 6.15, 11.8)
 
 [node name="Tuer1" type="Node3D" parent="."]
-transform = Transform3D(-0.5, 0, 2.5581e-08, 0, 0.5, 0, -1.44051e-08, 0, -0.5, 11.8806, 1.44894, 5.18923)
+transform = Transform3D(-0.5, 0, 2.5581e-08, 0, 0.5, 0, -1.44051e-08, 0, -0.5, 11.8401, 1.75416, 5.20631)
 
 [node name="tuer_L" parent="Tuer1" instance=ExtResource("9_qwwha")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.90735e-06)
@@ -220,26 +218,6 @@ visible = false
 position = Vector2(589, 325)
 scale = Vector2(1.416, 1.312)
 texture = ExtResource("10_qwwha")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(200, 100)
-
-[node name="Label" type="Label" parent="SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 80
-text = "9167"
-horizontal_alignment = 1
-vertical_alignment = 1
-justification_flags = 171
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9162, 4.13701, 5.49156)
-texture = SubResource("ViewportTexture_qwwha")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
