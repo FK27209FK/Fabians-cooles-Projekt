@@ -3,79 +3,13 @@
 [ext_resource type="Script" uid="uid://dej53gv5xed60" path="res://assets/Instances/raum_6.gd" id="1_jwnw2"]
 [ext_resource type="Script" path="res://scripts/Beleuchtung.gd" id="1_lbn3d"]
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_vojm0"]
-[ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="4_bssf7"]
 [ext_resource type="PackedScene" uid="uid://c2b8jmjj0ibam" path="res://assets/serverschrank.blend" id="5_bssf7"]
-[ext_resource type="Script" uid="uid://djqr3jcbeooah" path="res://scripts/tuer.gd" id="5_jwnw2"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bssf7"]
-size = Vector3(2.9, 4.6, 1)
-
-[sub_resource type="Animation" id="Animation_gujuv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("tuer_L:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 1.90735e-06)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("tuer_R:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 1.90735e-06)]
-}
-
-[sub_resource type="Animation" id="Animation_kwc3t"]
-resource_name = "oeffnen"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("tuer_L:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 1.90735e-06), Vector3(2.9, 0, 1.90735e-06)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("tuer_R:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 1.90735e-06), Vector3(-2.8, 0, 1.90735e-06)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jiodu"]
-_data = {
-&"RESET": SubResource("Animation_gujuv"),
-&"oeffnen": SubResource("Animation_kwc3t")
-}
 
 [node name="Raum 6" type="Node3D"]
 script = ExtResource("1_jwnw2")
 
 [node name="Wand7" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 12.9669, 7.78029, -4.48217)
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 11.5, 7.79763, -4.55)
 use_collision = true
 size = Vector3(1, 4.2, 10.5)
 
@@ -93,6 +27,16 @@ size = Vector3(1, 4.2, 10.6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.35, 9.65, -0.15)
 use_collision = true
 size = Vector3(10.2, 0.5, 9.5)
+
+[node name="Wand11" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.499987, 0, -0.00713825, 0, 1, 0, 0.00356913, 0, -0.999974, 16.4403, 7.96797, 0.051015)
+use_collision = true
+size = Vector3(1, 3.9, 8.9)
+
+[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand11"]
+transform = Transform3D(-8.75443e-08, 0, 2, 0, 1, 0, -1, 0, -4.37722e-08, -0.149998, -0.75, 4.47035e-08)
+operation = 2
+size = Vector3(1.5, 2.5, 0.95)
 
 [node name="Deckenbeleuchtung2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 2.27374e-14, 6.77627e-22, 0, -2.98023e-08, 1, 2.27374e-14, -1, -2.98023e-08, 8.6, 9.3, -1.35)
@@ -146,69 +90,3 @@ script = ExtResource("1_lbn3d")
 
 [node name="Licht" parent="Deckenbeleuchtung" instance=ExtResource("1_vojm0")]
 transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
-
-[node name="Wand4" type="CSGBox3D" parent="."]
-transform = Transform3D(0.498924, -0.0647226, -0.0111419, -0.0323191, -0.997878, 0.00780137, -0.00581246, -0.00706427, -0.999918, 18.3806, 5.55576, -1.58211)
-use_collision = true
-size = Vector3(1, 11.4038, 12.95)
-
-[node name="Tuerausschnitt" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(-8.56817e-08, -6.88597e-08, 2, 1.39698e-09, 1, 1.58034e-08, -1, 1.39698e-09, -4.47035e-08, 0.0173149, -1.26626, -1.27407)
-operation = 2
-size = Vector3(2.95, 2.61667, 0.85)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, 0.00459099, 0.498231, -2.94376)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, 0.00459003, 0.498231, 0.487179)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, 0.00459099, -2.24907, -2.94376)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, 0.00458908, -2.36806, 0.459598)
-
-[node name="Tuerausschnitt2" type="CSGBox3D" parent="Wand4"]
-transform = Transform3D(-1.04308e-07, 0, 2, 0, 1, 0, -1, 0, -4.65661e-08, 0.0545158, -1.54153, -1.20237)
-operation = 2
-size = Vector3(3, 2.3, 0.85)
-
-[node name="Tuer1" type="Node3D" parent="Wand4"]
-transform = Transform3D(-0.00723962, 0.0354635, -0.498688, -0.000909931, 0.498739, 0.0354802, 0.499946, 0.00142127, -0.00715681, -0.125114, -1.53094, -1.20918)
-
-[node name="tuer_L" parent="Wand4/Tuer1" instance=ExtResource("4_bssf7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.90735e-06)
-
-[node name="Cube" parent="Wand4/Tuer1/tuer_L" index="0"]
-transform = Transform3D(1, 0, -1.86265e-09, 0, 1, -1.67347e-09, 0, -6.02449e-09, 1, -0.0450894, -0.000520706, 0.00167084)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Wand4/Tuer1/tuer_L"]
-collision_layer = 5
-script = ExtResource("5_jwnw2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand4/Tuer1/tuer_L/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.38419e-07, 0)
-shape = SubResource("BoxShape3D_bssf7")
-
-[node name="tuer_R" parent="Wand4/Tuer1" instance=ExtResource("4_bssf7")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 1.90735e-06)
-
-[node name="Cube" parent="Wand4/Tuer1/tuer_R" index="0"]
-transform = Transform3D(1, 1.86265e-09, -3.72529e-09, 9.31323e-10, 1, 8.13452e-09, -3.72529e-09, 8.76025e-09, 1, 0.105414, -0.00121689, -0.00390625)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Wand4/Tuer1/tuer_R"]
-collision_layer = 5
-script = ExtResource("5_jwnw2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wand4/Tuer1/tuer_R/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.38419e-07, 0)
-shape = SubResource("BoxShape3D_bssf7")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Wand4/Tuer1"]
-libraries = {
-&"": SubResource("AnimationLibrary_jiodu")
-}
-
-[editable path="Wand4/Tuer1/tuer_L"]
-[editable path="Wand4/Tuer1/tuer_R"]

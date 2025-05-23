@@ -1,6 +1,7 @@
 extends Control
 
 signal relay
+
 var Entsperrcode = "ERROR"
 @onready var Alarmanlage = $wrapper4
 @onready var Tueroeffnungsfenster = $wrapper8
