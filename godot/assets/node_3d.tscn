@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=50 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Texture2D" uid="uid://d15em0opo6p8k" path="res://assets/20 background textures for mtc-sets/space-gc497fd7be_640.png" id="1_743hh"]
 [ext_resource type="Script" uid="uid://hc18lharhgd7" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://d33rewl64amxw" path="res://assets/Instances/audio.tscn" id="19_5beqm"]
 [ext_resource type="PackedScene" uid="uid://xv4s4lc12ueq" path="res://assets/Gang_orangev2.blend" id="19_uy46h"]
 [ext_resource type="Script" uid="uid://b4ucqd111gvoy" path="res://scripts/deatharea.gd" id="20_q31as"]
-[ext_resource type="Script" uid="uid://ci5b2ng3rtn1b" path="res://assets/tisch_mit_monitoren.gd" id="26_5myyk"]
+[ext_resource type="Script" path="res://assets/tisch_mit_monitoren.gd" id="26_5myyk"]
 [ext_resource type="PackedScene" uid="uid://di3laugq41e6e" path="res://assets/Instances/PC.tscn" id="26_aowiy"]
 [ext_resource type="PackedScene" uid="uid://crmv7tshub1fn" path="res://assets/TischMitMonitoren.blend" id="27_0kylr"]
 [ext_resource type="PackedScene" uid="uid://dee6qmsdic5dj" path="res://assets/Instances/taschenlampe.tscn" id="29_cjm7s"]
@@ -26,7 +26,10 @@
 [ext_resource type="Script" uid="uid://coceiefrebvuk" path="res://scripts/test_tür.gd" id="31_sk2c2"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="32_5myyk"]
 [ext_resource type="PackedScene" uid="uid://cdrwvyqf02tuq" path="res://assets/Gang_orangev2_DOPPEL_TUER.blend" id="33_by7wp"]
+[ext_resource type="PackedScene" uid="uid://c0e7f3puwecms" path="res://assets/Reagenzglas.blend" id="33_o1ald"]
+[ext_resource type="PackedScene" uid="uid://ctas4c26roryo" path="res://assets/Erlenmeierkolben.blend" id="34_ggune"]
 [ext_resource type="PackedScene" uid="uid://cilkwuyqoq8ld" path="res://assets/Gang_orangeV2_KURVE.blend" id="34_sqyik"]
+[ext_resource type="PackedScene" uid="uid://cem1junrj1kit" path="res://assets/Tisch_Eckig.blend" id="35_5e6wp"]
 [ext_resource type="PackedScene" uid="uid://fodbwvg73jqq" path="res://assets/Instances/raum_5.tscn" id="35_chlt8"]
 [ext_resource type="Script" uid="uid://b0vecck2rxpec" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
@@ -43,10 +46,21 @@ sky_material = SubResource("PanoramaSkyMaterial_b053g")
 background_mode = 2
 background_color = Color(0.772549, 0, 0, 1)
 sky = SubResource("Sky_1upd0")
-ambient_light_source = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.255659, 0.255659, 0.255659, 1)
 reflected_light_source = 1
+tonemap_mode = 3
 glow_enabled = true
+glow_levels/1 = 4.22
+glow_levels/2 = 2.2
+glow_levels/3 = 5.86
+glow_levels/4 = 2.55
+glow_levels/5 = 5.6
+glow_levels/6 = 3.7
+glow_levels/7 = 4.4
+glow_intensity = 0.0
 volumetric_fog_enabled = true
+volumetric_fog_ambient_inject = 16.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
@@ -204,15 +218,22 @@ mouse_filter = 2
 
 [node name="InteractControl" type="Control" parent="Player/Camera/Interact"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="Player/Camera/Interact/InteractControl"]
-layout_mode = 0
-offset_top = 472.0
-offset_right = 1152.0
-offset_bottom = 560.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -69.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Interact (E)"
 horizontal_alignment = 1
@@ -283,15 +304,21 @@ one_shot = true
 
 [node name="UI" type="Control" parent="Player"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
 offset_bottom = 40.0
+grow_horizontal = 0
 
 [node name="ReaktorTimerText" type="RichTextLabel" parent="Player/UI"]
-layout_mode = 0
-offset_left = 940.0
-offset_right = 1152.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -212.0
 offset_bottom = 75.0
+grow_horizontal = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/bold_italics_font_size = 100
 theme_override_font_sizes/italics_font_size = 100
@@ -428,7 +455,7 @@ transform = Transform3D(1.18021e-07, 0, -0.9, 0, 0.9, 0, 0.9, 0, 1.18021e-07, 41
 transform = Transform3D(1.07324e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, 1.07324e-08, 41.45, 0.6, 5.89436)
 
 [node name="key" parent="." instance=ExtResource("42_oj5xc")]
-transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.0324385, 12.5805, 1.18181, 31.9806)
+transform = Transform3D(0.0324385, 0, -0.0380492, 0, 0.05, 0, 0.0380492, 0, 0.0324385, 7.98331, 1.63181, 27.2433)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="key"]
 collision_layer = 5
@@ -439,7 +466,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0526524, 0, -2.95886)
 shape = SubResource("BoxShape3D_gvj5m")
 
 [node name="Sicherungskasten2" parent="." instance=ExtResource("48_dtbvd")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -4.3, 1.6, -1.7)
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 20.7, 1.6, 12.8)
 
 [node name="TischMitMonitoren" parent="." node_paths=PackedStringArray("player", "PC", "UI", "Mittelpunkt") instance=ExtResource("27_0kylr")]
 transform = Transform3D(-0.3, 0, 4.52987e-08, 0, 0.3, 0, -4.52987e-08, 0, -0.3, 3.45, 0.947629, -1.7)
@@ -479,6 +506,7 @@ light_energy = 0.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 6.73945, 1.97729, 18.2166)
+shaded = true
 texture = ExtResource("7_by7wp")
 
 [node name="Tuer" type="Node3D" parent="."]
@@ -511,6 +539,15 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_jiodu")
 }
+
+[node name="Reagenzglas" parent="." instance=ExtResource("33_o1ald")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95, 1.67557, 28.05)
+
+[node name="Erlenmeierkolben" parent="." instance=ExtResource("34_ggune")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.7, 1.71586, 27.4574)
+
+[node name="Tisch_Eckig" parent="." instance=ExtResource("35_5e6wp")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 8.325, 0.560807, 27.65)
 
 [connection signal="PCSchliessen" from="." to="TischMitMonitoren" method="_on_node_3d_pc_schliessen"]
 [connection signal="TuerOeffnen" from="." to="Räume/Raum 6" method="_on_node_3d_tuer_oeffnen"]

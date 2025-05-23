@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dee6qmsdic5dj"]
+[gd_scene load_steps=4 format=3 uid="uid://dee6qmsdic5dj"]
 
 [ext_resource type="PackedScene" uid="uid://dtt30j2x62xcy" path="res://assets/Taschenlampe.blend" id="1_fdsnd"]
 [ext_resource type="Script" uid="uid://clx77kcr60ica" path="res://scripts/taschenlampe.gd" id="2_ywr4n"]
+[ext_resource type="Script" uid="uid://c175jiyovqug5" path="res://scripts/drop_control.gd" id="3_x0t2w"]
 
 [node name="Taschenlampe" instance=ExtResource("1_fdsnd")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
@@ -19,15 +20,23 @@ spot_angle = 29.687
 [node name="DropControl" type="Control" parent="." index="2"]
 visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_x0t2w")
 
 [node name="Label" type="Label" parent="DropControl" index="0"]
-layout_mode = 0
-offset_top = 559.0
-offset_right = 1152.0
-offset_bottom = 647.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -69.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Drop (Q)"
 horizontal_alignment = 1

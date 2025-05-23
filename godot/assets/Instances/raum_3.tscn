@@ -1,12 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1e6rsl508t8t"]
+[gd_scene load_steps=9 format=3 uid="uid://d1e6rsl508t8t"]
 
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="1_56528"]
 [ext_resource type="Script" uid="uid://djqr3jcbeooah" path="res://scripts/tuer.gd" id="2_n7jpr"]
-[ext_resource type="Script" path="res://scripts/Beleuchtung.gd" id="3_71122"]
+[ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="3_71122"]
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="3_flcp0"]
-[ext_resource type="PackedScene" uid="uid://c0e7f3puwecms" path="res://assets/Reagenzglas.blend" id="7_rvj4r"]
-[ext_resource type="PackedScene" uid="uid://ctas4c26roryo" path="res://assets/Erlenmeierkolben.blend" id="8_ildpr"]
-[ext_resource type="PackedScene" uid="uid://cem1junrj1kit" path="res://assets/Tisch_Eckig.blend" id="9_kfuvi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bx7hm"]
 size = Vector3(2.9, 4.6, 1)
@@ -156,15 +153,6 @@ script = ExtResource("3_71122")
 
 [node name="Licht" parent="SpotLight3D" instance=ExtResource("3_flcp0")]
 transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
-
-[node name="Reagenzglas" parent="." instance=ExtResource("7_rvj4r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 1.67557, -0.95)
-
-[node name="Erlenmeierkolben" parent="." instance=ExtResource("8_ildpr")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.45, 1.71586, -0.542589)
-
-[node name="Tisch_Eckig" parent="." instance=ExtResource("9_kfuvi")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3.3, 0.560807, -0.849998)
 
 [editable path="Wand4/Tuer1/tuer_L"]
 [editable path="Wand4/Tuer1/tuer_R"]

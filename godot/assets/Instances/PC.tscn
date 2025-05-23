@@ -93,15 +93,13 @@ corner_radius_bottom_left = 20
 
 [node name="Pc" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_bqgky")
 
 [node name="background" type="ColorRect" parent="."]
-layout_mode = 0
+layout_mode = 1
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(1.92523e-06, 0.745731, 0.751825, 1)
@@ -375,12 +373,18 @@ bbcode_enabled = true
 text = "[color=yellow]!Work in Progress![/color]"
 fit_content = true
 
+[node name="Lock" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0.423529, 0.878431)
+
 [node name="wrapper4" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 416.0
 offset_top = 104.0
 offset_right = 1152.0
-offset_bottom = 304.0
+offset_bottom = 346.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7baea")
 
 [node name="Ueberschrift" type="RichTextLabel" parent="wrapper4"]
@@ -420,17 +424,6 @@ bbcode_enabled = true
 text = "[color=yellow]Unbefugter Zugriff auf Kontrollsysteme![/color]
 [color=red]Bitte Sicherheitscode eingeben:[/color]"
 
-[node name="TextEdit" type="TextEdit" parent="wrapper4"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 96.0
-offset_top = 133.0
-offset_right = 408.0
-offset_bottom = 176.0
-theme_override_font_sizes/font_size = 25
-placeholder_text = "                  ****"
-scroll_fit_content_height = true
-
 [node name="exit" type="Button" parent="wrapper4"]
 layout_mode = 0
 offset_left = 416.0
@@ -439,6 +432,16 @@ offset_right = 600.0
 offset_bottom = 184.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_jbg84")
 text = "Eingeben"
+
+[node name="LineEdit" type="LineEdit" parent="wrapper4"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 96.0
+offset_top = 133.0
+offset_right = 408.0
+offset_bottom = 180.0
+placeholder_text = "********"
+alignment = 1
 
 [node name="wrapper5" type="Panel" parent="."]
 layout_mode = 0
@@ -568,8 +571,25 @@ offset_right = 224.0
 offset_bottom = 93.0
 text = "Öffnen"
 
-[connection signal="text_changed" from="wrapper4/TextEdit" to="." method="_on_text_edit_text_changed"]
+[node name="Falscher Code eingegeben" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 528.0
+offset_top = 288.0
+offset_right = 1008.0
+offset_bottom = 320.0
+text = "Falscher Entsperrcode eingegeben! Bitte Versuche es erneut."
+
+[node name="Falscher Code eingegeben2" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 528.0
+offset_top = 312.0
+offset_right = 1008.0
+offset_bottom = 344.0
+text = "Entsperrcode ist zu kurz! "
+
 [connection signal="pressed" from="wrapper4/exit" to="." method="_on_exit_pressed"]
+[connection signal="text_changed" from="wrapper4/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed2"]
 [connection signal="timerAktualisieren" from="wrapper6/Reaktortimer" to="." method="_on_reaktortimer_timer_aktualisieren"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

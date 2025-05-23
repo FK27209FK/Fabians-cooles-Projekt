@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq0pijo8hxek4"]
+[gd_scene load_steps=10 format=3 uid="uid://cq0pijo8hxek4"]
 
 [ext_resource type="Script" uid="uid://dnmx8rxbuflyj" path="res://assets/Instances/changeSzene.gd" id="1_t06bw"]
+[ext_resource type="Texture2D" uid="uid://cwxnn7tmc647c" path="res://assets/Instances/ComfyUI_00006_.png" id="2_oplap"]
+[ext_resource type="Script" uid="uid://bcaheil40ktx4" path="res://scripts/background.gd" id="3_73bed"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cm3ss"]
+bg_color = Color(0.0745098, 0.0745098, 0.0745098, 0.882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgb6o"]
+bg_color = Color(0.258824, 0.258824, 0.258824, 0.756863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cb71l"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.827451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oplap"]
+bg_color = Color(0, 0, 0, 0.854902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sgoq"]
+bg_color = Color(0.929412, 0.0470588, 0.101961, 0.756863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73bed"]
+bg_color = Color(0.85098, 0.0235294, 0.0823529, 0.52549)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,109 +31,147 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t06bw")
 
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.529412, 0.529412, 0.529412, 0.529412)
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.5625, 0.632812)
+texture = ExtResource("2_oplap")
+centered = false
+script = ExtResource("3_73bed")
 
-[node name="StartButton" type="Button" parent="Background"]
+[node name="Story" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 762.0
+offset_top = 161.0
+offset_right = 1130.0
+offset_bottom = 571.0
+theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_cm3ss")
+bbcode_enabled = true
+text = "Du bist an Bord eines Forschungsraumschiffes, das auf einem unbekannten Planeten notlanden musste.
+
+Der Reaktor wird aufgrund eines kritischen Schadens in 60 Minuten Explodieren.
+
+Suche einen Ausgang aus dem Raumschiff bevor die Zeit abgelaufen ist!
+
+Die Hauptbeleuchtung ist ausgefallen. Suche einen Sicherungskasten um ihn wieder einzuschalten!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Steuerung" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 161.0
+offset_right = 383.0
+offset_bottom = 571.0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_cm3ss")
+bbcode_enabled = true
+text = "---------------------------------------------------------------
+[center]Laufen[/center]
+---------------------------------------------------------------
+	[W] - Vorne
+	[A] - Links
+	[S] - Hinten
+	[D] - Rechts
+
+	[STRG] - Sprint
+
+---------------------------------------------------------------
+[center]Sonstiges[/center]
+---------------------------------------------------------------
+	[E] - Interagieren
+	[Q] - Fallen lassen
+	[T] - Einschalten / Ausschalten"
+
+[node name="StartButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = -100.0
-offset_right = 104.0
-offset_bottom = -20.0
+offset_left = -150.0
+offset_top = -163.0
+offset_right = 139.0
+offset_bottom = -83.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_wgb6o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cb71l")
 text = "Start"
 
-[node name="ExitButton" type="Button" parent="Background"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = -4.0
-offset_right = 104.0
-offset_bottom = 76.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "Exit
-"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Background"]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -280.0
-offset_top = 80.0
-offset_right = 275.0
-offset_bottom = 164.0
+offset_left = -289.0
+offset_top = 40.0
+offset_right = 266.0
+offset_bottom = 124.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_oplap")
 text = "Escape From Space"
 fit_content = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 42.0
-offset_top = 380.0
-offset_right = 262.0
-offset_bottom = 618.0
-color = Color(0.391974, 0.422387, 0.470788, 1)
+[node name="ExitButton2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 167.0
+offset_right = 139.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_3sgoq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_73bed")
+text = "Exit
+"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
-layout_mode = 0
-offset_left = 84.0
-offset_top = 42.0
-offset_right = 137.0
-offset_bottom = 111.0
-theme_override_font_sizes/normal_font_size = 50
-text = "W"
-fit_content = true
+[node name="SteuerungButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -62.0
+offset_right = 139.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_wgb6o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cb71l")
+text = "Steuerung"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect"]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 97.0
-offset_right = 80.0
-offset_bottom = 166.0
-theme_override_font_sizes/normal_font_size = 50
-text = "A"
-fit_content = true
+[node name="StoryButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 40.0
+offset_right = 139.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_wgb6o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cb71l")
+text = "Story"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="ColorRect"]
-layout_mode = 0
-offset_left = 97.0
-offset_top = 98.0
-offset_right = 150.0
-offset_bottom = 167.0
-theme_override_font_sizes/normal_font_size = 50
-text = "S"
-fit_content = true
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="ColorRect"]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 97.0
-offset_right = 217.0
-offset_bottom = 166.0
-theme_override_font_sizes/normal_font_size = 50
-text = "D"
-fit_content = true
-
-[connection signal="pressed" from="Background/StartButton" to="." method="_on_main_button_pressed"]
-[connection signal="pressed" from="Background/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_main_button_pressed"]
+[connection signal="pressed" from="ExitButton2" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="SteuerungButton" to="." method="_on_steuerung_button_pressed"]
+[connection signal="pressed" from="StoryButton" to="." method="_on_story_button_pressed"]

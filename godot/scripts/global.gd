@@ -3,3 +3,4 @@ signal starterRaumTuerTrigger
 signal BeleuchtungsfarbeAendern
 signal TuerOeffnen
 signal PCSchliessen
+signal DropVisible
