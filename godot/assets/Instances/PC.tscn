@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://di3laugq41e6e"]
+[gd_scene load_steps=17 format=3 uid="uid://di3laugq41e6e"]
 
 [ext_resource type="Script" uid="uid://ms4xaem4lq0i" path="res://assets/Instances/pc.gd" id="1_bqgky"]
 [ext_resource type="Script" uid="uid://cic01olq48yyj" path="res://assets/Instances/reaktortimer.gd" id="2_mksex"]
@@ -49,13 +49,16 @@ bg_color = Color(0, 0.364706, 0.52549, 1)
 corner_radius_top_left = 35
 corner_radius_bottom_left = 35
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbg84"]
+bg_color = Color(0.913725, 0, 0.109804, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnqi3"]
 bg_color = Color(0, 0.364706, 0.52549, 1)
 corner_radius_bottom_right = 35
 corner_radius_bottom_left = 35
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cypq"]
-bg_color = Color(0, 0.364706, 0.52549, 1)
+bg_color = Color(0.721569, 0, 0.176471, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -89,15 +92,13 @@ corner_radius_bottom_left = 20
 
 [node name="Pc" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_bqgky")
 
 [node name="background" type="ColorRect" parent="."]
-layout_mode = 0
+layout_mode = 1
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(1.92523e-06, 0.745731, 0.751825, 1)
@@ -359,12 +360,29 @@ text = "Schadensanzeige"
 fit_content = true
 autowrap_mode = 0
 
+[node name="RichTextLabel" type="RichTextLabel" parent="wrapper3"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 96.0
+offset_right = 481.0
+offset_bottom = 175.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[color=yellow]!Work in Progress![/color]"
+fit_content = true
+
+[node name="Lock" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0.423529, 0.878431)
+
 [node name="wrapper4" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 416.0
 offset_top = 104.0
 offset_right = 1152.0
-offset_bottom = 304.0
+offset_bottom = 346.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7baea")
 
 [node name="Ueberschrift" type="RichTextLabel" parent="wrapper4"]
@@ -403,15 +421,24 @@ bbcode_enabled = true
 text = "[color=yellow]Unbefugter Zugriff auf Kontrollsysteme![/color]
 [color=red]Bitte Sicherheitscode eingeben:[/color]"
 
-[node name="TextEdit" type="TextEdit" parent="wrapper4"]
+[node name="exit" type="Button" parent="wrapper4"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 128.0
+offset_right = 600.0
+offset_bottom = 184.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jbg84")
+text = "Eingeben"
+
+[node name="LineEdit" type="LineEdit" parent="wrapper4"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 96.0
 offset_top = 133.0
 offset_right = 408.0
-offset_bottom = 176.0
-theme_override_font_sizes/font_size = 25
-placeholder_text = "                  ****"
-scroll_fit_content_height = true
+offset_bottom = 180.0
+placeholder_text = "********"
+alignment = 1
 
 [node name="Button" type="Button" parent="wrapper4"]
 layout_mode = 0
@@ -495,5 +522,77 @@ fit_content = true
 autowrap_mode = 0
 script = ExtResource("2_mksex")
 
-[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 831.0
+offset_top = 237.0
+offset_right = 971.0
+offset_bottom = 283.0
+text = "Eingeben"
+
+[node name="wrapper8" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 864.0
+offset_top = 114.0
+offset_right = 1152.0
+offset_bottom = 346.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yd7n2")
+
+[node name="Ueberschrift" type="RichTextLabel" parent="wrapper8"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "Türen öffnen"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="wrapper8"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 62.0
+offset_right = 96.0
+offset_bottom = 142.0
+text = "Tür 1:
+
+Tür 2:"
+
+[node name="Button" type="Button" parent="wrapper8"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 62.0
+offset_right = 224.0
+offset_bottom = 93.0
+text = "Öffnen"
+
+[node name="Falscher Code eingegeben" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 528.0
+offset_top = 288.0
+offset_right = 1008.0
+offset_bottom = 320.0
+text = "Falscher Entsperrcode eingegeben! Bitte Versuche es erneut."
+
+[node name="Falscher Code eingegeben2" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 528.0
+offset_top = 312.0
+offset_right = 1008.0
+offset_bottom = 344.0
+text = "Entsperrcode ist zu kurz! "
+
+[connection signal="pressed" from="wrapper4/exit" to="." method="_on_exit_pressed"]
+[connection signal="text_changed" from="wrapper4/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed2"]
+
 [connection signal="timerAktualisieren" from="wrapper6/Reaktortimer" to="." method="_on_reaktortimer_timer_aktualisieren"]

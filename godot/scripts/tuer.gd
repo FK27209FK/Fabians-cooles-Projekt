@@ -4,6 +4,8 @@ extends StaticBody3D
 @onready var interactText = "Tür öffnen [e]"
 
 func interact():
+	pass
+	
 	if interactText == "Tür öffnen [e]":
 		$"../../AnimationPlayer".play("oeffnen")
 		interactText = "Tür schliessen [e]"

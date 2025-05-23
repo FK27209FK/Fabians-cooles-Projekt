@@ -404,12 +404,13 @@ use_collision = true
 size = Vector3(1, 7.85, 34.44)
 
 [node name="Tuerausschnitt" type="CSGBox3D" parent="Wand23"]
-transform = Transform3D(-8.94202e-08, 0, 2, 0, 1, 0, -1, 0, -4.47035e-08, 0.72452, -0.354605, 2.07261)
+transform = Transform3D(-8.94202e-08, 0, 2, 0, 1, 0, -1, 0, -4.47035e-08, 0.72452, -0.359606, 1.19261)
+
 operation = 2
 size = Vector3(2.95, 2.3, 1.98)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Wand23"]
-transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, -0.0421877, 1.04363, 0.356224)
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, -0.0421877, 0.92363, -0.523775)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Wand23"]
 transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, -0.0421886, 1.04363, 3.78716)
@@ -421,7 +422,7 @@ transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.
 transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 0, 0.707107, -0.707107, -1.86266e-09, 0.707107, 0.707107, -0.0421896, -1.82267, 3.75958)
 
 [node name="Tuer1" type="Node3D" parent="Wand23"]
-transform = Transform3D(1.49012e-08, 0, -1, 0, 0.5, 0, 0.5, 0, -3.72528e-09, -0.0467787, -0.354606, 2.04998)
+transform = Transform3D(1.49012e-08, 0, -1, 0, 0.5, 0, 0.5, 0, -3.72528e-09, -0.0467787, -0.054606, 2.04998)
 
 [node name="tuer_L" parent="Wand23/Tuer1" instance=ExtResource("2_g41s0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.90735e-06)
