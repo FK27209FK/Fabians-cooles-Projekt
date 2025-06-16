@@ -7,6 +7,12 @@ class_name Player extends CharacterBody3D
 @onready var reaktorTimerText: RichTextLabel = $UI/ReaktorTimerText
 #@onready var reaktorTimerText2: RichTextLabel = 
 @export_category("Player")
+<<<<<<< Updated upstream
+=======
+
+var game_over_var = false
+
+>>>>>>> Stashed changes
 @export_range(1, 35, 1) var speed: float = 10 # m/s
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 3 # m
@@ -26,7 +32,11 @@ class_name Player extends CharacterBody3D
 signal reaktortimeraktualisieren
 
 # Total time in seconds (1 hour = 3600 seconds)
+<<<<<<< Updated upstream
 var total_time: int = 600 #10min
+=======
+var total_time: float = 6 #10min
+>>>>>>> Stashed changes
 var playerIsAlive: bool = true
 var jumping: bool = false
 var mouse_captured: bool = false
@@ -134,6 +144,7 @@ func zufallTodSpruch():
 
 
 func game_over():
+	game_over_var = true
 	playerIsAlive = false
 	$"Game Over".show()
 	$"Game Over/spruch".text =  zufallTodSpruch() 
@@ -141,6 +152,11 @@ func game_over():
 	while respawnTimer.is_stopped() == false:
 		$"Game Over/Respawn in ___".text = "Respawn in " + str(int(respawnTimer.time_left))
 		await get_tree().create_timer(0.5).timeout
+		
+	
+	print("Respawn")
+	
+	respawn()
 	
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area == $"../Area3D":
@@ -151,7 +167,9 @@ func respawn():
 	$"Game Over".hide()
 	
 func _on_timer_timeout() -> void:
-	respawn()
+	if (game_over_var): return
+	
+	game_over()
 
 func format_time(seconds: int) -> String:
 	@warning_ignore("integer_division")
