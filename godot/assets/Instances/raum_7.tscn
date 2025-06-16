@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3jfapxcnfjx0"]
+[gd_scene load_steps=6 format=3 uid="uid://b3jfapxcnfjx0"]
 
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_2epcu"]
 [ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="1_txv2d"]
+[ext_resource type="PackedScene" uid="uid://gdrmtiaeobql" path="res://assets/Knopf.blend" id="3_17khj"]
+[ext_resource type="Script" uid="uid://bsd0jfumc0it6" path="res://scripts/Ende.gd" id="5_htcu0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_htcu0"]
 
 [node name="Raum 7" type="Node3D"]
 transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 22.25, 7.79763, 4.75)
@@ -11,7 +15,7 @@ use_collision = true
 size = Vector3(1, 4.2, 11)
 
 [node name="Wand12" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4868, 0, -0.0103264)
 use_collision = true
 size = Vector3(1, 4.2, 11)
 
@@ -34,3 +38,15 @@ script = ExtResource("1_txv2d")
 
 [node name="Licht" parent="Deckenbeleuchtung" instance=ExtResource("1_2epcu")]
 transform = Transform3D(1, 0, 0, 0, -5.76205e-08, 1, 0, -1, -5.76205e-08, 0, 0, 0)
+
+[node name="Knopf" parent="." instance=ExtResource("3_17khj")]
+transform = Transform3D(-4.37114e-08, 0, 2, 0, 1, 0, -1, 0, -8.74228e-08, -9.0032, -1.86036, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Knopf"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("5_htcu0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Knopf/StaticBody3D"]
+transform = Transform3D(0.280074, -0.10751, 0, 0.10751, 0.280074, 0, 0, 0, 0.35, -0.018486, 1.17056, 0)
+shape = SubResource("BoxShape3D_htcu0")

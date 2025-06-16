@@ -31,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://cilkwuyqoq8ld" path="res://assets/Gang_orangeV2_KURVE.blend" id="34_sqyik"]
 [ext_resource type="PackedScene" uid="uid://cem1junrj1kit" path="res://assets/Tisch_Eckig.blend" id="35_5e6wp"]
 [ext_resource type="PackedScene" uid="uid://fodbwvg73jqq" path="res://assets/Instances/raum_5.tscn" id="35_chlt8"]
-[ext_resource type="PackedScene" uid="uid://bpr0ponqko483" path="res://assets/Tisch Faebienne rund #(der beste).blend" id="35_o1ald"]
 [ext_resource type="Script" uid="uid://b0vecck2rxpec" path="res://scripts/interact_schlüssel.gd" id="38_reby7"]
 [ext_resource type="PackedScene" uid="uid://me0nbmx7eep2" path="res://assets/key.glb" id="42_oj5xc"]
 [ext_resource type="PackedScene" uid="uid://tb3me6hh7tl" path="res://assets/Instances/raum_4.tscn" id="44_i4u54"]
@@ -337,7 +336,7 @@ one_shot = true
 autostart = true
 
 [node name="Gegner" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 26.3599, 5.9569, -3.37482)
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 67.6612, 5.9569, -3.37482)
 script = ExtResource("18_sxefn")
 
 [node name="Gegner" parent="Gegner" instance=ExtResource("14_otkgv")]
@@ -380,20 +379,21 @@ unique_name_in_owner = true
 [node name="Raum3" parent="Räume" instance=ExtResource("10_hw7ro")]
 
 [node name="Raum4" parent="Räume" instance=ExtResource("44_i4u54")]
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 9.45, 1.08694, 35.45)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 9.45, 1.08694, 35.3491)
 
 [node name="Raum5" parent="Räume" instance=ExtResource("35_chlt8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0.00185376, 6.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.538796, -0.0514957, 6.8009)
 
 [node name="Raum 6" parent="Räume" instance=ExtResource("13_02c0j")]
 
 [node name="Raum7" parent="Räume" instance=ExtResource("14_55rdn")]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 22.1877, 7.46057, 4.55845)
 
 [node name="Raum8" parent="Räume" instance=ExtResource("10_hw7ro")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 24.7, 0, 16.75)
 
 [node name="Raum9" parent="Räume" instance=ExtResource("10_hw7ro")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.2559, -0.279754, 28.95)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.284, -0.45, 28.95)
 
 [node name="Gaenge" type="Node3D" parent="Räume"]
 
@@ -437,7 +437,7 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 14.2875, 0.6, -19.75)
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5.84477, 0.6, -19.75)
 
 [node name="Gang_orangev13" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 22.7158, 0.6, -19.75)
+transform = Transform3D(0.898134, 0, 0.0579223, 0, 0.9, 0, -0.0579223, 0, 0.898134, 22.7158, 0.6, -19.75)
 
 [node name="Gang_orangev14" parent="Räume/Gaenge" instance=ExtResource("19_uy46h")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 31.1383, 0.6, -19.75)
@@ -503,9 +503,6 @@ shape = SubResource("ConcavePolygonShape3D_lxxao")
 [node name="SpotLight3D" parent="Taschenlampe" index="1"]
 transform = Transform3D(1, 0, 2.84217e-15, 0, 1, 0, -2.84217e-15, 0, 1, 0, 0, -2.15998)
 light_energy = 0.0
-
-[node name="Tisch Faebienne rund #(der beste)" parent="." instance=ExtResource("35_o1ald")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.85551, 0.57768, 2.42643)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 6.73945, 1.97729, 18.2166)
