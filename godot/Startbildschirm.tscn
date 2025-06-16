@@ -1,7 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnmf5a71ch62d"]
-
-[sub_resource type="Resource" id="Resource_jm218"]
-metadata/__load_path__ = "res://startbildschirm.gd"
+[gd_scene format=3 uid="uid://bnmf5a71ch62d"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,7 +7,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("Resource_jm218")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1

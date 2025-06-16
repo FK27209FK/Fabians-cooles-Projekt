@@ -10,6 +10,7 @@ var droped = false
 func interact():
 	var Taschenlampe = Taschenlampen_INSTANCE.instantiate()
 	%Taschenlampenpoint.add_child(Taschenlampe)
+	%Taschenlampenpoint.get_child(0).OwnsItem()
 	PlayerOwnsItem = true
 	Global.emit_signal("DropVisible") # einschalten
 	get_parent().queue_free()

@@ -44,6 +44,7 @@ var jump_vel: Vector3 # Jumping velocity
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	reaktorTimer.start(total_time)
 	reaktorTimerText.text = format_time(total_time)
 	reaktortimeraktualisieren.emit(format_time(total_time))
 	capture_mouse()

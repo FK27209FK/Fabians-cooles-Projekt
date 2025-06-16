@@ -7,6 +7,8 @@ var interactText = "Taschenlampe Aufheben [E]"
 var currentposition
 var droped = false
 
+func OwnsItem():
+	PlayerOwnsItem = true
 
 func _on_static_body_3d_licht_aus() -> void:
 	$SpotLight3D.light_energy = 0
@@ -22,6 +24,9 @@ func _process(_delta: float) -> void:
 		item.global_transform = currentposition
 		self.queue_free()
 	if Input.is_action_just_released("toggle_item"):
+		
+		if (!PlayerOwnsItem): return
+		
 		if 	$SpotLight3D.light_energy != 0:
 			$SpotLight3D.light_energy = 0
 		else:
