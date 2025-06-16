@@ -7,12 +7,9 @@ class_name Player extends CharacterBody3D
 @onready var reaktorTimerText: RichTextLabel = $UI/ReaktorTimerText
 #@onready var reaktorTimerText2: RichTextLabel = 
 @export_category("Player")
-<<<<<<< Updated upstream
-=======
 
 var game_over_var = false
 
->>>>>>> Stashed changes
 @export_range(1, 35, 1) var speed: float = 10 # m/s
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 3 # m
@@ -32,11 +29,9 @@ var game_over_var = false
 signal reaktortimeraktualisieren
 
 # Total time in seconds (1 hour = 3600 seconds)
-<<<<<<< Updated upstream
+
 var total_time: int = 600 #10min
-=======
-var total_time: float = 6 #10min
->>>>>>> Stashed changes
+
 var playerIsAlive: bool = true
 var jumping: bool = false
 var mouse_captured: bool = false
