@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://d33rewl64amxw" path="res://assets/Instances/audio.tscn" id="19_5beqm"]
 [ext_resource type="PackedScene" uid="uid://xv4s4lc12ueq" path="res://assets/Gang_orangev2.blend" id="19_uy46h"]
 [ext_resource type="Script" uid="uid://b4ucqd111gvoy" path="res://scripts/deatharea.gd" id="20_q31as"]
-[ext_resource type="Script" path="res://assets/tisch_mit_monitoren.gd" id="26_5myyk"]
+[ext_resource type="Script" uid="uid://ci5b2ng3rtn1b" path="res://assets/tisch_mit_monitoren.gd" id="26_5myyk"]
 [ext_resource type="PackedScene" uid="uid://di3laugq41e6e" path="res://assets/Instances/PC.tscn" id="26_aowiy"]
 [ext_resource type="PackedScene" uid="uid://crmv7tshub1fn" path="res://assets/TischMitMonitoren.blend" id="27_0kylr"]
 [ext_resource type="PackedScene" uid="uid://dee6qmsdic5dj" path="res://assets/Instances/taschenlampe.tscn" id="29_cjm7s"]
