@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://d33rewl64amxw"]
+[gd_scene load_steps=22 format=3 uid="uid://d33rewl64amxw"]
 
 [ext_resource type="AudioStream" uid="uid://ck031spsi8mjd" path="res://assets/voicelines/1-20/Nr.1.wav" id="1_4g1ka"]
+[ext_resource type="AudioStream" uid="uid://boifcdftlqtw1" path="res://assets/space-ambient-351305.mp3" id="2_h0ome"]
 [ext_resource type="AudioStream" uid="uid://bty4cbva8ye6s" path="res://assets/voicelines/1-20/Nr.2.wav" id="2_lr4nv"]
 [ext_resource type="AudioStream" uid="uid://c53nx8xj0mbho" path="res://assets/voicelines/1-20/Nr.3.wav" id="3_fqxhk"]
 [ext_resource type="AudioStream" uid="uid://cvpf0j6xtw82n" path="res://assets/voicelines/1-20/Nr.4.wav" id="4_jqmwu"]
@@ -25,6 +26,10 @@
 
 [node name="Play Audio at Start _ Audio 1" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_4g1ka")
+autoplay = true
+
+[node name="Play Audio at Start _ Audio 2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_h0ome")
 autoplay = true
 
 [node name="Sprüche bei Tod" type="Node" parent="."]

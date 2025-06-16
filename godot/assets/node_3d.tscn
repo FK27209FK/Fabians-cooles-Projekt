@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dl1ii0r547lps"]
+[gd_scene load_steps=45 format=3 uid="uid://dl1ii0r547lps"]
 
 [ext_resource type="Texture2D" uid="uid://d15em0opo6p8k" path="res://assets/20 background textures for mtc-sets/space-gc497fd7be_640.png" id="1_743hh"]
 [ext_resource type="Script" uid="uid://hc18lharhgd7" path="res://scripts/alarmanlageLogik.gd" id="1_kjaci"]
@@ -13,11 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dteih8t0u88v7" path="res://assets/Gang_orangev2_KLEIN_grunge-wall-texture.jpg" id="10_sqyik"]
 [ext_resource type="PackedScene" uid="uid://dscn3fpcul2mw" path="res://assets/Instances/raum_6.tscn" id="13_02c0j"]
 [ext_resource type="PackedScene" uid="uid://b3jfapxcnfjx0" path="res://assets/Instances/raum_7.tscn" id="14_55rdn"]
-[ext_resource type="PackedScene" uid="uid://bep4cinay7ach" path="res://assets/Gegner.blend" id="14_otkgv"]
-[ext_resource type="Script" uid="uid://853d8t2rn00h" path="res://scripts/gegner_bewegung.gd" id="18_sxefn"]
 [ext_resource type="PackedScene" uid="uid://d33rewl64amxw" path="res://assets/Instances/audio.tscn" id="19_5beqm"]
 [ext_resource type="PackedScene" uid="uid://xv4s4lc12ueq" path="res://assets/Gang_orangev2.blend" id="19_uy46h"]
-[ext_resource type="Script" uid="uid://b4ucqd111gvoy" path="res://scripts/deatharea.gd" id="20_q31as"]
 [ext_resource type="Script" uid="uid://ci5b2ng3rtn1b" path="res://assets/tisch_mit_monitoren.gd" id="26_5myyk"]
 [ext_resource type="PackedScene" uid="uid://di3laugq41e6e" path="res://assets/Instances/PC.tscn" id="26_aowiy"]
 [ext_resource type="PackedScene" uid="uid://crmv7tshub1fn" path="res://assets/TischMitMonitoren.blend" id="27_0kylr"]
@@ -65,12 +62,6 @@ volumetric_fog_ambient_inject = 16.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liwo8"]
 radius = 0.3
 height = 1.8
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gyc2k"]
-size = Vector3(0.9, 1, 0.9)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2enrv"]
-size = Vector3(1.7, 3.9, 1.7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oiu51"]
 albedo_texture = ExtResource("10_sqyik")
@@ -335,26 +326,6 @@ wait_time = 3600.0
 one_shot = true
 autostart = true
 
-[node name="Gegner" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 67.6612, 5.9569, -3.37482)
-script = ExtResource("18_sxefn")
-
-[node name="Gegner" parent="Gegner" instance=ExtResource("14_otkgv")]
-transform = Transform3D(0.675026, 0, 0, 0, 0.816236, 0, 0, 0, 0.640047, -3.8147e-06, -0.177624, -0.000358582)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25267, -0.0250015)
-shape = SubResource("BoxShape3D_gyc2k")
-
-[node name="Deatharea" type="Area3D" parent="Gegner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0101, 0)
-collision_mask = 2
-script = ExtResource("20_q31as")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Gegner/Deatharea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
-shape = SubResource("BoxShape3D_2enrv")
-
 [node name="Boden" type="CSGBox3D" parent="."]
 transform = Transform3D(4.97628, 0, 0, 0, 0.995257, 0, 0, 0, 4.97628, 9.95256, 0, 0)
 size = Vector3(29, 1, 25)
@@ -554,7 +525,6 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 8.325, 0.560807, 27.65)
 [connection signal="reaktortimeraktualisieren" from="Player" to="Räume/Raum4" method="_on_player_reaktortimeraktualisieren"]
 [connection signal="timeout" from="Player/RespawnTimer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/UI/ReaktorTimer" to="Player" method="_on_timer_timeout"]
-[connection signal="body_entered" from="Gegner/Deatharea" to="Gegner/Deatharea" method="_on_body_entered"]
 
 [editable path="key"]
 [editable path="TischMitMonitoren"]
