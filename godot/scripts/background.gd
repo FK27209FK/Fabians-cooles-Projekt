@@ -1,5 +1,8 @@
 extends Sprite2D
 var verzoegerung: float
+
+const sharp = preload("res://assets/Instances/ComfyUI_00006_.png")
+
 func _process(delta: float) -> void:
 	# Hole die Fenstergröße
 	verzoegerung += delta

@@ -585,6 +585,7 @@ text = "Falscher Entsperrcode eingegeben! Bitte Versuche es erneut."
 
 [node name="Falscher Code eingegeben2" type="RichTextLabel" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 528.0
 offset_top = 312.0
 offset_right = 1008.0
@@ -594,5 +595,4 @@ text = "Entsperrcode ist zu kurz! "
 [connection signal="pressed" from="wrapper4/exit" to="." method="_on_exit_pressed"]
 [connection signal="text_changed" from="wrapper4/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed2"]
-
 [connection signal="timerAktualisieren" from="wrapper6/Reaktortimer" to="." method="_on_reaktortimer_timer_aktualisieren"]

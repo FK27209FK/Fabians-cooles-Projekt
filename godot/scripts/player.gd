@@ -7,6 +7,7 @@ class_name Player extends CharacterBody3D
 @onready var reaktorTimerText: RichTextLabel = $UI/ReaktorTimerText
 #@onready var reaktorTimerText2: RichTextLabel = 
 @export_category("Player")
+
 @export_range(1, 35, 1) var speed: float = 10 # m/s
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 3 # m
@@ -26,7 +27,7 @@ class_name Player extends CharacterBody3D
 signal reaktortimeraktualisieren
 
 # Total time in seconds (1 hour = 3600 seconds)
-var total_time: int = 600 #10min
+var total_time: float = 900 #10min
 var playerIsAlive: bool = true
 var jumping: bool = false
 var mouse_captured: bool = false
@@ -39,6 +40,7 @@ var jump_vel: Vector3 # Jumping velocity
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	reaktorTimer.start(total_time)  
 	reaktorTimerText.text = format_time(total_time)
 	reaktortimeraktualisieren.emit(format_time(total_time))
 	capture_mouse()
@@ -160,6 +162,15 @@ func format_time(seconds: int) -> String:
 	var minutes = (seconds % 3600) / 60
 	var secs = seconds % 60
 	return "%02d:%02d:%02d" % [hours, minutes, secs]
+
+func format_time_float(seconds: int) -> float:
+	@warning_ignore("integer_division")
+	var hours = seconds / 3600
+	@warning_ignore("integer_division")
+	var minutes = (seconds % 3600) / 60
+	var secs = seconds % 60
+	return seconds
+
 	
 func _on_timer_2_timeout():
 	if total_time > 0:
