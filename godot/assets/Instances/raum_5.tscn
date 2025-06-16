@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://fodbwvg73jqq"]
 
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_oyapy"]
-[ext_resource type="Script" uid="uid://uoa007lqn4ji" path="res://assets/Instances/jumpscare.gd" id="1_plnem"]
+[ext_resource type="Script" path="res://assets/Instances/jumpscare.gd" id="1_plnem"]
 [ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="1_vmscx"]
 [ext_resource type="PackedScene" uid="uid://3k34hm0bkyb2" path="res://assets/Erste_Hilfe_Kasten.blend" id="5_3d64d"]
 [ext_resource type="PackedScene" uid="uid://cwyy3fu1hfe02" path="res://assets/Bett.blend" id="6_wnisv"]

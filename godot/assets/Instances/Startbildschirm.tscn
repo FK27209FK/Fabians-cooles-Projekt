@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnmx8rxbuflyj" path="res://assets/Instances/changeSzene.gd" id="1_t06bw"]
 [ext_resource type="Texture2D" uid="uid://cwxnn7tmc647c" path="res://assets/Instances/ComfyUI_00006_.png" id="2_oplap"]
-[ext_resource type="Script" uid="uid://bcaheil40ktx4" path="res://scripts/background.gd" id="3_73bed"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="3_73bed"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cm3ss"]
 bg_color = Color(0.0745098, 0.0745098, 0.0745098, 0.882353)

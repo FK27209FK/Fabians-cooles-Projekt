@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dscn3fpcul2mw"]
 
 [ext_resource type="Script" uid="uid://dej53gv5xed60" path="res://assets/Instances/raum_6.gd" id="1_jwnw2"]
-[ext_resource type="Script" path="res://scripts/Beleuchtung.gd" id="1_lbn3d"]
+[ext_resource type="Script" uid="uid://w42wsej6jh4" path="res://scripts/Beleuchtung.gd" id="1_lbn3d"]
 [ext_resource type="PackedScene" uid="uid://dxcu5d7dabaws" path="res://assets/Licht.blend" id="1_vojm0"]
 [ext_resource type="PackedScene" uid="uid://d3vjpuphbrdi7" path="res://assets/tuer.glb" id="4_bssf7"]
 [ext_resource type="PackedScene" uid="uid://c2b8jmjj0ibam" path="res://assets/serverschrank.blend" id="5_bssf7"]
