@@ -48,7 +48,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_cm3ss")
 bbcode_enabled = true
 text = "Du bist an Bord eines Forschungsraumschiffes, das auf einem unbekannten Planeten notlanden musste.
 
-Der Reaktor wird aufgrund eines kritischen Schadens in 60 Minuten Explodieren.
+Der Reaktor wird aufgrund eines kritischen Schadens in 10 Minuten Explodieren.
 
 Suche einen Ausgang aus dem Raumschiff bevor die Zeit abgelaufen ist!
 
