@@ -12,9 +12,10 @@ config_version=5
 
 config/name="Escape from Space"
 config/tags=PackedStringArray("schulprojekt")
-run/main_scene="res://assets/node_3d.tscn"
+run/main_scene="uid://cq0pijo8hxek4"
 run/enable_alt_space_menu=true
 config/features=PackedStringArray("4.4")
+boot_splash/image="uid://cwxnn7tmc647c"
 
 [autoload]
 
